@@ -6,18 +6,7 @@ As a translator, learning a new language—the language of machines—felt like 
 
 The internet now offers an ocean of resources: videos, tutorials, references, PDFs, test platforms, and code snippets. I dove right in, mesmerized by the aesthetic of modern programming. The syntax highlighting, which makes code easier to read and understand, was visually delightful. IDEs came with countless themes to enhance the experience. For example, the Monokai Pro theme transformed my screen into something almost artistic.
 
-```python
-if visualization:
-    plt.figure(figsize=(8, 8))
-    plt.scatter(x[distances > 1], y[distances > 1], c='red', alpha=0.1, label='Outside')
-    plt.scatter(x[distances <= 1], y[distances <= 1], c='blue', alpha=0.1, label='Inside')
-    plt.title(f'Pi Estimation: {pi_estimate:.6f}')
-    plt.xlabel('X coordinate')
-    plt.ylabel('Y coordinate')
-    plt.legend()
-    plt.axis('equal')
-    plt.show()
-```
+![Project Screenshot](../images/monokai.png)
 
 October 2020 was when I began devouring YouTube tutorials. Some were simple, others baffling. I’d pause, rewind, and painstakingly copy code by hand to internalize the syntax. I experimented endlessly, exploring different IDEs before discovering Google Colab. Colab was a revelation: I could execute code snippets without installing anything on my computer. It felt like unlocking a treasure chest.
 
