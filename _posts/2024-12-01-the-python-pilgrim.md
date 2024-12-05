@@ -1,0 +1,28 @@
+## The Python pilgrim
+
+I first became interested in programming in October 2020. It was the perfect season for screens: summer had faded, and the second lockdown loomed. Machine translation was advancing rapidly, and I vividly recall reading an article titled *Machine Translation: The Language Barrier is Falling*. You could sense a shift happening. DeepL, the neural machine translation service, was already three years old and performing impressively, though it hadn’t yet reached widespread public awareness. I felt compelled to understand how this fascinating technology worked. More importantly, I suspected it might be fun.
+
+As a translator, learning a new language—the language of machines—felt like a natural extension of my craft. Unsurprisingly, I chose Python. Decades earlier, in the 1990s, I had dabbled with QuickBASIC, which came pre-installed on my Windows 3.11, as well as Fortran and Visual Basic. In fact, I had even developed a small application for a university project. But programming in 2020 was a completely different landscape.
+
+The internet now offers an ocean of resources: videos, tutorials, references, PDFs, test platforms, and code snippets. I dove right in, mesmerized by the aesthetic of modern programming. The syntax highlighting, which makes code easier to read and understand, was visually delightful. IDEs came with countless themes to enhance the experience. For example, the Monokai Pro theme transformed my screen into something almost artistic.
+
+```
+    if visualization:
+        plt.figure(figsize=(8, 8))
+        plt.scatter(x[distances > 1], y[distances > 1], c='red', alpha=0.1, label='Outside')
+        plt.scatter(x[distances <= 1], y[distances <= 1], c='blue', alpha=0.1, label='Inside')
+        plt.title(f'Pi Estimation: {pi_estimate:.6f}')
+        plt.xlabel('X coordinate')
+        plt.ylabel('Y coordinate')
+        plt.legend()
+        plt.axis('equal')
+        plt.show()
+```
+
+October 2020 was when I began devouring YouTube tutorials. Some were simple, others baffling. I’d pause, rewind, and painstakingly copy code by hand to internalize the syntax. I experimented endlessly, exploring different IDEs before discovering Google Colab. Colab was a revelation: I could execute code snippets without installing anything on my computer. It felt like unlocking a treasure chest.
+
+Soon, my exploration led me to exotic new terms: *spaCy*, *torch*, *numpy*, *pickle*, *tuple*, *pandas*. It was an exhilarating dive into a vast, fascinating world. In France, we say "excited like a flea," and that’s exactly how I felt.
+
+But excitement alone doesn’t teach. I quickly realized that random experimentation wasn’t enough. Progress requires focus—a clear goal to guide your learning. For me, the goal became simple: analyze a series of audio files (voicemails from my answering machine) whose filenames followed a consistent pattern: `yyyymmdd.wav`, such as `20240621_212441.wav`. I decided to calculate basic statistics using just the first eight digits of each filename.
+
+And so, on October 28, 2020, victory! I proudly sent my brother-in-law—a professional computer scientist—my first functional script. It was a Frankenstein’s monster, cobbled together from snippets I had found online, but it worked. That joy remains with me today, even if any chatbot could now whip up a far more sophisticated version in seconds. For me, it wasn’t just about the code—it was about the journey.
