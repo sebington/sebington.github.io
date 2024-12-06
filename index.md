@@ -1,1 +1,1 @@
-Welcome to my blog! AI, LLMs, Python code, Music and Mountain biking ;-)
+Welcome to my blog!
