@@ -1,1 +1,1 @@
-Welcome to my blog!
+Wandering in the land of bytes
