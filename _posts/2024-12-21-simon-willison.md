@@ -10,3 +10,6 @@ To demystify chatbots, Simon compares their function to a primitive role-playing
 
 Simon Willison is, without a doubt, an extraordinary figure. Brilliant, sharp, and likely a perfectionist with a touch of obsessive energy, he channels his passion into a relentless pursuit of understanding and innovation. He embodies the best qualities of a popularizer—someone unafraid to state the obvious to build a foundation for deeper insights, ensuring his audience follows along. While others might obscure their explanations in an attempt to appear more sophisticated, Simon opts for clarity and comprehensiveness, sharing his insights with an [infectious enthusiasm](https://youtu.be/h8Jth_ijZyY) born from genuine curiosity and wonder at human achievement.
 
+Note: This content was originally written in French and then translated and post-processed by various AI systems.
+
+
