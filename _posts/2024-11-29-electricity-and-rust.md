@@ -8,4 +8,4 @@ This phenomenon isn’t limited to cycling. Whenever technology makes the previo
 
 Perhaps it’s time for engineers to rethink the design of e-bikes. Why not equip them with automatic gearboxes, reserving the traditional multi-sprocket cassette for sports enthusiasts and dedicated riders? This could strike a balance between convenience and thoughtful use, ensuring technology enhances rather than diminishes the user experience.
 
-Note: This post was originally written in French and then translated and post-processed by various AI systems.
+Note: This content was originally written in French and then translated and post-processed by various AI systems.
