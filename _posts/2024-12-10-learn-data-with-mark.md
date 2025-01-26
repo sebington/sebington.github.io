@@ -10,6 +10,6 @@ Mark’s channel is relatively new, with the first video posted on August 18, 20
 
 For example, Mark often discusses methods for [constraining LLMs](https://www.youtube.com/watch?v=4Wz61w5zbCk) to provide *structured outputs* from disparate datasets—a crucial capability in real-world development. Over time, I’ve noticed that he uses additional on-the-side tools that enhance developer productivity such as [Poetry](https://python-poetry.org/) and, more recently, [uv](https://docs.astral.sh/uv/). All the code he demonstrates is freely available on [his GitHub repo](https://github.com/mneedham/LearnDataWithMark) or [his blog](https://www.markhneedham.com/blog/), and he makes a commendable effort to respond to viewer questions.
 
-In short, Mark Needham is a "fascinating little guy" in the world of programming and AI education. His channel is a treasure trove for anyone interested in programming and the incredible possibilities offered by new AI-based tools. I highly recommend checking out his content—you’ll likely come away both informed and inspired.
+In short, Mark Needham is indeed a fascinating guy in the world of programming and AI education. His channel is a treasure trove for anyone interested in programming and the incredible possibilities offered by new AI-based tools. I highly recommend checking out his content—you’ll likely come away both informed and inspired.
 
 Note: This content was originally written in French and then translated and post-processed by various AI systems.
