@@ -12,5 +12,3 @@ Cependant j'avoue avoir une préférence pour le code de départ, plus basique m
 
 En conclusion, l'essor des IA génératives et leur extrême facilité à générer du code permet pas mal d'expérimentations. On peut créer un script à partir de rien, recycler du code poussiéreux, générer des versions plus conviviales ou demander au modèle d'optimiser du code en lui donnant par exemple une contrainte de longueur ou de compacité. L'arrivée des IDE dopés à l'IA comme [Cursor](https://www.cursor.com/) et [Windsurf](https://codeium.com/windsurf) ouvre des possibilités infinies qui vont bien au delà de ces modestes expérimentations. Mais est-ce que le plaisir de comprendre restera le même ?
 
-NB : Ce texte a été écrit par une personne humaine et n'a pas été généré, traité ou raffiné par une IA.
-
