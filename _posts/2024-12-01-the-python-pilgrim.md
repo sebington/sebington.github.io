@@ -12,4 +12,4 @@ But excitement alone doesn’t teach. I quickly realized that random experimenta
 
 And so, on October 28, 2020, victory! I proudly sent my brother-in-law—a professional computer scientist—[my first functional script](https://gist.github.com/sebington/9f59f2e2d0b5dc433fc148b4fe32f2e7). It was a bit of a patchwork, pieced together from snippets I had found online, but it worked. That joy remains with me today, even if any LLM could now whip up a far more sophisticated version in seconds. For me, it wasn’t just about the code—it was about the journey.
 
-Note: This content was originally written in French and then translated and post-processed by various AI systems.
+Note: This content was originally written in French and then translated and post-processed with the help of DeepL and ChatGPT.
