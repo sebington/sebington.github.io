@@ -5,7 +5,8 @@ Description
 - Cyclo : 60km déniv. 430m - 75 - 85km
 - Marche : 7 (facile) - 10 - 12 - 14km
 - Gravel : 35 - 65km déniv. 570m
-Randos en partenariat avec l'association des Parkinsoniens du Finistère (GP29). Début des inscriptions à partir de 8h00 à la halle de pétanque du Folgoet située dans le complexe sportif du Folgoet.
+- Randos en partenariat avec l'association des Parkinsoniens du Finistère (GP29).
+- Début des inscriptions à partir de 8h00 à la halle de pétanque du Folgoet située dans le complexe sportif du Folgoet.
 Organisateur : VELO CLUB DU FOLGOET
 Horaires : NC
 Lieu de rendez-vous : HALLE DE PETANQUE
