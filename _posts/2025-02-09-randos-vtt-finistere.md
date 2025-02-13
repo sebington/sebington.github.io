@@ -5,13 +5,13 @@ Description
 - Cyclo : 60km déniv. 430m - 75 - 85km
 - Marche : 7 (facile) - 10 - 12 - 14km
 - Gravel : 35 - 65km déniv. 570m
-- Randos en partenariat avec l'association des Parkinsoniens du Finistère (GP29).
-- Début des inscriptions à partir de 8h00 à la halle de pétanque du Folgoet située dans le complexe sportif du Folgoet.
-Organisateur : VELO CLUB DU FOLGOET
-Horaires : NC
-Lieu de rendez-vous : HALLE DE PETANQUE
-Contact : Voir site Veloenfrance.fr ou celui de l'organisateur
-Prix : 7 €
+- Randos en partenariat avec l'association des Parkinsoniens du Finistère (GP29)
+- Début des inscriptions à partir de 8h00 à la halle de pétanque du Folgoet située dans le complexe sportif du Folgoet
+- Organisateur : VELO CLUB DU FOLGOET
+- Horaires : NC
+- Lieu de rendez-vous : HALLE DE PETANQUE
+- Contact : Voir site Veloenfrance.fr ou celui de l'organisateur
+- Prix : 7 €
 
 J'aime le côté vaguement aléatoire de ces informations, c'est ce qui fait leur charme. Pas de dénivelé pour le VTT, bon. J'adore l'utilisation du mot "facile" dans ce contexte hivernal ou le terrain peut être très collant. Que veut dire "Cyclo" ? Ce n'est ni un une randonnée effectuée en cyclomoteur, ni du cyclo-cross (ancêtre du VTT ?). Il faut comprendre "route". Le dénivelé de 430 m semble s'appliquer aux 60 kilomètres. Quid du dénivelé pour les 75 et 85 km ? Est-ce que ces circuits existent vraiment ? Il semblerait que oui car pour "route" et "gravel" des traces GPS sont téléchargeables sur le site du club.
 
