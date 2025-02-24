@@ -1,3 +1,5 @@
+## Les randos VTT dans le Finistère
+
 Reprise des randos VTT ce matin au Folgoët, une commune qui jouxte Lesneven, dans le Finistère. Je rappelle le concept des “randos VTT” : chaque dimanche ou presque, grosso-modo de février à novembre, un club local propose, contre une somme forfaitaire de 5 ou 6 euros, plusieurs parcours marqués au sol avec des flèches blanches (le plus souvent en plâtre). Les distances s'échelonnent entre 20 et 50 km. En général l'événement ne se limite pas au VTT. Il peut également proposer des circuits “gravel”, route et pédestre avec parfois des portions communes aux différentes disciplines. Ces “randos” sont annoncées assez longtemps à l'avance sur divers sites internet. Les dates sont plus ou moins fixes d'une année à l'autre. Les descriptifs varient légèrement suivant les sites consultés, mais souvent ça donne quelque chose comme ça :
 
 Description
