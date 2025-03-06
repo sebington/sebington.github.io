@@ -8,7 +8,7 @@ Avec l'arrivée récente de [DeepSeek-R1](https://blog.octo.com/octo-comprendre-
 
 Le modèle a réfléchi pendant 1 minute et 8 secondes et a généré une réponse très intéressante dont voici le morceau de choix (NB 1 : j'ai l'habitude de parler anglais avec ChatGPT et NB 2 : j'ai fait une copie d'écran car les pages Github ne permettent pas de reproduire les équations, qui sont au format LaTeX).
 
-![Logo](images/catalan.png)
+![ChatGPT output equations](/images/catalan.png)
 
 Tout d'abord, j'ai été assez bluffé par le résultat, qui m'a semblé très original car faisant appel au [Nombre de Catalan](https://fr.wikipedia.org/wiki/Nombre_de_Catalan), un truc dont, en tant que non-mathématicien, je n'avais jamais entendu parler. En mathématiques, les nombres de Catalan "forment une suite d'entiers naturels utilisée dans divers problèmes de dénombrement". Surpris je l'ai été encore davantage quand j'ai fait quelques recherches sur Internet et constaté que cette méthode de calcul de la valeur de Pi semble assez rare. Si on fait une recherche, on trouve bien un rapport entre "Pi" et "Catalan", toutefois il ne s'agit pas dans le cadre du Nombre de Catalan mais dans celui de la [Constante de Catalan](https://fr.wikipedia.org/wiki/Constante_de_Catalan), les deux méthodes, même si elles sont attribuées à la même personne, n'ont apparemment rien à voir entre elles.
 
