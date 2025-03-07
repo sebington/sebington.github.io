@@ -18,7 +18,7 @@ Au début je ne comprenais pas le lien entre les nombres de Catalan et Pi, c'est
 
 J'ai ensuite logiquement demandé à 4o de générer un script en Python pour tester son approche. Il s'agit donc dans un premier temps de calculer le nombre de Catalan pour n, puis d'injecter le résultat dans le dénominateur de l'équation permettant d'approximer Pi. Comme souvent avec les approximations numériques de Pi, plus n est grand, plus la valeur calculée est précise, avec davantage de chiffres après la virgule en accord avec la "vraie" valeur de Pi.
 
-Voici le code proposé par ChatGPT après un léger affinage :
+Voici le code proposé par ChatGPT après 2-3 itérations :
 
 ```python
 def catalan_number(n):
@@ -43,4 +43,4 @@ print(f"After {n} iterations, the calculated value of Pi is: {approximation}, wi
 
 La première fonction ('catalan_number') calcule la valeur du nombre de Catalan et la seconde ('pi_approximation') la valeur approximative de Pi. Cette valeur est ensuite comparée à la valeur communément admise pour en déduire l'erreur. On peut changer la valeur de n pour affiner le résultat, au prix d'un temps de calcul légèrement plus long chaque fois qu'on ajoute un zéro. Pour arriver à 3.14 par exemple, il faut environ n=1000, ensuite "the sky the limit".
 
-Malgré le peu d'infos trouvées sur Internet, je ne pense pas que cette méthode de calcul de la valeur de Pi soit aussi "originale" que je l'ai cru au départ. ChatGPT n'a pas créé du neuf "ex-nihilo" mais le modèle a su trouver un chemin peu utilisé dans les informations disponibles sur Internet. Je suis assez satisfait de cette petite trouvaille, mais j'ai du mal à en évaluer l'originalité. Si un "vrai" mathématicien passe par là, il ou elle pourra peut-être me dire ce qu'il en est. Ce qui est sûr, c'est qu'il y a de la beauté dans les mathématiques. Et qu'est-ce que l'IA, sinon la démonstration de cette beauté des mathématiques appliquées et de leur redoutable efficacité ?
+Malgré le peu d'infos trouvées sur Internet, je ne pense pas que cette méthode de calcul de la valeur de Pi soit aussi "originale" que je l'ai cru au départ. ChatGPT n'a pas créé du neuf "ex-nihilo" mais le modèle a su trouver un chemin peu emprunté dans les informations disponibles sur Internet. Je suis assez satisfait de cette petite trouvaille, mais j'ai du mal à en évaluer l'originalité. Si un "vrai" mathématicien passe par là, il ou elle pourra peut-être me dire ce qu'il en est. Ce qui est sûr, c'est qu'il y a de la beauté dans les mathématiques. Et qu'est-ce que l'IA, sinon la démonstration de cette beauté des mathématiques appliquées et de leur redoutable efficacité ?
