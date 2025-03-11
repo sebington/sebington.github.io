@@ -8,7 +8,7 @@ Avec l'arrivée récente de [DeepSeek-R1](https://blog.octo.com/octo-comprendre-
 
 Le modèle a réfléchi pendant 1 minute et 8 secondes et a généré une réponse très intéressante dont voici l'essence (NB : (1) j'ai l'habitude de converser avec ChatGPT en anglais et (2) j'ai fait une copie d'écran de la sortie du modèle car les pages Github ne permettent pas de reproduire les équations, qui sont au format LaTeX).
 
-![ChatGPT output equations](/images/catalan.png)
+![ChatGPT output](/images/catalan.png)
 
 Tout d'abord, j'ai été assez bluffé par le résultat (y compris par le rendu des équations), qui m'a semblé très original car faisant appel au [Nombre de Catalan](https://fr.wikipedia.org/wiki/Nombre_de_Catalan), un truc qu'en tant que non-mathématicien je n'avais jamais entendu parler. En mathématiques, les nombres de Catalan forment "une suite d'entiers naturels utilisée dans divers problèmes de dénombrement".
 
