@@ -1,4 +1,4 @@
-## Qroq Whisper
+## Groq Whisper
 
 J'ai récemment remis le nez dans Whisper. L'année dernière pour les besoins d'un projet, j'avais créé [un jupyter notebook](https://gist.github.com/sebington/a5a402a12a525f7e0efa9c972f45ba58) qui utilisait [OpenAi Whisper](https://openai.com/index/whisper/) en usage python pour automatiser la transcription et la génération de sous-titres pour un ensemble de fichiers audio ou vidéo (*batch transcription*). J'avais ensuite retravaillé mon notebook pour faire en sorte de transcrire des fichiers source de langues différentes. Il fallait que les fichiers à transcrire soient préalablement renommés en adoptant une convention pour la langue (par exemple "en_fichier_1.mp3", "fr_fichier_2.mp3", etc.). Cela évitait à Whisper d'effectuer une détection automatique de la langue, opération pas toujours fiable si plusieurs langues cohabitent au sein d'un même enregistrement ou si les 30 premières secondes d'un enregistrement ne contiennent pas de discours intelligible (ex. bruit ou musique). 
 
