@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
+    <title>sebington's blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,15 +35,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sebington's Blog</h1>
+        <h1>sebington's blog</h1>
         <div id="posts" class="markdown-body">
             <p class="loading">Loading posts...</p>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>
         async function fetchPosts() {
-            const repo = "sebington/sebington.github.io";
+            const repo = "sebington/sebington.github.io/";
             const folder = "_posts";
             const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}`;
             
@@ -65,6 +68,10 @@
                     postElement.innerHTML = html;
                     document.getElementById("posts").appendChild(postElement);
                 }
+                
+                document.querySelectorAll("pre code").forEach((block) => {
+                    hljs.highlightElement(block);
+                });
             } catch (error) {
                 document.getElementById("posts").innerHTML = "<p>Error loading posts.</p>";
                 console.error("Error fetching posts:", error);
@@ -73,6 +80,5 @@
         
         fetchPosts();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </body>
 </html>
