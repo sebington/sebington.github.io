@@ -1,1 +1,78 @@
-Sebington's blog will soon be online again!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0D1117;
+            color: #C9D1D9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .post {
+            background: #161B22;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .post h2 {
+            color: #58A6FF;
+        }
+        .loading {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sebington's Blog</h1>
+        <div id="posts" class="markdown-body">
+            <p class="loading">Loading posts...</p>
+        </div>
+    </div>
+
+    <script>
+        async function fetchPosts() {
+            const repo = "sebington/sebington.github.io";
+            const folder = "_posts";
+            const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}`;
+            
+            try {
+                const response = await fetch(apiUrl);
+                const files = await response.json();
+                const markdownFiles = files.filter(file => file.name.endsWith(".md"));
+                
+                markdownFiles.sort((a, b) => b.name.localeCompare(a.name)); // Sort by date in filename
+                
+                document.getElementById("posts").innerHTML = "";
+                
+                for (const file of markdownFiles) {
+                    const postResponse = await fetch(file.download_url);
+                    const markdown = await postResponse.text();
+                    const html = marked.parse(markdown);
+                    
+                    const postElement = document.createElement("div");
+                    postElement.classList.add("post");
+                    postElement.innerHTML = html;
+                    document.getElementById("posts").appendChild(postElement);
+                }
+            } catch (error) {
+                document.getElementById("posts").innerHTML = "<p>Error loading posts.</p>";
+                console.error("Error fetching posts:", error);
+            }
+        }
+        
+        fetchPosts();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>
