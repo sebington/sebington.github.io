@@ -1,4 +1,3 @@
-## 2024-11-29
 ## Électricité et rouille
 
 Ce matin en arrivant au travail, je remarque un vélo attaché à côté du mien. Un vélo électrique. Machinalement je regarde la transmission et constate que tous les pignons de la cassette sont rouillés, hormis celui où se trouve la chaîne. Visiblement le propriétaire du vélo ne change jamais de vitesse. Sans probablement en être conscient, il use et abuse de la puissance du moteur électrique pour pallier à son incompétence ou à sa paresse. Le moteur et la batterie font maintenant le boulot que le cycliste ne fait plus. D’où la rouille sur les autres pignons, qui ne servent presque plus.
