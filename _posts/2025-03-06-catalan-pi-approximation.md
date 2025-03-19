@@ -22,12 +22,12 @@ Voici le code proposé par ChatGPT après 2-3 itérations :
 
 ```python
 def catalan_number(n):
-    """Calculate the n-th Catalan number."""
+    # Calculate the n-th Catalan number
     from math import comb
     return comb(2 * n, n) // (n + 1)
 
 def pi_approximation(n):
-    """Approximate pi using the Catalan-Number Pi Approximation method for a single n."""
+    # Approximate pi
     C_n = catalan_number(n)
     return (16 ** n) / (n ** 3 * C_n ** 2)
 
@@ -38,7 +38,8 @@ approximation = pi_approximation(n)
 error = abs(approximation - true_pi)
 
 # Display the result
-print(f"After {n} iterations, the calculated value of Pi is: {approximation}, with an error of {error}")
+print(f"After {n} iterations, the calculated value of Pi is: \
+{approximation}, with an error of {error}")
 ```
 
 La première fonction `def catalan_number()` calcule la valeur du nombre de Catalan et la seconde `def pi_approximation()` la valeur approximative de Pi. Cette valeur est ensuite comparée à la valeur communément admise pour en déduire l'erreur. On peut changer la valeur de n pour affiner le résultat, au prix d'un temps de calcul légèrement plus long chaque fois qu'on ajoute un zéro. Pour arriver à 3.14 par exemple, il faut environ n=1000, ensuite "the sky the limit".
