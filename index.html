@@ -39,7 +39,8 @@ h1 {
 	margin-right: 5px;
 }
 h2 {
-	font-weight: 400;
+    font-size: 0.8em;
+	font-weight: 300;
 	margin-top: 0px;
 }
 h3 {
@@ -116,7 +117,7 @@ ol>li:before {
 
 <main>
 <h1>Paradis artificiels</h1>
-<h2><i>Expérimentations iaesques d'un traducteur geek</i></h2>
+<h2><i>Expérimentations geekiaesques d'un traducteur</i></h2>
 
 <p><b>2025-10-24</b></p>
 <p>Je demande à Gemini de réparer mon appli sur Google AI Studio et fais un essai avec un fichier complet. Mon "proofreader" détecte 130 changements, que je dois passer en revue un par un avant de l'accepter ou de le refuser. L'outil détecte un certain nombre de faux positifs quand il s'agit des majuscules ou minuscules. Je le modifie pour améliorer ce point et demande l'ajout d'un bouton pour accepter tous les changements d'un coup. Ça fonctionne.</p>
@@ -131,6 +132,10 @@ $ git push origin main [provide Username and Passward]</code></pre></p>
 <p><pre><code>$ git mv index.html index_old.html
 $ git commit -m "Rename index.html"
 $ git push origin main</code></pre></p>
+<p>Pour ne pas avoir à s'authentifier à chaque commit</p>
+<p><pre><code>$ git config --global credential.helper cache
+# or store permanently (less secure)
+$ git config --global credential.helper store</code></pre></p>
 <p><b>2025-10-23</b></p>
 <p>Simon Willison, probablement à la demande d'Anthropic, a supprimé de son Github les fichiers "Claude Skills" qu'il avait découverts et téléchargés avant l'annonce officielle d'Anthropic concernant ce nouveau service de Claude (<a href="https://simonwillison.net/2025/Oct/10/claude-skills/).">https://simonwillison.net/2025/Oct/10/claude-skills/).</a></p>
 <p>Nouvelle session Gemini CLI. Je lui demande d'utiliser les "Claude Skills" pour réviser un document Word et le livrer en mode suivi des modifications. J'oublie toujours d'activer le projet avec uv avant de commencer !</p>
