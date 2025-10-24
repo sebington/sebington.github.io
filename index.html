@@ -118,6 +118,19 @@ ol>li:before {
 <h1>Paradis artificiels</h1>
 <h2><i>Expérimentations iaesques d'un traducteur geek</i></h2>
 
+<p><b>2025-10-24</b></p>
+<p>Je demande à Gemini de réparer mon appli sur Google AI Studio et fais un essai avec un fichier complet. Mon "proofreader" détecte 130 changements, que je dois passer en revue un par un avant de l'accepter ou de le refuser. L'outil détecte un certain nombre de faux positifs quand il s'agit des majuscules ou minuscules. Je le modifie pour améliorer ce point et demande l'ajout d'un bouton pour accepter tous les changements d'un coup. Ça fonctionne.</p>
+<p>Découverte du projet marimo (<a href="https://github.com/marimo-team/marimo),">https://github.com/marimo-team/marimo),</a> sorte de jupyter notebooks on steroids super prometteur.</p>
+<p>Première tentative de "git push" en ligne de commande (avec une image)</p>
+<p><pre><code>$ git clone https://github.com/sebington/sebington.github.io.git
+$ cd sebington.github.io/
+$ git add images/nn.png
+$ git commit -m "Add image to images folder"
+$ git push origin main [provide Username and Passward]</code></pre></p>
+<p>Pour renommer un fichier</p>
+<p><pre><code>$ git mv index.html index_old.html
+$ git commit -m "Rename index.html"
+$ git push origin main</code></pre></p>
 <p><b>2025-10-23</b></p>
 <p>Simon Willison, probablement à la demande d'Anthropic, a supprimé de son Github les fichiers "Claude Skills" qu'il avait découverts et téléchargés avant l'annonce officielle d'Anthropic concernant ce nouveau service de Claude (<a href="https://simonwillison.net/2025/Oct/10/claude-skills/).">https://simonwillison.net/2025/Oct/10/claude-skills/).</a></p>
 <p>Nouvelle session Gemini CLI. Je lui demande d'utiliser les "Claude Skills" pour réviser un document Word et le livrer en mode suivi des modifications. J'oublie toujours d'activer le projet avec uv avant de commencer !</p>
@@ -126,8 +139,9 @@ ol>li:before {
 <p>Gemini bosse comme un dingue et grille son quota de tokens avant d'avoir terminé.</p>
 <p>Claude crée une interface web inutile et ne parvient pas à sortir un document Word (erreur). Je le relance et il finit par me donner le résultat sous forme d'un fichier TXT avec les corrections (surtout l'orthographe) demandées.</p>
 <p>Nouvelle tentative : je crée une appli sur Google AI Studio qui fonctionne du premier coup, prend un .docx, le révise, me montre les changements apportés et produit un document Word en mode suivi des modification. Le délire. Mais est-ce que ça marcherait avec un gros fichier ? Je retourne sur l'appli 3h plus tard et bizarrement le code est toujours là mais l'interface graphique ne se charge pas. Ecran noir.</p>
+<p>Retour sur Manjaro Gnome. Je règle tous les problèmes rencontrés hier et savoure cette nouvelle distro qui est vraiment sympa.</p>
 <p>Je suis un tuto de Simon Willison (<a href="https://www.youtube.com/watch?v=5TdIxxBPUSI).">https://www.youtube.com/watch?v=5TdIxxBPUSI).</a> Pas très progressif et un peu fouilli mais instructif. Je crée un projet 'sqlite' avec uv et ipykernel et lance un jupyter notebook où je tape les exemples de code. Tout fonctionne bien et je peux sauvegarder les sorties.</p>
-<p>Simon vient de mettre une autre vidéo en ligne (<a href="https://www.youtube.com/watch?v=GQvMLLrFPVI&list=WL)">https://www.youtube.com/watch?v=GQvMLLrFPVI&list=WL)</a> où il utilise Claude Code Web pour se fabriquer un outil à partir de 2 autres outils créés précédemment.</p>
+<p>L'infatiguable Willison vient de mettre une nouvelle vidéo en ligne (<a href="https://www.youtube.com/watch?v=GQvMLLrFPVI&list=WL)">https://www.youtube.com/watch?v=GQvMLLrFPVI&list=WL)</a> dans laquelle il utilise Claude Code Web pour se fabriquer un outil à partir de 2 autres outils créés précédemment. On aperçoit au passage l'impressionnante collection d'outils dont il dispose et qui sont disponibles sur son github (<a href="https://tools.simonwillison.net/).">https://tools.simonwillison.net/).</a></p>
 <p><b>2025-10-22</b></p>
 <p>Avec Claude, je continue de modifier mon script de génération de HTML à partir de mes notes au format TXT (voir 19/10). Ça commence à devenir pas mal.</p>
 <p>Je télécharge Linux Mint Cinnamon, l'installe sur une clé USB bootable avec Rufus et l'utilise pendant 30 minutes. Je trouve bien mes marques. Le terminal est imparamétrable une fois de plus et j'installe le terminal émulé "deepin" à la place. Plutôt pas mal.</p>
