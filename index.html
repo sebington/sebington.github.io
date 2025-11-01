@@ -1,84 +1,451 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebington's Weblog</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0D1117;
-            color: #C9D1D9;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        .post {
-            background: #161B22;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        .post h2 {
-            color: #58A6FF;
-        }
-        .loading {
-            text-align: center;
-        }
-    </style>
+<meta charset="utf-8">
+<title>Paradis artificiels - Carnet de notes d'un traducteur passionné d'IA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+
+:root {
+	--back-color: rgb(255, 247, 211);
+	--text-color: rgb(12, 12, 12);
+	--url-color:rgb(120, 120, 120);
+}
+
+/* minimalist reset */
+* {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+}
+
+body {
+	background-color: var(--back-color);
+	color: var(--text-color);
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+main {
+	margin: 0 auto;
+	padding: 30px 140px 0 140px;
+	max-width: 600px;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 1.5em;
+	font-weight: 700;
+	display: inline;
+	margin-right: 5px;
+}
+h2 {
+	font-weight: 400;
+	margin-top: 0px;
+}
+h3 {
+	font-weight: 400;
+	margin-bottom: 30px;
+}
+
+footer {
+	text-align: right;
+	margin-top: 80px;
+	padding-bottom: 20px;
+}
+
+p {
+	line-height: 1.5em;
+	margin-top: 20px;
+	display: block;
+}
+
+a {
+	color: rgb(10, 57, 199); /*inherit;*/
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+    text-decoration: underline;
+}
+a:hover, a:focus {
+    text-decoration: underline;
+	/*color: var(--url-color);*/
+}
+code {
+  background-color: rgb(255, 228, 171);
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+.highlight-box {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: rgba(255, 228, 171, 1.0);
+  border-radius: 8px;
+  font-family: Monospace;
+  font-size: 1.2em;
+}
+pre {
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+ol {
+    counter-reset: item;
+}
+ol>li {
+    counter-increment: item;
+    list-style: none inside;
+    margin: 20px 0;
+    overflow: hidden;
+    line-height: 1.5em;
+}
+ol>li:before {
+    content: counter(item) ;
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    width: 25px;
+    background: var(--text-color);
+    color: var(--back-color);
+    text-align: center;
+    float: left;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  main {
+  	max-width: 100%;
+    padding: 20px 15px;
+  }
+  h2 {
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+}
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Sebington's Weblog</h1>
-        <div id="posts" class="markdown-body">
-            <p class="loading">Loading posts...</p>
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>
-        async function fetchPosts() {
-            const repo = "sebington/sebington.github.io";
-            const folder = "_posts";
-            const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}`;
-            
-            try {
-                const response = await fetch(apiUrl);
-                const files = await response.json();
-                const markdownFiles = files.filter(file => file.name.endsWith(".md"));
-                
-                markdownFiles.sort((a, b) => b.name.localeCompare(a.name)); // Sort by date in filename
-                
-                document.getElementById("posts").innerHTML = "";
-                
-                for (const file of markdownFiles) {
-                    const postResponse = await fetch(file.download_url);
-                    const markdown = await postResponse.text();
-                    const html = marked.parse(markdown);
-                    
-                    const postElement = document.createElement("div");
-                    postElement.classList.add("post");
-                    postElement.innerHTML = html;
-                    document.getElementById("posts").appendChild(postElement);
-                }
-                
-                document.querySelectorAll("pre code").forEach((block) => {
-                    hljs.highlightElement(block);
-                });
-            } catch (error) {
-                document.getElementById("posts").innerHTML = "<p>Error loading posts.</p>";
-                console.error("Error fetching posts:", error);
-            }
-        }
-        
-        fetchPosts();
-    </script>
+<main>
+<h1>Paradis artificiels ✨</h1>
+<h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">NB : les notes ci-dessous sont tapées "à la main" SANS correcteur orthographique.</p>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 31/10/2025 à 22:17:55</p>
+
+<p><b>31-10-2025</b></p>
+<p>Je suis un âne. Ce matin, la tête (relativement) reposée, je lis sur mon téléphone <a href="https://simonwillison.net/2025/Oct/16/claude-skills/">cet excellent billet</a> de Simon Willison sur les "Claude Skills", dont j'avais reporté la lecture pour je ne sais quelle raison, et me rends compte qu'il répond précisément à tous mes questionnements d'hier après-midi ! Il dit notamment :</p>
+<p>"Something else I love about the design of skills is there is nothing at all preventing them from being used with other models. You can grab a skills folder right now, point Codex CLI or Gemini CLI at it and say “read pdf/SKILL.md and then create me a PDF describing this project” and it will work, despite those tools and models having no baked in knowledge of the skills system.",</p>
+<p>ce qui me rassure, puisque c'est ce que je fais avec Gemini CLI depuis la sortie des Skills.<br>------<br>Nouvelle fonctionalité sur le script de génération de cette page : la possibilité de créer un hyperlien en utilisant la syntaxe markdown, c'est à dire [lien]+(URL) (sans le signe +). La nouvelle fonction créée par Claude fait une fois de plus appel à un regex, qui repère la structure "crochets + parenthèses" et la transforme en lien hypertexte. L'utilisation de regex assure entre autre une génération ultra-rapide de la page.<br>------<br>Tentative de révision d'un texte en français bourré de maladresses et de fautes avec <a href="https://www.claude.com/product/claude-code">Claude Code</a>. Je commence avec Sonnet, puis passe à Haiku pour économiser mes crédits. Dans un dossier je prépare un fichier README.md avec toutes les infos utiles pour CC (tâches, outils, environment, etc.). Je mets aussi le contenu du dossier 'docx/' des Claude Skills avec des instructions d'usage. Le résultat est décevant. Le texte n'a pas assez été retravaillé et de grossières erreurs persistent. Mon appli sur Google AI Studio fonctionne beaucoup mieux.</p>
+<p><pre><code>Total cost:            $0.4781
+Total duration (API):  3m 46s
+Total duration (wall): 10m 14s
+Total code changes:    360 lines added, 17 lines removed
+Usage by model:
+claude-haiku:  852 input, 8.9k output, 2.1m cache read, 62.0k cache write ($0.3280)
+claude-sonnet:  818 input, 3.1k output, 120.8k cache read, 17.2k cache write ($0.1500)</code></pre></p>
+<p>------<br>Même tentative avec <a href="https://geminicli.com/">Gemini-CLI</a> qui décide de me lâcher juste après avoir analysé le projet. Message : <code>API Error: code: 429, Resource exhausted. Please try again later.</code><br>------<br>Du coup je modifie mon appli dans Google AI Studio. L'utilisateur peut maintenant choisir entre 3 tâches linguistiques : "revision", "copy-editing" et proofreading". Le résultat n'est pas mal, Gemini propose 41 améliorations qui se justifient. En revanche il laisse une belle faute de grammaire : "...la ville a vécue une période sombre..." et des double ou triple espaces blancs. A faire : modifier cette nouvelle version de l'appli pour qu'elle fonctionne en local et qu'elle se connecte à un LLM puissant et rapide (Groq?).<br>------<br>NB : Ces efforts ont pour but de manipuler des textes en conservant leur format d'origine, l'indéboulonnable MS Word. Concernant les aspects purement linguistiques, un petit passage par ChatGPT avec le texte brut (.txt) donne de bien meilleurs résultats que tous les essais qui précèdent. C'est bien ce qui est rageant dans le métier de traducteur : l'encapsulation du texte nuit à son traitement.<br>------<br>Je soumets le même texte (.docx) aux versions web gratuites de ChatGPT et de Claude pour correction-révision. Tous deux récupèrent et corrigent le texte, mais aucun me livre un document Word : "lien mort" pour ChatGPT et "impossibilité technique" chez Claude. Olivier soumet le même texte à la version "Pro" de Claude et finit par obtenir un document Word révisé, mais fragile techniquement et linguistiquement, comme si l'un se faisait au détriment de l'autre.</p>
+<p>Concernant les deux documents révisés issus des version gratuites de ChatGPT et de Claude, on peut les comparer à posteriori à l'original et pour chacun générer une version du document où l'on voit les modifications effectuées. A première vue ChatGPT semble avoir fait le meilleur travail, mais Claude n'est pas très loin derrière.</p>
+<p>Statistiques<br>Claude : 209 révisions (86 insertions, 89 suppressions, 34 mises en forme)<br>ChatGPT : 308 révisions (131 insertions, 127 suppressions, 50 mises en forme)</p>
+<p><b>30-10-2025</b></p>
+<p>Je me rends compte que je confondais node.js, nvm et npm. 😏 ChatGPT me fait un petit résumé explicatif :</p>
+<p><pre><code>- Node.js is the core runtime that runs JavaScript on your system.
+- NPM is automatically installed with Node.js and manages the dependencies your project needs.
+- NVM sits above both — it manages which version of Node.js (and its bundled npm) you are using.</code></pre></p>
+<p>Site de référence : <a href="https://nodejs.org/en/download">https://nodejs.org/en/download</a>.<br>------<br>Surprises, paradoxes et déceptions :</p>
+<p>1. Je viens de faire une session avec <a href="https://opencode.ai/">opencode</a> et un modèle gratuit d'OpenRouter (MiniMax M2) et la session a tenu jusqu'à son terme (durée ~15 min), même si le résultat laisse à désirer. A noter : opencode semblait en mode YOLO par défaut. Il a pris toutes les décisions d'exécuter le code tout seul sans me demander mon avis !😮</p>
+<p>2. J'enchaîne une session similaire avec Gemini-CLI et à peine a-t-il commencé qu'il cale :</p>
+<p><pre><code>⚡ Automatically switching from gemini-2.5-pro to gemini-2.5-flash for faster responses for the remainder of this session.
+⚡ Possible reasons for this are that you have received multiple consecutive capacity errors or you have reached your daily gemini-2.5-pro quota limit
+⚡ To increase your limits, upgrade to a Gemini Code Assist Standard or Enterprise plan with higher limits at https://goo.gle/set-up-gemini-code-assist
+⚡ Or you can utilize a Gemini API Key. See: https://goo.gle/gemini-cli-docs-auth#gemini-api-key
+⚡ You can switch authentication methods by typing /auth
+✕ [API Error: Please submit a new query to continue with the Flash model.]</code></pre></p>
+<p>alors que je ne l'ai pas du tout utilisé aujourd'hui. Où sont mes tokens gratuits ?? 🤔</p>
+<p>3. J'achète 5 dollars (facturés 6) de crédits sur Claude Console pour pouvoir utiliser Claude Code (CC). Après avoir saisi mon numéro de carte bleue et mon adresse et tandis que je réfléchis encore à la somme que je veux mettre, le processus en ligne "décide" soudain de valider tout seul la transaction alors que je n'ai cliqué sur aucun bouton "Valider", WTF!! Méthode pour le moins "cavalière" de la part d'Anthropic je trouve.</p>
+<p>Je lance ensuite ma première session avec CC. Elle se passe pas trop mal mais le résultat n'est pas au rendez-vous et je constate qu'elle m'a coûté $1.33 ! Je vérifie le modèle par défaut : il s'agit bien de Sonnet 4.5 comme je m'y attendais. Je suis néanmoins surpris après avoir entendu maintes et maintes fois Simon Willison dévoiler les sommes ridicules dépensées sur la génération de ses pélicans à bicyclette. Cela confirme ce dont personne ne semble parler dans les nombreuses vidéos sur YT concernant ces outils : ils sont un moyen de nous faire consommer du token à la pelle. Le généreux free-tiers de Gemini-CLI n'est pas si mal après tout.<br>------<br>Réflexion sur Claude Code et Gemini CLI (résumé d'un échange entre Olivier et moi)</p>
+<p>Info importante concernant l'abonnement "PRO" de Claude : il ne permet pas d'utiliser l'API de Claude, contrairement l'abonnement "MAX". On ne peut donc pas lancer de scripts autonomes, mais on peut toujours faire appel à d'autres LLM pour cela.</p>
+<p>Concernant les "Skills" pas mal de choses sont encore brumeuses dans mon esprit. Je me demande si CC y a accès par défaut ou s'il faut les lui donner en usage local, comme je le fais avec Gemini-CLI. Officiellement, pour bénéficier des "Skills", il faut les installer via un plugin dispo sur "anthropics/skills marketplace". Ensuite Claude les charge automatiquement quand il en a besoin. On peut aussi les installer "manuellement" en les ajoutant à ~/.claude/skills (pas très clair). Donc les lui donner en local reste possible, à condition de les avoir sous la main ou de savoir où les trouver.</p>
+<p>Ceci dit les "Skills" permettent de faire toutes sortes de manipulations de fichiers (Word ou PDF par ex.) qui étaient impensables il y a 6 mois et qui sont super utiles dans mon boulot. Je me demande si l'utilisation que j'en ai faite dans Gemini-CLI est analogue à leur utilisation "native" dans Claude Web ou CC. En tous cas quand je regarde le détail des actions de Gemini-CLI lors d'une session, manifestement il s'en sert.</p>
+<p>Olivier donne une précision importante : ce qui caractérise les Skills c'est la gestion du contexte : Claude lit le début de chaque fichier SKILL.md  (champs "name" et "description") et ne lira la suite que si cela est nécessaire pour la tâche en cours. Cela permet d'économiser des tokens. Tandis qu'il est probable que Gemini-CLI intègre 100 % des infos contenues dans les Claude Skills dans son contexte, ce qui consomme davantage de tokens.</p>
+<p>Je viens de faire une nouvelle session avec CC et j'ai maintenant dépensé 2 dollars sur 5 ! En gros on est à un dollar par session. Je vais essayer d'utiliser ce qui reste sur des tâches plus économes en API, en lançant des scripts autonomes par exemple.</p>
+<p><b>29-10-2025</b></p>
+<p>"Rainy day, dream away, let the sun take a holiday..." (Jimi Hendrix)<br>------<br>Ce matin je continue de tester Gemini-CLI et lui demande non pas de "construire un outil qui va faire", mais de "faire lui même" (je ne sais pas si ça a du sens), en l'occurence réviser un texte au format Word (.docx) et produire une version révisée du document en mode "suivi des modifications". Je lui donne accès aux outils "Claude Skills". J'initialise le dossier avec uv pour qu'il puisse exécuter du Python. Et après l'avoir fait un <code>/init</code>, lui donne le prompt suivant :</p>
+<p><span class="highlight-box">Do a professional copy editing of @doc_en.docx. You can decide to use the tools provided in @tools/ or not. Output the result in a .docx file in tracked changes. The project has been uv initialized, you can use 'uv add ...' or 'uv run ...' if you need to execute Python. Reminder: Copy editing is a detailed linguistic and stylistic review focusing on grammar, syntax, punctuation, spelling, and consistency of tone, terminology, and formatting. It ensures clarity, precision, and adherence to stylistic or editorial standards without altering the substance of the content.</span></p>
+<p>Les résultats ne sont pas très concluants. Gemini veut se servir de pandoc mais il bute sur l'installation malgré mon guidage. J'aurais dû lire le fichier GEMINI.md après sa création et installer pandoc au préalable. Il parvient tout de même à travailler sur le document mais soudain s'emballe quand il se lance dans une révision sans fin du xml interne au doc. Je l'arrête avant qu'il ne grille tous ses tokens et finis par le faire travailler sur le même document en TXT, ce qu'il fait, mais le résultat est décevant. Mon appli créée avec Google AI Studio fonctionne beaucoup mieux, sans être extraordinaire. A suivre.<br>------<br>Cet après-midi mon collègue JB me demande un service. Il voudrait pouvoir identifier la langue d'une collection de chaînes de caractères dans une base de données. Il voudrait utiliser l'API de DeepL, lui envoyer la chaîne de caractères et récupérer le code RFC 5646 de la langue ('en', 'fr', etc.). Après quelques tests, je me souviens que DeepL ne propose pas le breton dans sa bibliothèque de langues. Or JB a absolument besoin de pouvoir identifier du breton.</p>
+<p>Je propose alors d'utiliser un LLM au lieu de DeepL. La demande de JB est un cas parfait de "Structured Outputs". On fait une requête bien précise au LLM et on filtre sa réponse pour ne récupérer que l'info dont on a besoin. Je consulte la doc de Groq et construis l'outil en quelques requêtes à Claude. Ça marche tout de suite. Le script boucle sur les données d'un fichier .tsv, envoie une chaîne de caractères à <code>llama-3.3-70b-versatile</code> sur l'API de Groq avec un prompt bien précis, récupère la langue et son code et stocke le tout dans un fichier JSON.</p>
+<p><pre><code>  {
+    "row": 3,
+    "text": "[The Eisteddfod. A Great reunion]",
+    "language": "English",
+    "code": "en"
+  },
+  {
+    "row": 4,
+    "text": "[Lettre de Paul Diverrès à Yves Berthou]",
+    "language": "French",
+    "code": "fr"
+  }, etc.</code></pre></p>
+<p>Après quelques essais nous changeons de modèle pour <code>moonshotai/kimi-k2-instruct-0905</code>, qui semble donner de meilleurs résultats. JB me demande aussi de simplifier et réduire le script à sa seule fonction : chaîne de caractères en entrée et code RFC 5646 en sortie, ce que Claude fait en quelques secondes. Je suis très fatigué et quasiment dans un état second, mais très content d'avoir pu travailler sur ce problème et d'avoir trouvé une solution viable. Je ne sais pas si JB, un peu réticent aux IA, va finir par utiliser cette solution mais au moins j'aurais mis en oeuvre mes maigres compétences sur un "vrai projet", et cela m'emplit de joie.😄<br>Script : <a href="https://gist.github.com/sebington/382e2c6ebd43a28453c3c2541d4b241f">https://gist.github.com/sebington/382e2c6ebd43a28453c3c2541d4b241f</a><br>------<br>Je continue d'utiliser Linux Manjaro et parviens, à grand renfort de Claude, à localiser Freetube et à l'installer avec yay (<code>yay -S freetube</code>). Je constate toutefois que la recherche de "freetube" avec pacman (<code>pacman -Ss freetube</code>) ne renvoit rien. Claude me propose plusieurs solutions, par exemple de faire (<code>pacman -Ss | grep -i freetube</code>) ou même d'installer fzf (fuzzy search) pour le coupler à pacman, mais ça ne donne rien. C'est finalement la recherche directement avec yay (<code>yay freetube</code>), qui me permet de localiser freetube. Bref je me suis probablement trop focalisé sur pacman alors que yay semble être plus versatile et intuitif.<br>------<br>Découverte (re-découverte en fait) d'un merveilleux site qui propose toutes sorte de générateurs de bruits reproduisant au besoin toutes les ambiances souhaitées : <a href="https://mynoise.net/">https://mynoise.net/</a>. Excellent.</p>
+<p><b>28-10-2025</b></p>
+<p>J'ai ajouté un formattage spécial pour les prompts dans le code de génération de cette page (rectangle aux bords arrondis). Je teste différentes polices et couleurs.<br>------<br>J'essaie de reproduire et de lancer un script en Python qui construit et teste un réseau de neurones (NN) très simple comportant une seule couche de 32 neurones. Ce NN génère des données aléatoires avec du bruit, puis analyse ces données pour retrouver la fonction "cachée" derrière. Source : <a href="https://www.youtube.com/watch?v=rdFjMb6dTJQ">https://www.youtube.com/watch?v=rdFjMb6dTJQ</a>. Je pars de la vidéo et fais des captures d'écran du code, que je colle dans Claude et dans Mistral avec le prompt : <code>OCR this image</code>. Je récupère peu à peu tout le code que je colle dans un fichier.</p>
+<p>Je demande à Ruff de vérifier le script reconstitué (<code>uvx ruff check</code>). Ruff détecte un petit problème (E702 Multiple statements on one line (semicolon)), mais cela ne devrait pas empêcher le script de fonctionner. J'ajoute un "uv inline script" en haut avec les bibliothèques pertinentes et lance le truc. UV met environ 15 secondes à télécharger et à installer les paquets. Étonnamment, Torch ne fait pas 1 Go comme d'habitude, mais plutôt autour de 100 Mo. Je me demande si uv détecte le fait que je n'ai pas de GPU et télécharge une version "light" (cpu-only) de Torch. Pure conjecture de ma part.</p>
+<p>Ensuite tout va très vite (quelques secondes). Le script se lance et le NN s'entraîne sur 500 itérations ("epochs"). La sortie est exactement comme ce qui est montré dans la vidéo. Le NN prédit la courbe de x au carré et on voit les données d'entraînement en bleu et de test en marron. J'adore ce genre de petite expérience où l'on peut tester et mieux comprendre un des principes fondamentaux des réseaux de neurones et de l'intelligence artificielle. Script : <a href="https://gist.github.com/sebington/0ec87907ad0a079e6f59d941336d547c">https://gist.github.com/sebington/0ec87907ad0a079e6f59d941336d547c</a>.<br>------<br>Ce soir, fatigué, je farfouille dans mes fichiers à la recherche du plus vieux morceau de code python que j'aie tapé sur un clavier. Je retrouve un script datant du 14 octobre 2020 où j'ai recopié le code de la vidéo suivante : <a href="https://www.youtube.com/watch?v=InUqeaOSPpA">https://www.youtube.com/watch?v=InUqeaOSPpA</a> (Pytorch Torchtext Tutorial 2: Built in Datasets with Example). Qu'est-ce qui m'a fait choisir cette vidéo ? Pourquoi ne pas avoir commencé par le "Tutorial 1" ? Je crois que je trouvais ce gars qui tapait du code tout en semblant savoir ce qu'il faisait hyper cool. Dès le début je cherchais des choses en lien avec le langage et les mots : j'allais bientôt découvrir le NLP (Natural Language Processing) et toutes ses applications. Les LLM d'aujourd'hui viennent de là, du langage. « Au commencement était le Verbe, et le Verbe était avec Dieu, et le Verbe était Dieu. » — Premier verset de l'Évangile selon Jean.</p>
+<p><b>27-10-2025</b></p>
+<p>Je poursuis ma traduction "juridico-administrative", que je dois livrer demain. J'avais entendu dire que ChatGPT était d'une grande aide avec ce genre de texte. Je confirme ! Il connait le droit international dans toutes ses nuances comme sa poche. C'est incroyable l'aide qu'il apporte.</p>
+<p>Vu sur HackerNews, un site intéressant pour qui aime les cartes et les données GPS : <a href="https://geoutil.com/">https://geoutil.com/</a>.</p>
+<p>Concernant mon problème d'URL matching avec regex, j'interroge ChatGPT avec le prompt suivant :</p>
+<p><span class="highlight-box">Create a regex that will only match a URL, even if: 1. the URL is enclosed in brackets; 2. the URL is followed by a full stop; 3. the URL finishes with a slash "/"; 4. any combination of the above</span></p>
+<p>ChatGPT me sort un regex assez long qui ne fonctionne pas mieux que le reste. Bon il faut avouer que mon prompt est un peu tordu dans sa formulation.</p>
+<p>Olivier suggère <a href="https://pregex.readthedocs.io/en/latest/introduction.html">pregrex</a>, mais l'approche est assez ardue et le projet n'a pas été mis à jour depuis le 8 octobre 2022 (soit un mois avant la sortie de ChatGPT). J'essaie le regex qui est proposé dans la partie "Usage Example" de leur présentation, qui est sensé matcher une URL, mais c'est le même topo.</p>
+<p>Je me rends sur <a href="https://lmarena.ai/?mode=direct">https://lmarena.ai/?mode=direct</a> et choisis <code>claude-opus-4-1-20250805-thinking-16k</code> avec un nouveau prompt :</p>
+<p><span class="highlight-box">Write a regex that will match any URL in a text, whether it is enclosed in brackets, finishes with a slash or a digit or is followed by a full stop.</span></p>
+<p>J'obtiens 2 regex vraiment longs, sortes d'usines à gaz qui fonctionnent, mais butent sur les mêmes écueils (les points, les virgules).</p>
+<p>Dernier essai sur le même site avec <code>gpt-5-high</code> (même prompt).</p>
+<p>J'obtiens 2 regex un peu moins longs.</p>
+<p>Je teste le premier et là bingo, ça marche ! Lancé dans Sublime Text, le truc matche toutes les URL de mon carnet de notes sans exceptions. Je crie victoire mais déchante aussi vite quand j'essaie d'intégrer le regex dans le code du script en Python qui génère cette page. Pour l'instant ça ne marche pas. Je me rends compte que le fait même d'afficher les différents regex essayés dans mes notes en TXT interfère avec la génération de la page (qui fait beaucoup appel à regex). Ça crée une sorte contamination. J'aurais dû y penser.</p>
+<p><b>26-10-2025</b></p>
+<p>Ce matin, je fais 42 km de VTT dans le vent et les embruns du côté de Ploudalmézeau. Salutaire pour me reposer les yeux et le cerveau.</p>
+<p>Je travaille sur une traduction tout le reste du temps. Je réutilise mon outil d'alignement créé l'autre jour et me rends compte qu'il n'est pas assez convivial. Je demande à Claude de le modifier en laissant l'utilisateur choisir les langues et les fichiers et en le rendant un peu plus attractif visuellement avec <code>rich</code>. Le résultat est ici : <a href="https://github.com/sebington/txt-to-tmx-aligner">https://github.com/sebington/txt-to-tmx-aligner</a>.</p>
+<p>Je continue de perfectionner le script en Python qui génère cette page HTML à partir de mes notes au format TXT. J'ajoute une fonction pour mettre la page en ligne en FTP. Je me rends aussi compte que certains liens générés par le script ne fonctionnent pas s'ils sont entre parenthèses ou suivis d'un point, ou s'ils finissent par "/".</p>
+<p>La fonction de conversion d'URL en liens hypertextes fait appel à une expression régulière :</p>
+<p><pre><code>def linkify_urls(text):
+    url_pattern = r'(https?://[^\s<>]+)'
+    return re.sub(url_pattern, r'<a href="\1">\1</a>', text)</code></pre></p>
+<p>Claude en a produit une version plus sophistiquée mais pas encore parfaite :</p>
+<p><pre><code>def linkify_urls(text):
+    url_pattern = r'(https?://[^\s<>]+?)(?=[.,;:!?)"\']?(?:\s|$|<))'
+    return re.sub(url_pattern, r'<a href="\1">\1</a>', text)</code></pre></p>
+<p>Certains liens entre parenthèses fonctionnent tandis que d'autres non. Il va falloir investiguer.</p>
+<p>A noter que mon script regénère la page complète à chaque fois en une fraction de seconde. Cela me permet de corriger ou d'améliorer mes notes et de disposer d'un rendu instantané de l'ensemble.</p>
+<p><b>25-10-2025</b></p>
+<p>Je répare à nouveau mon Google AI Studio Proofreader. Je l'avais déjà fait hier et pensais qu'autosave était activé par défaut comme dans le reste des applis web de Google. J'étais dans l'erreur : il y a un bouton pour sauvegarder les changements apportés à l'appli, ce qui semble logique : pourquoi sauvegarder une appli si elle bugue ?</p>
+<p>Je télécharge l'appli (fichier zippé) et fais bosser Gemini-CLI dessus. Je voudrais :<br>1. que l'appli fonctionne en local sur mon ordi<br>2. qu'elle se connecte à un autre modèle que Gemini via une API de mon choix (Groq par exemple)</p>
+<p>Après quelques moments de débogage ça marche. Il faut que node (npm) soit installé. Je peux maintenant lancer l'appli en faisant <code>npm run dev</code>, ce qui démarre un serveur local accessible via <a href="http://localhost:3000/">http://localhost:3000/</a>. L'appli se lance dans Firefox et fonctionne correctement avec un modèle de Groq. Le modèle utilisé est hardcodé dans un fichier nommé <code>groqService.ts</code>. Il s'agit de <code>llama-3.3-70b-versatile</code>. 😄</p>
+<p><b>24-10-2025</b></p>
+<p>Je demande à Gemini de réparer mon appli sur Google AI Studio dont l'interface graphique ne s'affiche pas et fais un essai avec un fichier complet. Mon "proofreader" détecte 130 changements, que je dois passer en revue un par un avant de l'accepter ou de le refuser. L'outil détecte un certain nombre de faux positifs quand il s'agit des majuscules ou minuscules. Je le modifie pour améliorer ce point et demande l'ajout d'un bouton pour accepter tous les changements d'un coup. Ça fonctionne. Le fichier en sortie est bien en mode "suivi des modifications" avec tous les changements clairement visibles.</p>
+<p>Découverte du projet marimo : <a href="https://github.com/marimo-team/marimo">https://github.com/marimo-team/marimo</a>. C'est une sorte de jupyter notebooks on steroids super prometteur. Par exemple, la sortie d'un bloc de code se met à jour en temps réel si on modifie le code. Et c'est du pur Python !</p>
+<p>Première tentative de "git push" en ligne de commande (avec une image)</p>
+<p><pre><code>$ git clone https://github.com/repo_name/repo_name.github.io.git
+$ cd repo_name.github.io/
+$ git add images/nn.png
+$ git commit -m "Add image to images folder"
+$ git push origin main [provide Username and Password]</code></pre></p>
+<p>Pour renommer un fichier</p>
+<p><pre><code>$ git mv index.html index_old.html
+$ git commit -m "Rename index.html"
+$ git push origin main</code></pre></p>
+<p>Pour ne pas avoir à s'authentifier à chaque commit</p>
+<p><pre><code>$ git config --global credential.helper cache
+# or store permanently (less secure)
+$ git config --global credential.helper store</code></pre></p>
+<p><b>23-10-2025</b></p>
+<p>Simon Willison, probablement à la demande d'Anthropic, a supprimé de son Github les fichiers "Claude Skills" qu'il avait découverts et téléchargés avant l'annonce officielle d'Anthropic concernant ce nouveau service de Claude : <a href="https://simonwillison.net/2025/Oct/10/claude-skills/">https://simonwillison.net/2025/Oct/10/claude-skills/</a>.<br>------<br>Nouvelle session Gemini CLI. Je lui demande d'utiliser les "Claude Skills" pour réviser un document Word et le livrer en mode suivi des modifications. J'oublie toujours d'activer le projet avec uv avant de commencer !</p>
+<p>Prompt:<br><span class="highlight-box">Do a professional revision (grammar, spelling, punctuation etc.) of @test.docx and output a .docx file in tracking mode where all the changes made are visible.</span></p>
+<p>En parallèle je demande à Claude Sonnet 4.5 de faire la même chose dans l'interface web "classique".</p>
+<p>Gemini bosse comme un dingue et grille son quota de tokens avant d'avoir terminé.</p>
+<p>Claude crée une interface web inutile et ne parvient pas à sortir un document Word (erreur). Je le relance et il finit par me donner le résultat sous forme d'un fichier TXT avec les corrections (surtout l'orthographe) demandées.</p>
+<p>Nouvelle tentative, dans Google AI Studio cette fois. Je crée une appli qui fonctionne du premier coup, prend un .docx, le révise, me montre les changements apportés et produit un document Word en mode suivi des modification. Le délire. Mais est-ce que ça marcherait avec un gros fichier ? Je retourne sur l'appli 3h plus tard et bizarrement le code est toujours là mais l'interface graphique ne se charge pas. Ecran noir.<br>------<br>Retour sur Manjaro Gnome. Je règle tous les problèmes rencontrés hier et savoure cette nouvelle distro qui est vraiment sympa.<br>------<br>Je suis un tuto de Simon Willison sur YT [5TdIxxBPUSI]. Pas très progressif et un peu fouilli, mais instructif. Je crée un dossier 'sqlite' et lance un jupyter notebook en faisant <code>uv run --with jupyter jupyter lab</code> où je tape les exemples de code. Tout fonctionne bien et je peux sauvegarder les sorties.<br>------<br>L'infatiguable Willison vient de mettre une nouvelle vidéo YT en ligne [GQvMLLrFPVI] dans laquelle il utilise Claude Code Web pour se fabriquer un outil à partir de 2 autres outils créés précédemment. On aperçoit au passage l'impressionnante collection d'outils dont il dispose et qui sont disponibles sur son github : <a href="https://tools.simonwillison.net">https://tools.simonwillison.net</a>.</p>
+<p><b>22-10-2025</b></p>
+<p>Avec Claude, je continue de modifier mon script de génération de HTML à partir de mes notes au format TXT (voir 19/10). Ça commence à devenir pas mal.</p>
+<p>Je télécharge Linux Mint Cinnamon, l'installe sur une clé USB bootable avec Rufus et l'utilise pendant 30 minutes. Je trouve bien mes marques. Le terminal est imparamétrable une fois de plus et j'installe le terminal émulé "deepin" à la place. Plutôt pas mal.</p>
+<p><b>21-10-2025</b></p>
+<p>J'installe Manjaro Gnome pour voir. Pas mal de positif (look, rapidité, efficacité) mais certaines choses bizarres comme par exemple le fait que je n'arrive pas à lancer un outil installé dans uv et que je ne peux pas complètement désinstaller zsh, qui semble étroitement intégré à l'OS (dépendances). Le terminal pré-installé n'est pas paramétrable et j'en installe une autre version. En revanche, Nextcloud, Signal et OBS Studio fonctionnent à merveille.</p>
+<p>Retour dans Ubuntu</p>
+<p>Commande pour n'afficher que les modèles gratuits d'openrouter dans LLM:</p>
+<p><pre><code>llm models | grep ':free$'</code></pre></p>
+<p>J'installe <a href="https://datasette.io/">https://datasette.io/</a> avec uv</p>
+<p><pre><code>uv tool install datasette
+llm models | grep ':free$'
+llm -m openrouter/google/gemma-3-27b-it:free "What is Datasette?"
+datasette "$(llm logs path)"</code></pre></p>
+<p>cela donne l'accès à une interface web</p>
+<p><pre><code>INFO: Started server process [13667]
+INFO: Waiting for application startup.
+INFO: Application startup complete.
+INFO: Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)</code></pre></p>
+<p>où on peut requêter la base de données de tout l'historique de LLM (prompts, modèles, réponses, etc.)</p>
+<p><b>20-10-2025</b></p>
+<p>Je visionne une vidéo YT [C44iCr6czAo] sur les dérives sécuritaires de Windows. Ça me donne envie de basculer sur Linux et d'y rester. Je télécharge 2 versions de Manjaro (KDE Plasma et Gnome) ainsi que CachyOS, que je teste tour à tour. Moi qui m'étais promis de me reposer les yeux ce soir, c'est raté.</p>
+<p><b>19-10-2025</b></p>
+<p>Je demande à Claude de me créer un script en Python (logbook-converter) qui convertit ce carnet de notes (au format .txt) en fichier HTML avec les prompts et les extraits de code reconnus et formattés. À suivre.</p>
+<p>Je n'en finis pas de peaufiner le projet YouTube metadata (1. retrieve, 2. analyze). Le fichier "source" est une liste de chaines YT au format CSV (export de FreeTube), le fichier intermédiaire est un fichier JSON (channel_videos_2025.json) et la sortie finale peut se faire soit à l'écran (v2), soit écran + markdown (v2_md). Je finis par faire une vidéo.</p>
+<p>Je continue d'essayer de construire un plugin Hugging Face pour Willison's LLM avec Gemini-CLI. C'est de la folie pure de s'attaquer à un truc pareil. Je vais néanmoins beaucoup plus loin qu'hier. Le plugin s'installe et récupère une liste de modèles. Cependant impossible de lancer une requête (<code>Client error '404 Not Found'</code>).</p>
+<p><b>18-10-2025</b></p>
+<p>J'active Copilot dans VScode et le teste timidement. Copilot n'a pas compris que j'utilise uv et tente d'installer des librairies Python avec pip sur Ubuntu. Je l'arrête et y reviendrai dès que possible.</p>
+<p>Suite à la découverte du nouveau HuggingChat il y a 2 jours, je me dis qu'il est probable que HF essaie de proposer quelque chose comme OpenRouter : une seule API donne accès à de nombreux modèles. Je pose la question à ChatGPT qui finit par me le confirmer après être allé lire la doc de HF "en direct".</p>
+<p><span class="highlight-box">Yes, Hugging Face is now offering a multi-provider inference capability via its Inference Providers framework that approximates the “one API, many models/providers” goal. The OpenAI-compatible API support is a particularly strong move, enabling you to reuse existing client libraries against HF’s routing system.</span></p>
+<p>Convaincu par cette explication, je me dis qu'en théorie, je pourrais créer un plugin pour Willison's LLM qui donnerait accès aux modèles de HF. Mais je me dis que c'est peut-être un peu trop ambitieux de commencer par ça. Essayons déjà de voir si l'API de HF fonctionne comme prévu.</p>
+<p>Je me rends sur <a href="https://huggingface.co/docs/inference-providers/">https://huggingface.co/docs/inference-providers/</a> et finit par trouver un bout de code pour tester l'API. Il faut créer une clé spéciale (allowing inference providers). Le script fonctionne.</p>
+<p>Je demande alors à Gemini-CLI d'incorporer HF aux 3 autres providers de mon script 2_analyze_gemini_v1.py (projet YouTube).</p>
+<p>Prompt :<br><span class="highlight-box">Use @test_hf.py to add Hugging Face as a new model provider in @2_analyze_gemini_v2.py.</span></p>
+<p>Gemini-CLI le fait en 2 temps 3 mouvements. C'est totalement jouissif. Je lui demande la possibilité de pouvoir revenir à la liste des "providers" si je ne choisis pas de modèle tout de suite. On peut ainsi comparer le nombre de modèles proposés par chaque provider : Mistral = 68, Groq = 19, OpenRouter = 340 et Hugging Face = 115.</p>
+<p>Je fais une vidéo sous Linux avec OBS Studio qui fonctionne enfin !</p>
+<p>Je tente tout de même de créer le plugin HF avec Gemini-CLI, mais il ne veut même pas s'installer dans LLM.</p>
+<p><b>16-10-2025</b></p>
+<p>Je tente d'utiliser nextcloud en ligne de commande avec WSL pour tester la vitesse de synchronisation des fichiers:</p>
+<p><pre><code>mkdir nextcloud
+sudo add-apt-repository ppa:nextcloud-devs/client
+sudo apt update
+sudo apt install nextcloud-client</code></pre></p>
+<p>Mais c'est très galère : au lieu de spécifier quels dossiers on veut synchroniser, il faut exclure tous les dossiers que l'on ne veut PAS synchroniser</p>
+<p><pre><code>--exclude "SEB" --exclude "TAO" etc.</code></pre></p>
+<p>Du coup je désinstalle tout.</p>
+<p>Je génère de nouveaux scripts dans mon projet YouTube metadata :<br>- yt_metadata_csv.py (titre et upload date à partir de plusieurs chaines YT)<br>- retrieve_multiple_yt_video_titles.py (titre et upload date à partir de plusieurs videos)</p>
+<p>Ce second script exporte le résultat du scraping de toutes mes URL de videos YT dans un fichier CSV (URL, Title, Upload date) que j'importe ensuite dans Google Drive. A noter que ce script n'utilise pas yt-dlp mais fait appel à requests et beautifulsoup4 et semble être plus rapide.</p>
+<p>Le nouveau HuggingChat (<a href="https://huggingface.co/chat/">https://huggingface.co/chat/</a>) est une tuerie (116 modèles proposés).</p>
+<p>Simon Willison reparle des "Claude Skills" sur son blog. Je suis certain que ce que j'ai fait avec Claude Skills et Gemini-CLI le 12/10 n'avait jamais été fait auparavant.</p>
+<p><b>15-10-2025</b></p>
+<p>L'alignement manuel des textes de ma collègue est décidément impossible avec memoQ. Obsédé par le côté récalcitrant de la chose, je demande à Claude de me créer un outil d'alignement.</p>
+<p><span class="highlight-box">I have two .txt files source (fr) and target (en) that I would like to align in order to obtain a translation memory (.tmx). Create a Python script that will scan the two .txt files line by line (this is important), retrieve all sentences and expressions pairs (source and target language) and store them methodically and chronologically in a dictionary, to be later exported as a .tmx file. Keep everything, even if source text is the same as target text but remove duplicate entries. Discard section numbering (e.g. 12.2.3.1) at the start of a line. Discard lines containing just one letter or only numbers. Keep all meaningful chains of characters. Segment at sentence level whenever possible. Attached are two extracts (source and target).</span></p>
+<p>Ça marche ! One shot !😃 Le script génère un fichier TMX valide que j'importe dans memoQ sans problème. Dingue.</p>
+<p><a href="https://repomix.com/">https://repomix.com/</a> is a powerful tool that packs your entire repository into a single, AI-friendly file.<br><a href="https://www.kimi.com/en/">https://www.kimi.com/en/</a> : sounds like another great LLM like Qwen and DeepSeek</p>
+<p><b>14-10-2025</b></p>
+<p>Je fais une vidéo sur la tentative d'alignement de fichiers .txt avec memoQ et sur la nouvelle approche avec Gemini CLI du 12/10.</p>
+<p>Il faut que je m'intéresse aux "MCP server".<br>Une liste impressionnante : <a href="https://github.com/modelcontextprotocol/servers">https://github.com/modelcontextprotocol/servers</a><br>Essayer celui-ci peut-être : <a href="https://github.com/vivekVells/mcp-pandoc">https://github.com/vivekVells/mcp-pandoc</a></p>
+<p><b>13-10-2025</b></p>
+<p>Ce soir, je me fais un petit shot de vidéos d'Underscore. Par exemple [biZX5cnQ_UU] dans lequel je découvre Grégoire Mialon et Clémentine Fourrier de Hugging Face, ou [s5oHvfFUsbE] avec un certain Nicolas Dufour. Je visite le site de Clémentine Fourrier dont j'adore le côté minimaliste (<a href="https://clefourrier.github.io/">https://clefourrier.github.io/</a>) avec en bas, ce lien vers (<a href="https://jeffhuang.com/designed_to_last/">https://jeffhuang.com/designed_to_last/</a>) au concept super intéressant. Je check le projet de Nicolas Dufour, un outil très original de géolocalisation d'images : <a href="https://nicolas-dufour.github.io/plonk">https://nicolas-dufour.github.io/plonk</a>.</p>
+<p>Du coup je fais des essais de mise en ligne de ce carnet sur <a href="http://bytepacking.free.fr/">http://bytepacking.free.fr/</a>. Du bon vieux html. Pour mettre la page en ligne, j'utilise un outil primitif fourni par free : <a href="http://ftpperso.free.fr/index.pl">http://ftpperso.free.fr/index.pl</a>. J'installe un plugin (<a href="https://packagecontrol.io/packages/Simple%20FTP%20Deploy">https://packagecontrol.io/packages/Simple%20FTP%20Deploy</a>) dans Sublime Text pour faciliter la chose, mais pour l'instant ne parviens pas m'en servir.</p>
+<p>Liens du jour :<br>Pense-bête uv (Olivier) : <a href="https://mathspp.com/blog/uv-cheatsheet">https://mathspp.com/blog/uv-cheatsheet</a><br>Sortie de NanoChat d'Andrej Karphaty : <a href="https://github.com/karpathy/nanochat">https://github.com/karpathy/nanochat</a><br>Sauvegarder une session Gemini-CLI en markdown doit être possible : <a href="https://gist.github.com/simonw/12c7b072e8e21ef1e040fb3b69c1da28">https://gist.github.com/simonw/12c7b072e8e21ef1e040fb3b69c1da28</a></p>
+<p><b>12-10-2025</b></p>
+<p>Ce soir je me penche sur les outils de Claude (Claude Skills) pour manipuler les fichiers et fais un essai avec le répertoire dédié à Word (.docx). La "boite à outil" étant assez complexe, je décide de faire bosser Gemini CLI dessus (avec uv pour exécuter les scripts en Python). Après tout ces outils ont été conçus pour être pilotés par un LLM. L'objectif est de remplacer du texte FR par du texte EN dans un document Word (.docx) en le copiant d'un fichier à l'autre, sans altérer la structure (images) du fichier cible. Je fais 3 tentatives. Une session sur Windows, mal configurée, produit un fichier illisible. Mais les deux autres (sur Ubuntu) fonctionnent. Avec 2 fichiers très simples constitués de 4 paragraphes de texte et de 2 images en FR (et la même chose en EN), je demande à Gemini CLI de trouver un moyen de remplacer le texte du fichier en français par le texte du fichier en anglais, sans altérer la mise en page et les images.</p>
+<p><code>Using the available tools in this project, devise a strategy to replace the text from @input-fr.docx by the text from @input-en.docx, keeping the layout and integrity of the target document.</code></p>
+<p>Il s'exécute et produit un fichier cible où le texte en français a été remplacé par le texte en anglais. Mais comment être absolument certain qu'il n'a pas simplement copié le fichier source dans son intégralité ? Je fais une deuxième tentative plus ambitieuse : je ne laisse dans le répertoire de travail que le fichier Word FR, auquel j'ajoute le texte en anglais au format TXT. Je demande à Gemini CLI la même chose, c'est à dire de remplacer le texte en FR par le texte en EN, mais cette fois à partir du fichier TXT.</p>
+<p><code>@input-fr.docx is a .docx of a short text in French with photos. @en-text.txt is a replacement text in English for the docx file. Use the tools provided here to edit @input-fr.docx and replace the text it contains by the text in @en-text.txt while keeping the photos.</code></p>
+<p>Sans surprise, il n'y arrive pas. Je lui demande alors de faire une comparaison LINGUISTIQUE des contenus avant commencer l'opération et ça marche !</p>
+<p><code>Use a linguistic approach and run a similarity search to check that the meaning of each paragraph in English of @en-text.txt corresponds approximately to the paragraph in French. If so then copy it over the French in the .docx file.</code></p>
+<p>Il compare les textes, établit des correspondances entre les paragraphes et remplace le texte FR par le texte EN au bons endroits, sans toucher aux images ! 😃 Mais ce n'est qu'un début et les fichiers utilisés sont hyper simples.</p>
+<p>A faire : complexifier les fichiers .docx (ajouter par ex. numérotation, gras, italiques)</p>
+<p><b>11-10-2025</b></p>
+<p>Je regarde "10+ Tools to Use AI in the Terminal" [0OUODPRgPl8] et prends des notes. Le gars aurait mieux fait d'intituler sa vidéo "Demo of Simon Willison's LLM" ! Sur le même sujet, il y a aussi "Become a command-line superhero with Simon Willison's LLM tool" [UZ-9U1W0e4o], plus honnête comme titre.</p>
+<p>Je découvre un post de Simon Willison concernant les "Claude Skills", des outils de manipulation de fichiers de Claude que Simon a "hacké" à demi-mots : "This is a really sophisticated set of tools for document manipulation, and I love that Anthropic have made those visible - presumably deliberately - to users of Claude who know how to ask for them." (<a href="https://simonwillison.net/2025/Oct/10/claude-skills/)">https://simonwillison.net/2025/Oct/10/claude-skills/)</a>. Super intéressant. Je télécharge le truc sur son Github et j'en parle à Olivier.</p>
+<p><b>09-10-2025</b></p>
+<p>Le problème de l'alignement automatique des textes pour le projet de ma collègue semble insoluble. Même si les résultats d'hier soir sont encourageants. Je tente de passer tout en .txt et compare dans notepad++. Même la numérotation des sections n'est pas fiable !😫</p>
+<p><b>08-10-2025</b></p>
+<p>Tentative de génération d'un outil d'alignement "sémantique" multilingue de textes avec ChatGPT, Claude (OpenRouter/Mistral) puis Gemini CLI. L'idée est de faire appel à un modèle de génération d'embeddings et à un autre LLM classique pour aligner des paires de phrases dans deux documents parallèles, l'un étant la traduction de l'autre.</p>
+<p>De plus en plus je rencontre les limites des accès API "Free Tier". Est-ce voulu ? Bizarrerie : l'accès OpenRouter fonctionne pour mon script "analyze YouTube metadata" mais pas avec "aligner openrouter". Je pose la question à ChatGPT qui me donne une explication et un patch qui ne marche pas.</p>
+<p>Claude me donne la bonne explication un peu plus tard : l'accès à OpenRouter va vite "dans le rouge" parce que mon script, par définition, fait de multiples requêtes au modèle pour tenter d'établir des ponts entre chaque phrase de ma paire de documents ! L'explication de ChatGPT était complètement à côté de la plaque.</p>
+<p>Je refile le bébé à Gemini CLI et le fait bosser sur plusieurs déclinaisons du script (il améliore la fonction embeddings) avec OpenRouter seul, puis avec Ollama (embeddings) et OpenRouter (LLM), puis comme le free tier d'OpenRouter est grillé, avec "ollama seul" (embeddinggemma et gemma3) et ça marche enfin sans erreurs ! Le résultat de l'alignement est stocké dans un fichier JSON. Le script est quand même assez long : 500+ lignes de code, et je ne sais pas ce que vaut l'alignement.</p>
+<p>------</p>
+<p>Je change mon mot de passe Google sur mon PC via le navigateur et je reçois une notification sur mon téléphone Xiaomi, alors que j'avais supprimé le compte Google du téléphone. Ça laisse songeur.</p>
+<p><b>07-10-2025</b></p>
+<p>Je fais le gros ménage dans mes scripts (YT metadata). Instructif. Inutile de garder des vieux scripts. Perte de temps.</p>
+<p><b>06-10-2025</b></p>
+<p>Vidéo pour Olivier (YT metadata) très mal préparée et décevante. Mais ça me fait avancer.</p>
+<p><b>05-10-2025</b></p>
+<p>Un effet particulièrement délétère de l'arrivée de l'IA dans les entreprises de services, c'est l'assomption par le client que la prestation est désormais exécutable en 2-3 clics de souris, que le devis qui lui est envoyé est surcoté et n'est pas le reflet du travail réellement effectué.</p>
+<p>autoencoder mnist plan<br>1. after training do not run the test set<br>2. ask user to input a square image of a handwritten digit<br>3. normalize the image (size, color, bit depth) so that is complies with the train set<br>4. submit the image to the model<br>5. display the model's best guess</p>
+<p>Ai retesté llamafile sous windows (qwen3 et gemma3) et je trouve la génération plus rapide.</p>
+<p>Ai testé Google Jules sur autoencoder hébergé sur Github. Bluffant.</p>
+<p>Ai installé Gemini CLI sur Powershell, puis modifié autoencoder avec. Super bluffant.</p>
+<p><b>04-10-2025</b></p>
+<p>Installation de la version beta 25.10 d'Ubuntu. Elle propose un nouveau terminal par défaut (ptyxis) difficile à paramétrer. Je finis par réinstaller le gnome-terminal. J'installe nextcloud et constate que la mise à jour des fichiers est à nouveau rapide. La DSI a peut-être résolu le problème de lenteur. Ce faisant j'oublie de sauvegarder les logs de Gemini CLI 😫</p>
+<p>Je consulte ma liste ai_bookmarks.txt un peu au hasard, visite le site de Fabrice Bellard (<a href="https://bellard.org">https://bellard.org</a>) et c'est parti pour un petit voyage technologique passionnant.<br>Je télécharge son projet /tsac/ et le teste avec un mp3 de piano (renommé toto.mp3) dans powershell :</p>
+<p><pre><code>./tsac c toto.mp3 toto.tsac</code></pre></p>
+<p>Le fichier passe de 4707 KB à 101 KB !</p>
+<p><pre><code>./tsac d toto.tsac toto.wav</code></pre></p>
+<p>Le fichier .wav fait 25 931 KB et je ne détecte pas de perte de qualité sonore !</p>
+<p>Je demande des explications à Claude concernant le rôle du Transformer (voir "Ultra-low bitrate audio compression") et il me répond :</p>
+<p><span class="highlight-box">The Transformer model acts as a learned compressor on top of the DAC encoding. It takes the discrete codes produced by the DAC encoder and finds patterns and redundancies in these codes. The DAC does the heavy lifting of converting audio to a compact form, but the Transformer notices that even within this compact form, there are patterns (temporal dependencies, repetitions, predictable sequences) that can be exploited for additional compression.</span></p>
+<p>EDIT : Sur ce sujet, voir aussi <a href="https://openzl.org/">https://openzl.org/</a>.</p>
+<p>En attendant, le codec Opus est déjà une très bonne solution : <a href="https://opus-codec.org/">https://opus-codec.org/</a>.</p>
+<p>Autre projet de Fabrice Bellard : <a href="https://textsynth.com/">https://textsynth.com/</a>, un serveur de LLM !<br>------<br>Je lis et relis <a href="https://news.ycombinator.com/item?id=42897856">https://news.ycombinator.com/item?id=42897856</a>. Il y a quelque chose à faire.<br>------<br>On peut maintenant convertir un livre entier en audio avec kokoro : <a href="https://claudio.uk/posts/epub-to-audiobook.html">https://claudio.uk/posts/epub-to-audiobook.html</a></p>
+<p><b>03-10-2025</b></p>
+<p>Grosse fatigue. Short hearing loss right hand side. Je continue de prépare la présentation Youtube Métadata mais la gestion des multiples versions des scripts m'épuise. Il faut changer de méthode. Je tente une vidéo mais m'empêtre dans des explications sans fin.</p>
+<p><b>02-10-2025</b></p>
+<p>Nouveau script (Claude) pour visualiser les conversations ChatGPT avec leur date de création convertie en date standard.</p>
+<p>Quand on y réfléchit, le chemin qu'on prend pour arriver à un résultat peut être très alambiqué, il y a toutes les fausses pistes, les prompts qui ne donnent rien, les scripts ou les prompts que l'on réutilise, que l'on passe à une IA, puis à une autre, sans résultat tout de suite utilisable, ou parfois juste un peu à coté de la plaque.</p>
+<p>Découverte (grace à mon collègue JB) de Stéphane Mallat. Coup de foudre. J'écoute tout ce que je peux trouver sur lui : <a href="https://www.radiofrance.fr/franceculture/podcasts/la-science-cqfd/stephane-mallat-la-palme-d-ondes-1077850">https://www.radiofrance.fr/franceculture/podcasts/la-science-cqfd/stephane-mallat-la-palme-d-ondes-1077850</a>.</p>
+<p><b>01-10-2025</b></p>
+<p>J'essaie de retracer le workflow de mon projet "YouTube metadata retrieval and analysis". Je cherche les premières conversations en espérant que ce soit bien sur Claude ou ChatGPT. Ça semble être le cas. Très difficile de s'y retrouver.</p>
+<p>Pour ChatGPT, j'exporte mes données et ouvre ensuite chat.html, dans lequel je peux faire une recherche par mots-clés. Normalement sur la version en ligne je devrais avoir un outil de recherche comme dans Claude, mais il n'apparaît pas sur ma version de ChatGPT, ce qui est bizarre. En plus de chat.html, ChatGTP propose un autre fichier (conversations.json) dans lequel les dates sont au "Unix epoch format (seconds since January 1, 1970, UTC)".</p>
+<p>Pour Claude version web, je peux utiliser leur outil de recherche, mais ça cherche uniquement les TITRES de conversations, pas leur contenu. Je fais donc également un export de mes données et j'obtiens entre autres un fichier conversations.json que j'ouvre avec Sublime Text et que je peux parser manuellement. Ce n'est pas très pratique alors je demande à Claude de me faire un script qui génère une page HTML comme pour ChatGPT. Ça marche nickel après quelques itérations.</p>
+<p>J'arrive à reconstituer un historique rudimentaire :<br>2024-10-30 ChatGPT : YouTube metadata (last modif. 2025-01-26)<br>2024-12-09 Claude : Aggregate YouTube Channel Titles from JSON<br>2024-12-11 Claude : YouTube Channel Video Scraper<br>2025-09-28 ChatGPT : Combine scripts and classify trends<br>2025-09-28 Claude : YouTube video download error<br>2025-09-30 Gemini CLI session</p>
+<p><b>30-09-2025</b></p>
+<p>How to download and open a .parquet file in ipython repl using uv (ubuntu):</p>
+<p><pre><code>uv init parquet
+cd parquet
+uv add ipython pandas pyarrow
+wget https://huggingface.co/datasets/ylecun/mnist/resolve/main/mnist/test-00000-of-00001.parquet -O mnist-test.parquet
+ipython
+import pandas as pd
+df = pd.read_parquet('mnist-test.parquet')
+print(df.head())
+print(df.columns)
+print(df.describe())</code></pre></p>
+<p>Je demande à Claude de créer un convertisseur .epub vers .azw3, ce qu'il fait (epub_to_azw3.py). Le script a besoin que Calibre soit installé pour fonctionner (donc c'est de la triche !).</p>
+<p>Je visionne avec intérêt une vidéo YT de Jodie Burchell, "Build a Semantic Book Recommender" [Q7mS1VHm3Yw]. Voix très agréable et explications limpides.</p>
+<p>J'installe Opencode (<code>curl -fsSL <a href="https://opencode.ai/install">https://opencode.ai/install</a> | bash</code>). Petit essai rapide, mais à priori Opencode est beaucoup moins intuitif et efficace que Gemini CLI.</p>
+<p>Nouvelle session incroyable sur Gemini CLI pour mon projet "YouTube metadata retrieval and analysis". Après 2h de 'pilotage', j'obtiens 2 scripts qui tiennent la route. Incroyable ce que ça marche bien. Le second script permet entre autres de lister tous les modèles proposés par l'API d'un provider. Chez Mistral j'ai cru voir 2 modèles faisant de l'OCR. J'utilise aussi openrouter qui propose plusieurs modèles gratuits parmi les dizaines proposés via leur API.</p>
+<p><b>29-09-2025</b></p>
+<p>Papillonnage</p>
+<p>Le taux de transfer en écriture sur ma carte microSD branchée avec un lecteur de carte USB3 est assez médiocre (env. 60 Mo/sec). Pas de changement si je formatte la carte en NTFS au lieu de ExFAT. Le taux de transfer avec un disque SSD et son adaptateur SATA-USB3 est bien meilleur : env. 350 Mo/sec en lecture comme en écriture.</p>
+<p>La recherche suivante : <a href="https://simonwillison.net/search/?q=translation">https://simonwillison.net/search/?q=translation</a> débouche sur<br>- <a href="https://news.ycombinator.com/item?id=42897856">https://news.ycombinator.com/item?id=42897856</a> (translation workflow)<br>- <a href="https://www.youtube.com/watch?v=eC5fqHEzzWs">https://www.youtube.com/watch?v=eC5fqHEzzWs</a> (text processing with .strip())</p>
+<p>ChatGPT history : essai de fusionner et dédupliquer le contenu de plusieurs fichiers JSON de mon historique sur ChatGPT. Ne fonctionne pas.</p>
+<p>Sortie de Claude Sonnet 4.5 : <a href="https://www.anthropic.com/news/claude-sonnet-4-5">https://www.anthropic.com/news/claude-sonnet-4-5</a>.</p>
+<p>Je mets à jour LLM (uv tool upgrade llm) et constate que tous les plugins ont disparu ! Sur le sujet voir : <a href="https://news.ycombinator.com/item?id=44110584">https://news.ycombinator.com/item?id=44110584</a> et <a href="https://github.com/simonw/llm/issues/575">https://github.com/simonw/llm/issues/575</a>. Il semblerait que Simon n'a pas corrigé le problème.</p>
+<p>Dépoussiérage Voxtral script (fonctionne mais modèle ultra bridé).</p>
+<p>Je modifie un script "autoencoder with MNIST dataset" avec Claude Sonnet 4.5 et ça fonctionne.</p>
+<p><b>28-09-2025</b></p>
+<p>Projet "YouTube metadata analysis". J'essaie de combiner plusieurs scripts en un seul, avec un fichier .csv en entrée contenant une liste de chaînes YouTube (ChatGPT : "Combine scripts and classify trends") mais résultats inconsistants d'un run à l'autre. Faut-il avoir recours au RAG ?</p>
+<p><b>27-09-2025</b></p>
+<p>Visionnage de vidéo YT :<br>- 0OUODPRgPl8 (10+ tools to use ai in the terminal)<br>- rGz0r8VaYCc (Jodie Burchell Real Python)<br>- iRqpsCHqLUI (Jodie Burchell on LLMs for Devs)</p>
+<p>Article très intéressant de David Crawshaw sur la manière de programmer avec des LLM : <a href="https://crawshaw.io/blog/programming-with-llms">https://crawshaw.io/blog/programming-with-llms</a></p>
+<p><b>26-09-2025</b></p>
+<p>Refresher sur llamacpp, qui ne veut plus se lancer depuis son répertoire en faisant 'llama-cli -m modele.gguf' comme avant. Solution :</p>
+<p><pre><code># Download the latest llamacpp precompiled binaries
+# Unzip and stick everything in (for example) $HOME/llamacpp/
+# Add the build dir to your PATH
+echo 'export PATH="$HOME/llamacpp/:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+# Launch a model
+llama-cli -m path_to/model.gguf</code></pre></p>
+<p>EDIT : manip ci-dessus inutile si on fait <code>./llama-cli -m modele.gguf</code> dans le répertoire où llamacpp est installé</p>
+<p>-------</p>
+<p>Retour à la vidéo [QUXQNi6jQ30] de Willison sur son outil LLM. Vers 28'35", je fais une copie d'écran de son exemple de script en bash qui résume les thèmes des commentaires d'un sujet de Hacker News et je demande à Claude de transcrire le texte de l'image, ce qu'il fait sans aucune erreur. Je colle le code dans un fichier (hn_summarizer.sh), auquel je donne les droits d'exécution (<code>cmod +x hn_summarizer.sh</code>), puis je remplace 'haiku' par '<code>groq/openai/gpt-oss-20b</code>', mon modèle par défaut dans llm.</p>
+<p>Ensuite je choisis un sujet au hasard dans Hacker News et clique sur le lien pour afficher les commentaires (ex. <a href="https://news.ycombinator.com/item?id=45384653)">https://news.ycombinator.com/item?id=45384653)</a>. Je copie le numéro d'id (45384653) et lance le script de Willison en faisant <code>./hn_summarizer.sh 45384653</code>. J'obtiens un résumé des thèmes abordés. Avec la version gratuite de mon modèle (fenêtre contextuelle limitée) je ne peux pas choisir de sujets qui ont trop de commentaires (30 maxi je dirais). Mais je peux changer de modèle et mettre par exemple <code>openrouter/meta-llama/llama-3.3-70b-instruct:free</code>.</p>
+<p>Post de Simon sur le sujet : <a href="https://til.simonwillison.net/llms/claude-hacker-news-themes">https://til.simonwillison.net/llms/claude-hacker-news-themes</a></p>
+<p><b>25-09-2025</b></p>
+<p>Essais de conversion et de reconstruction d'un document PDF de 60 pages en Word. Ma collègue Catherine convertit le doc avec Acrobat Pro mais la mise en page est "fragile", surtout si on doit modifier le document ultérieurement. J'essaie avec différentes IA (Gemini, Mistral, Claude, ChatGPT) de passer du texte brut copié à partir du PDF à du markdown propre et structuré. C'est ChatGPT qui donne le meilleur résultat, au moins pour le début du document.</p>
+<p>Prompt :<br><span class="highlight-box">This text is a raw copy from a PDF document. Reformat it as readable markdown. Do not alter its content. Do not summarize. Do not translate.</span></p>
+<p>Ensuite je demande à Claude de créer un script qui convertit le markdown généré par ChatGPT en Word et ça marche. Mon intuition me dit que le fichier Word ainsi généré est beaucoup plus robuste que le fichier issu de la conversion avec Acrobat. Cependant cette méthode induit encore de trop nombreuses approximations pour être réellement fiable.</p>
+<p>-------</p>
+<p>Je me replonge dans Willison's LLM. J'installe plusieurs plugins : llm-cmd, llm-command-r, llm-ollama, llm-groq, llm-openrouter, llm-mistral. Je crée un compte sur <a href="https://openrouter.ai/">https://openrouter.ai/</a>. Je visionne la vidéo de Mark Needham sur LLM : [aQuuJuCa0VM].</p>
+<p>Commandes intéressantes :<br>llm 'Who is Simon Willison?' > output.txt (écrit le résultat dans un fichier)<br>cat /etc/*-release | llm -s "Tell me about my operating system" (pipe le résultat de la commande dans LLM et répond au prompt)</p>
+<p><b>24-09-2025</b></p>
+<p>On est peu à peu tenté de refiler aux IA des trucs que l'on juge difficiles ou infaisables, même pour elles ! Je donne à Gemini (interface web) un texte brut sans mise en forme issu d'un copier-coller sauvage d'un PDF avec le prompt suivant :</p>
+<p><span class="highlight-box">Produis une version fidèle et restructurée en markdown de ce document en prenant soin de faire apparaitre les titres de section et les paragraphes. Ne le traduis pas.</span></p>
+<p>Gemini s'exécute, puis je ne sais pas ce qui se passe, Gemini bugue et je perds tout.</p>
+<p>-------</p>
+<p>Je télécharge l'appli web "gpx-map-filter" que j'avais générée avec Google AI Studio l'autre jour et demande à Gemini CLI de la faire fonctionner en local. Gemini CLI me dit qu'il faut créer une clé API sur Google Cloud. Je lui réponds que je n'en ai pas. Il me donne alors une solution sans avoir recours à une clé API ! Il faut installer node et lancer un serveur en tapant "npn run dev". Ça fonctionne. Il faudrait modifier l'appli pour ajouter plusieurs fonctionnalités.</p>
+<p><b>20-09-2025</b></p>
+<p>ChatGPT, le retour ! Après m'être perdu avec Claude et ses scripts interminables, une simple requête à ChatGPT produit un script d'une soixantaine de lignes qui fait le taf sans essayer de centraliser tous les points des GPX dans un dataframe, ce que je m'obstine à faire depuis des mois. On peut vraiment être aveuglé par ce qu'on croit être une bonne idée.</p>
+<p>Prompt :<br><span class="highlight-box">I want to clean up many gpx files from various devices and format. I have made an python script that parses gpx files, stores all latitude, longitude, elevation and timestamps points into a dataframe, remove duplicate entries and for each date (yyymmdd) outputs (exports) clean gpx files. This kinda works for some files, however many exported files have points in the wrong chronological order, make them useless. Can you think of a better approach to solve this problem?</span></p>
+<p>Leçon à retenir pour l'avenir : le complexe n'est pas forcément plus efficace que le simple. Mais en disant cela j'ai l'impression d'enfoncer une porte ouverte.</p>
+<p><b>18-09-2025</b></p>
+<p>Je reconstitue partiellement la démarche du projet "docx-images" avec les 3 sessions de Gemini CLI que je regroupe dans un seul fichier texte.</p>
+<p>Je me replonge dans l'idée de produire des fichiers GPX "propres". Je perfectione un outil en ligne de commande généré sur Claude. Le script finit par être assez long (1000+ lignes de code) et n'est pas foufou. Certaines fonctions du menu ne fonctionnent pas correctement. Je génère d'autres scripts "from scratch" jusqu'à en perdre la tête. C'est le problème de ces outils. Il faut être hyper-organisé sinon on peut se noyer dans les scripts.</p>
+<p><b>16-09-2025</b></p>
+<p>Je poursuis mon projet de retirer/remettre les images avec des documents. J'utilise le script d'hier soir (qui fonctionne avec des documents .odt) comme base pour Gemini et lui demande d'en faire une version qui fonctionne avec des fichiers Word. Cette fois ça marche après seulement 2-3 itérations (docx_image_manager.py). Mais le plus fort c'est que j'essaie ensuite avec le fichier d'un client contenant 423 images et ça fonctionne ! Je n'en reviens pas. Je pensais vraiment qu'avec un gros fichier complexe ça ne marcherait pas. Il faudrait que j'arrive à retracer tout la démarche. Je crois qu'au début je suis parti d'un script généré par Claude.</p>
+<p><b>15-09-2025</b></p>
+<p>J'essaie d'installer Gemini CLI dans Windows Powershell mais je n'y arrive pas, alors je l'installe sur WSL <code>npm install -g @google/gemini-cli</code>. Pour se loguer avec son compte Google dans WSL, il faut taper <code>gemini nobrowser=TRUE</code> (je ne retrouve plus la source de cette info).</p>
+<p>Je fais travailler Gemini CLI sur un problème assez ardu. Créer un script qui prend un .docx avec des images en entrée, retire toutes les images et génère un fichier .docx sans images (qui ainsi sera beaucoup plus "léger" et pourra être traduit). Puis dans un second temps un second script reprend le fichier traduit et remet toutes les images à leur juste place. Pour l'instant mon script n°1 arrive à retirer les images, mais le n°2 n'arrive pas à les remettre. Gemini CLI a bossé comme un dingue pour y arriver, sans succès. C'était fascinant comme session. Je lui ai dit d'utiliser uv (ex. <code>uv run script.py</code>) et il l'a fait. Il s'est arrêté 2-3 fois et je lui ai dit "continue" et il a continué !</p>
+<p>Dans un premier temps je lui demande de créer des "placeholders" numérotés "image1.jpg", "image2.jpg", etc., ce qu'il fait, mais je me rends compte que ce n'est pas la bonne méthode. Je lui demande alors d'extraire le "squelette XML" du docx. Là il parvient à retirer les images sans toucher au code XML. Ça donne un fichier Word sans images avec des sortes de cadres vides à la place, comme quand il manque une image sur un site internet. Je crois que passer par le XML qui est constitutif des fichiers .docx est la bonne voie, mais Gemini a vraiment beaucoup de mal à gérer le truc. Impression que la manière dont un fichier Word est encodé est un vrai cauchemar, même pour une IA !</p>
+<p>Mon beau-frère Olivier suggère d'essayer la même manip avec le format Libre Office (.odt). Le soir je reprends tout depuis le début avec un fichier ODT contenant du texte et des images. Je demande à Gemini de créer 2 scripts : un qui enlève les images et génère le doc sans images et un second script qui prend le doc sans images et les remet. J'atteins bientôt la limite du modèle pro et n'ai d'autre choix que de continuer avec gemini-2.5-flash. Je continue et ça marche ! Chose surprenante, les scripts générés ne sont pas si longs que ça (beaucoup moins que pour Word). Je continue encore un peu et regroupe les 2 scripts en un seul avec un menu basique : 1. retirer les images, 2. remettre les images. Gemini-2.5-flash semble bien marcher pour ce genre de petites modifs (odt_image_manager.py).</p>
+<p>Je me rends compte que les outils comme Gemini CLI et Claude Code sont l'aboutissement de toutes les avancées dont on entend parler depuis la sortie de ChatGPT : chain-of-thought prompting, RAG, fonction calling, tool use, augmentation de la taille de la fenêtre contextelle, agents autonomes, MCP... Tout ça enfin mis en oeuvre de manière cohérente. Je demande à ChatGPT s'il est d'accord avec mon constat et il me répond comme souvent, en me caressant dans le sens du poil :<br><code>Tu touches un point très juste 👍 : des outils comme Gemini CLI et Claude Code incarnent une sorte de "synthèse appliquée" de toutes les briques d’innovation accumulées dans le domaine des LLM depuis fin 2022. Au début, on avait "juste" ChatGPT comme assistant conversationnel. Puis, étape par étape, des concepts et technologies se sont empilés pour transformer les LLM en véritables systèmes intelligents, interactifs et spécialisés</code>.</p>
+<p><b>14-09-2025</b></p>
+<p>Pour utiliser VSCode et Jupyter dans un répertoire sans installer Python sur sa machine : <code>uv init, uv add ipykernel</code> et c'est parti !</p>
+<p>Je regarde ce que devient LLM, l'outil de Willison : <a href="https://llm.datasette.io">https://llm.datasette.io</a>. Je ne peux m'empêcher de penser que Claude Code et Gemini CLI s'en sont grandement inspirés.</p>
+<p>Pyodide est un outil épatant qui permet d'exécuter du code Python dans un navigateur : <a href="https://pyodide.org/en/stable/console.html">https://pyodide.org/en/stable/console.html</a></p>
+<p><b>13-09-2025</b></p>
+<p>Je fais mumuse avec Gemini CLI depuis 2 jours et c'est vraiment totalement bluffant ce que ça peut faire. Ce qui est dingue c'est que Gemini CLI en mode gratuit permet de vraiment travailler (60 requests/min and 1,000 requests/day). Je lui donne l'accès à un répertoire rempli de scripts plus ou moins récents permettant de manipuler les fichiers GPX et lui demande de les analyser. Il identifie tout de suite les plus aboutis et peut les améliorer tout en les testant sur des vraies données. On peut lui demander n'importe quoi, il code, il réfléchit, il exécute en bash, la totale. Et il propose une fenêtre  contextelle d'un million de tokens. Selon Gemini, le script le plus abouti de mon répertoire était un script écrit par Claude.</p>
+<p><b>02-09-2025</b></p>
+<p>Groq toujours au top pour transcrire les fichiers audio, à condition de réduire leur taille au préalable avec ffmpeg (fichier < 40 Mo). Pour obtenir une transcription "diarisée" je passe la transcription brute obtenue avec Groq à Claude avec le prompt suivant :</p>
+<p><span class="highlight-box">Le texte ci-joint est la transcription brute d'un entretien entre 2 interlocuteurs. Peux-tu améliorer cette transcription en veillant à séparer les prises de paroles et en prenant soin de retirer tous les tics de language, répétitions inutiles, etc., tout restant fidèle aux propos tenus? Le texte final devra être fluide et agréable à lire."</span></p>
+<p>Le résultat est bluffant. Le modèle parvient à identifier les intervenants et à découper leur prises de paroles respectives à partir de cette simple transcription écrite.</p>
+<p><b>01-09-2025</b></p>
+<p>Retour au boulot ce matin. Nous avons reçu une nouvelle demande de transcription d'enregistrements et je me replonge sans transition dans Whisper et autres joyeusetés en matière de speech-to-text. Je teste Voxtral (voxtral-mini-latest), le modèle speech-to-text de Mistral. Ça marche, mais la transcription est tronquée car le modèle est payant. Groq semble toujours fonctionner. Ils ont retiré un modèle (distil-whisper) de leur liste.</p>
+
+</main>
+
 </body>
 </html>
