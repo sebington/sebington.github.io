@@ -130,15 +130,15 @@ ol>li:before {
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
 <p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">NB : les notes ci-dessous sont tapées "à la main" SANS correcteur orthographique.</p>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 04/11/2025 à 22:42:07</p>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 04/11/2025 à 23:25:25</p>
 
 <p><b>04-11-2025</b></p>
 <p>J'ai rendu le dépôt Github de mon plugin "llm-hf" public : <a href="https://github.com/sebington/llm-hf">https://github.com/sebington/llm-hf</a>. Je n'arrête pas de modifier le fichier README.md, il y a toujours quelque chose à changer.</p>
 <p>Cet après-midi, coup de théâtre. En me familiarisant avec l'interface de Github, notamment la partie "Pull requests" du projet <a href="https://llm.datasette.io/">LLM</a>, je me rends compte que quelqu'un a déjà développé un <a href="https://github.com/SecKatie/llm-huggingface-plugin">plugin similaire</a> il y a 3 mois ! 😩 Le projet n'a juste pas encore été ajouté à la liste officielle des plugins de LLM.</p>
 <p>Bon, cela n'enlève rien à mon travail et me conforte dans l’idée que l’on ne progresse vraiment qu’en ayant un objectif clairement défini. Je vais pouvoir comparer le travail d'un vrai développeur avec le celui d'un amateur enthousiaste.</p>
-<p>Suite à une remarque d'Olivier, j'ajoute la fonctionalité "register_commands" dans "hooks" :</p>
-<p><pre><code>seb@seb:~$ llm plugins
-[
+<p>Suite à une remarque d'Olivier, j'ajoute la fonctionalité "register_commands" dans "hooks". Pour ce faire je demande à Claude Code d'examiner le script d'un plugin similaire (llm-groq) et d'en extraire l'information pertinente. Cette fois je ne dépose pas le script dans le dossier du projet, je me contente de lui donner l'URL et CC va lui-même lire le script en ligne.</p>
+<p>Maintenant, quand on tape <code>llm plugins</code>, on obtient (entre autres) :</p>
+<p><pre><code>[
   {
     "name": "llm-hf",
     "hooks": [
@@ -148,7 +148,7 @@ ol>li:before {
     "version": "0.1.0"
   }
 ]</code></pre></p>
-<p>Désormais, quand on tape <code>llm hf</code>, on obtient :</p>
+<p>Et quand on tape <code>llm hf</code>, on obtient désormais :</p>
 <p><pre><code>Usage: llm hf [OPTIONS] COMMAND [ARGS]...</code></pre></p>
 <p><pre><code>  Commands relating to the llm-hf plugin</code></pre></p>
 <p><pre><code>Options:
@@ -156,6 +156,8 @@ ol>li:before {
 <p><pre><code>Commands:
   models   List all available Hugging Face models
   refresh  Refresh the list of available Hugging Face models</code></pre></p>
+<p>Claude met systématiquement à jour <code>CLAUDE.md</code> et je lui demande de modifier <code>README.md</code> pour que la doc le soit également.</p>
+<p>En revanche, grosse prise de tête avec la mise à jour des fichiers sur Github. Je ne maîtrise pas assez Git. Je fais tout en dépit du bon sens, parfois en ligne de commande, parfois avec VSCode, parfois en modifiant les fichiers directement sur Github. C'est le bordel et je perds un temps fou avec ça, ce qui est nul. Je sais que CC possède une fonctionnalité pour gérer Git mais je n'ai pas encore essayé de m'en servir. Ce serait peut-être plus fluide.</p>
 <p><b>03-11-2025</b></p>
 <p>Je dois modifier mon plugin (renommé "llm-hf") pour le faire fonctionner comme les autres plugins de <a href="https://llm.datasette.io/">LLM</a>. Il y avait notamment un problème avec la gestion de la clé API (ou du "User Access Token") de Hugging Face. Stocké dans les variables d'environnement tout fonctionne bien. Mais les plugins de LLM proposent également un autre moyen de stocker la clé, notamment quand l'utilisateur tape <code>llm keys set nom_du_plugin</code>. Dans ce cas la clé est stockée dans un fichier JSON. Ce problème est maintenant réglé et tout semble bien fonctionner.</p>
 <p>Je me familiarise avec la gestion d'un dépôt Github. J'apprends et mets en place les choses petit à petit. Par exemple : modification des infos sur le fichier <code>README.md</code> avec VSCode ou suppression des fichiers ajoutés à <code>.gitignore</code> avec :</p>
