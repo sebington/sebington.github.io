@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
 
+/* Import Inter + Roboto Flex */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Flex:wght@300;400;500;600&display=swap');
+
 :root {
 	--back-color: rgb(255, 247, 211);
 	--text-color: rgb(12, 12, 12);
@@ -115,6 +118,8 @@ ol>li:before {
   main {
   	max-width: 100%;
     padding: 20px 15px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 1.1em;
   }
   h2 {
     font-size: 0.9em;
@@ -130,8 +135,15 @@ ol>li:before {
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
 <p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">NB : les notes ci-dessous sont tapées "à la main" SANS correcteur orthographique.</p>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 06/11/2025 à 16:10:57</p>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 06/11/2025 à 23:09:55</p>
 
+<p><b>06-11-2025</b></p>
+<p>Ce soir j'installe Cursor 2.0, qui fait un peu le buzz sur le web et lui demande de me créer un "docx proofreader". C'est là qu'on voit que les démos de certains youtubeurs ne valent pas grand chose. Quand on demande quelque chose d'un tant soit peu complexe, c'est une autre paire de manches. Il faut dire que je ne commence pas par le plus facile. Je poursuis le projet avec Gemini-CLI, qui parvient à faire fonctionner le truc. Mais le résultat, très décevant, comme tant d'autres, part à la poubelle.<br>------<br>J'essaie d'améliorer mon plugin llm-hf et demande à Claude Sonnet 4.5 (version web) de le comparer à llm-groq, un plugin "production-ready" :</p>
+<p><span class="highlight-box">Considering llm_groq.py as "production-ready", can llm_hf.py be further improved?</span></p>
+<p>Claude me fait un rapport très complet dans lequel il souligne que le point d'amélioration le plus important est le "Model Caching", qui est absent de mon script.</p>
+<p><span class="highlight-box">llm_groq.py caches models in a JSON file (groq_models.json), avoiding API calls on every invocation. llm_hf.py fetches from the API each time, which is slow and wasteful.</span></p>
+<p>Claude me propose de produire une version améliorée, que je télécharge et qui fonctionne tout de suite. Je la met sur Github.</p>
+<p>Après le temps passé avec les outils en ligne de commande, le retour à l'interface web, gratuite de surcroît, est très agréable. Impression de revenir en terrain connu. Cela pose une question brûlante : aurais-je pu développer le plugin SANS le recours aux CLI-tools? Probablement, mais j'aurais mis beaucoup plus de temps.<br>------<br>Olivier me parle de <a href="https://github.com/musistudio/claude-code-router">claude-code-router</a> qui permet d'utiliser CC avec n'importe quel modèle.</p>
 <p><b>05-11-2025</b></p>
 <p>Utiliser Claude Code en mode API coûte cher, très cher. En 7 jours j'ai consommé quasiment 10 dollars (payés 12 à cause de taxes ajoutées à chaque transaction). Sur mon relevé bancaire, j'ai été facturé 10,63 EUR. Cela fait une consommation moyenne quotidienne de 1,50 EUR. De plus, leur console d'administration est une vraie usine à gaz, j'ai eu un mal de chien à afficher ma consommation depuis le début de mes paiements, le 30 octobre. La plupart des "vues" indiquent des sommes dérisoires. Je ne sais même plus comment j'ai fini par trouver <a href="https://console.anthropic.com/cost?start_date=2025-10-30">la bonne vue</a>. Visiblement le mode API n'est pas la bonne solution pour utiliser Claude Code. J'en suis à me demander si les sommes affichées à la fin de chaque session sont correctes. Je vais peut-être regarder du côté d'OpenCode avec un modèle pas trop cher (DeepSeek, comme le suggérait Olivier), mais ça risque de ne pas être aussi performant que CC. Notons que le gros de la consommation est le fait de "tokens entrants" (input tokens). En une semaine, j'en ai consommé 17,3 millions !</p>
 <p>Ce soir je refais une session avec CC. Comme il me reste quelque chose comme 19 cents, je sélectionne Haiku comme modèle par défaut. A la fin de la session je vais voir combien de crédits il me reste. La première chose que je constate c'est que je suis débiteur de 9 cents ! ☹️ Je croyais naïvement que le truc s'arrêterait automatiquement à 0,00 mais non. Autre chose : CC a quand même un peu utilisé Sonnet alors que je lui avais dit de n'utiliser que Haiku. C'est une toute petite somme ($0.0059), mais quand même. Ensuite, quand on utilise CC, Anthropic crée une "sous-clé API" à chaque fois qu'on installe CC sur une machine différente. Sur ma console d'administration je vois que j'ai ma clé API principale (mauve) et 4 clé CC (oranges). Ce qui est bizarre, c'est que si j'additionne la consommation de chaque clé, j'arrive à un total de 7,44 dollars et non pas 10,09 comme on pourrait s'y attendre ! WTF!? OK, il y a peut-être un temps de latence avant d'avoir the full picture, mais tout ça est quand même assez opaque. 😤</p>
