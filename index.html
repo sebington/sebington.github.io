@@ -135,8 +135,36 @@ ol>li:before {
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
 <p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">NB : les notes ci-dessous sont tapées "à la main" SANS correcteur orthographique.</p>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 14/11/2025 à 01:36:05</p>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 15/11/2025 à 19:42:51</p>
 
+<p><b>15-11-2025</b></p>
+<p>Un plugin intéressant de LLM est absent de <a href="https://llm.datasette.io/en/stable/plugins/directory.html">la liste officielle</a> : <code>llm-github-models</code>. Ce <a href="https://github.com/tonybaloney/llm-github-models">plugin</a> donne accès à ~62 modèles hébergés(?) par Github, dont plusieurs modèles d'OpenAI, comme par exemple <code>github/gpt-4.1</code>. Pour que ça fonctionne, il  faut au préalable se créer une clé sur <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a>.</p>
+<p><b>14-11-2025</b></p>
+<p>J'ai retrouvé les logs de Claude Code pour la construction du plugin llm_hf (fichiers JSONL). Essentiellement 4 sessions du 2 au 4 novembre 2025. Leur conversion en HTML ne restitue malheureusement pas le rendu du terminal. Pour cela il faut copier tout le contenu brut du terminal juste avant de quitter la session et le coller dans un <a href="https://tools.simonwillison.net/terminal-to-html">convertisseur approprié</a>.</p>
+<p>Cependant ces fichiers HTML (<a href="http://bytepacking.free.fr/2025-11-02_18-07-22.html">exemple</a>) contiennent énormément d'information, beaucoup plus que ce que l'on voit à l'écran lorsqu'on se sert de Claude Code. Il serait impossible de suivre en temps réel tout le déroulé du processus. Prendre le temps d'inspecter ces "logs" convertis en HTML permet de prendre conscience de la quantité de tokens "ingérés" par la machine pour faire son travail.<br>------<br>Je teste Voxtral, le modèle Speech-to-Text de Mistral, en suivant <a href="https://simonwillison.net/tags/speech-to-text/">les instructions de Willison</a> pour voir si ça fonctionne toujours de la même façon depuis juillet.<br>J'installe le plugin Mistral pour LLM :</p>
+<p><pre><code>llm install -U llm-mistral</code></pre></p>
+<p>Ensuite je tente un test avec un extrait d'une interview de Willison (fichier WAV) en laissant volontairement le fichier en local pour voir si ça fonctionne comme avec l'API de Groq par exemple :</p>
+<p><pre><code>llm -m voxtral-small -a test.wav</code></pre></p>
+<p>J'obtiens un message d'erreur :</p>
+<p><pre><code>Error: This model does not support attachments of type 'audio/wav', only audio/mpeg</code></pre></p>
+<p>Je convertis le fichier WAV en MP3 avec VLC et réessaie :</p>
+<p><pre><code>llm -m voxtral-small -a test.mp3</code></pre></p>
+<p>Nouvelle erreur :</p>
+<p><pre><code>Error: No key found - add one using 'llm keys set mistral' or set the LLM_MISTRAL_KEY environment variable</code></pre></p>
+<p>J'ai oublié d'entrer la clé API :</p>
+<p><pre><code>llm keys set mistral
+Enter key: *******</code></pre></p>
+<p>Nouvel essai :</p>
+<p><pre><code>llm -m voxtral-small -a test.mp3</code></pre></p>
+<p>Nouvelle erreur :</p>
+<p><pre><code>Error: Audio attachment must use a URL</code></pre></p>
+<p>Ils auraient pu le dire plus tôt, mais bon cela confirme que l'API de Mistral ne fonctionne pas comme celle de Groq.<br>J'upload mon fichier test.mp3 sur le serveur de ce blog et réessaie :</p>
+<p><pre><code>llm -m voxtral-small -a http://bytepacking.free.fr/test.mp3</code></pre></p>
+<p>Cette fois ça marche et j'obtiens <a href="http://bytepacking.free.fr/test.txt">une transcription</a> très fidèle. Le fait de devoir mettre le fichier en ligne est quand même très contraignant.<br>------<br>Je demande à Gemini 2.5 Pro de transcrire le même fichier (<code>Transcribe this audio file</code>) ce qu'il fait en quelques secondes. <a href="http://bytepacking.free.fr/test_gemini.txt">Résultat</a>.<br>------<br>Google Colab vs Github Codespaces</p>
+<p>Le look de l'interface des notebooks de Google Colab a évolué (en mieux je trouve) et ils ont ENFIN ajouté un terminal. Alléluia. On peut par exemple installer uv en faisant :</p>
+<p><pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre></p>
+<p>Les Codespaces, quant à eux sont une version de VSCode qui fonctionne dans une machine virtuelle dans le cloud. J'ai essayé de m'en servir et je trouve l'interface assez "clunky". De plus, par rapport à Colab, on est sur des machines beaucoup moins puissantes, sans GPU et avec moins de RAM et d'espace disque.</p>
+<p>J'ai essayé d'installer nvidia/parakeet-tdt-0.6b-v2 sur une VM, sans succès (low RAM / Disc space). Sur Google Colab ça n'a pas marché non plus, mais pour d'autres raisons (incompatibilité de librairies Python).</p>
 <p><b>13-11-2025</b></p>
 <p>Aujourd'hui je collecte et regroupe tous les fichiers logs des sessions effectuées avec Claude Code et Gemini CLI sur mes différents ordis depuis le 15 septembre. Les logs de CC sont des fichiers JSONL et ceux de Gemini CLI des fichiers JSON. Je demande à Claude Web de me créer un script pour chaque outil afin de convertir les logs en HTML, avec une mise en forme plus facile comprendre. Des outils existent en ligne mais ne me satisfont pas. La structure des logs de Claude Code semble plus complexe et foisonnante que celle de Gemini CLI. Gemini a le mérite de montrer les moments où le modèle "réfléchit", ce qui habituellement transparent pour l'utilisateur. Comme Gemini CLI est gratuit, je possède beaucoup plus de logs "Gemini" que de logs "Claude".<br>------<br>Commande pour connaître la date d'installation de mon OS (Ubuntu) :<br><code>ls -lt /var/log/installer/ 2>/dev/null</code></p>
 <p><b>11-11-2025</b></p>
@@ -480,7 +508,7 @@ source ~/.bashrc
 # Launch a model
 llama-cli -m path_to/model.gguf</code></pre></p>
 <p>EDIT : manip ci-dessus inutile si on fait <code>./llama-cli -m modele.gguf</code> dans le répertoire où llamacpp est installé</p>
-<p>-------</p>
+<p>------</p>
 <p>Retour à la vidéo [QUXQNi6jQ30] de Willison sur son outil LLM. Vers 28'35", je fais une copie d'écran de son exemple de script en bash qui résume les thèmes des commentaires d'un sujet de Hacker News et je demande à Claude de transcrire le texte de l'image, ce qu'il fait sans aucune erreur. Je colle le code dans un fichier (hn_summarizer.sh), auquel je donne les droits d'exécution (<code>cmod +x hn_summarizer.sh</code>), puis je remplace 'haiku' par '<code>groq/openai/gpt-oss-20b</code>', mon modèle par défaut dans llm.</p>
 <p>Ensuite je choisis un sujet au hasard dans Hacker News et clique sur le lien pour afficher les commentaires (ex. <a href="https://news.ycombinator.com/item?id=45384653)">https://news.ycombinator.com/item?id=45384653)</a>. Je copie le numéro d'id (45384653) et lance le script de Willison en faisant <code>./hn_summarizer.sh 45384653</code>. J'obtiens un résumé des thèmes abordés. Avec la version gratuite de mon modèle (fenêtre contextuelle limitée) je ne peux pas choisir de sujets qui ont trop de commentaires (30 maxi je dirais). Mais je peux changer de modèle et mettre par exemple <code>openrouter/meta-llama/llama-3.3-70b-instruct:free</code>.</p>
 <p>Post de Simon sur le sujet : <a href="https://til.simonwillison.net/llms/claude-hacker-news-themes">https://til.simonwillison.net/llms/claude-hacker-news-themes</a></p>
@@ -488,14 +516,14 @@ llama-cli -m path_to/model.gguf</code></pre></p>
 <p>Essais de conversion et de reconstruction d'un document PDF de 60 pages en Word. Ma collègue Catherine convertit le doc avec Acrobat Pro mais la mise en page est fragile, surtout si on doit modifier le document ultérieurement. J'essaie avec différentes IA (Gemini, Mistral, Claude, ChatGPT) de passer du texte brut copié à partir du PDF à du markdown propre et structuré. C'est ChatGPT qui donne le meilleur résultat, au moins pour le début du document.</p>
 <p>Prompt :<br><span class="highlight-box">This text is a raw copy from a PDF document. Reformat it as readable markdown. Do not alter its content. Do not summarize. Do not translate.</span></p>
 <p>Ensuite je demande à Claude de créer un script qui convertit le markdown généré par ChatGPT en Word et ça marche. Mon intuition me dit que le fichier Word ainsi généré est beaucoup plus robuste que le fichier issu de la conversion avec Acrobat. Cependant cette méthode induit encore de trop nombreuses approximations pour être réellement fiable.</p>
-<p>-------</p>
+<p>------</p>
 <p>Je me replonge dans Willison's <a href="https://llm.datasette.io/">LLM</a>. J'installe plusieurs plugins : llm-cmd, llm-command-r, llm-ollama, llm-groq, llm-openrouter, llm-mistral. Je crée un compte sur <a href="https://openrouter.ai/">https://openrouter.ai/</a>. Je visionne la vidéo de Mark Needham sur LLM : [aQuuJuCa0VM].</p>
 <p>Commandes intéressantes :<br>llm 'Who is Simon Willison?' > output.txt (écrit le résultat dans un fichier)<br>cat /etc/*-release | llm -s "Tell me about my operating system" (pipe le résultat de la commande dans LLM et répond au prompt)</p>
 <p><b>24-09-2025</b></p>
 <p>On est peu à peu tenté de refiler aux IA des trucs que l'on juge difficiles ou infaisables, même pour elles ! Je donne à Gemini (interface web) un texte brut sans mise en forme issu d'un copier-coller sauvage d'un PDF avec le prompt suivant :</p>
 <p><span class="highlight-box">Produis une version fidèle et restructurée en markdown de ce document en prenant soin de faire apparaitre les titres de section et les paragraphes. Ne le traduis pas.</span></p>
 <p>Gemini s'exécute, puis je ne sais pas ce qui se passe, Gemini bugue et je perds tout.</p>
-<p>-------</p>
+<p>------</p>
 <p>Je télécharge l'appli web "gpx-map-filter" que j'avais générée avec Google AI Studio l'autre jour et demande à Gemini CLI de la faire fonctionner en local. Gemini CLI me dit qu'il faut créer une clé API sur Google Cloud. Je lui réponds que je n'en ai pas. Il me donne alors une solution sans avoir recours à une clé API ! Il faut installer node et lancer un serveur en tapant "npn run dev". Ça fonctionne. Il faudrait modifier l'appli pour ajouter plusieurs fonctionnalités.</p>
 <p><b>20-09-2025</b></p>
 <p>ChatGPT, le retour ! Après m'être perdu avec Claude et ses scripts interminables, une simple requête à ChatGPT produit un script d'une soixantaine de lignes qui fait le taf sans essayer de centraliser tous les points des GPX dans un dataframe, ce que je m'obstine à faire depuis des mois. On peut vraiment être aveuglé par ce qu'on croit être une bonne idée.</p>
