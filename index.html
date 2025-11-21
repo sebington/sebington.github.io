@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Paradis artificiels - Carnet de notes d'un traducteur passionné d'IA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/x-icon" href="stars.png">
+<link rel="icon" type="image/png" href="stars.png">
 <style>
 
 /* Import Inter + Roboto Flex */
@@ -144,10 +144,10 @@ ol>li:before {
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
 <p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">NB : les notes ci-dessous sont tapées "à la main" SANS correcteur orthographique.</p>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 21/11/2025 à 14:35:35</p>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 21/11/2025 à 14:57:49</p>
 
 <p><b>21-10-2025</b></p>
-<p>Essai d'amélioration de l'outil décrit hier (baptisé "yt-datetime-search") avec Antigravity de Google. L'idée est la suivante : utiliser <a href="https://github.com/TeamNewPipe/NewPipeExtractor.git">NewPipeExtractor</a> pour potentiellement améliorer yt-datetime-search. Je me dis que NewPipeExtractor, une bibliothèque très robuste écrite en Java, doit posséder des fonctionnalités intéressantes. Je demande à Antigravity d'analyser le code de ce dépôt et lui donne aussi 2 versions en Python de yt-datetime-search. Antigravity détecte plusieurs améliorations possibles. Je choisis la suivante :</p>
+<p>Essai d'amélioration de l'outil décrit hier (baptisé "yt-datetime-search") avec Antigravity. L'idée est la suivante : utiliser <a href="https://github.com/TeamNewPipe/NewPipeExtractor.git">NewPipeExtractor</a> pour potentiellement améliorer yt-datetime-search. Je me dis que NewPipeExtractor, une bibliothèque très robuste écrite en Java, doit posséder des fonctionnalités intéressantes. Je demande à Antigravity d'analyser le code de ce dépôt et lui donne aussi 2 versions en Python de yt-datetime-search. Antigravity détecte plusieurs améliorations possibles. Je choisis la suivante :</p>
 <p><span class="highlight-box">L'objectif est d'améliorer yt-datetime-search en ajoutant un "parser" de dates relatives robuste, porté à partir du code source Java npext. Cela permettra au script d'analyser les chaînes de caractères "time ago" (par exemple, "2 days ago") lorsque l'horodatage exact est absent des métadonnées récupérées par yt-dlp.</span></p>
 <p>Antigravity fait un "Implementation Plan", que je valide et lui donne le feu vert. Il effectue les modifications, crée un fichier de test et produit un rapport ("Walkthrough") à la fin.</p>
 <p>Je n'ai plus qu'à tester pour voir si ça marche, et ça marche. A noter qu'en général je trouve Antigravity plus véloce que Gemini CLI, qui était particulièrement lent hier soir et avait parfois tendance à pédaler dans la semoule.</p>
