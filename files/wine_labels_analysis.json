@@ -1,0 +1,199 @@
+[
+  {
+    "filename": "85844_jpg.rf.42240a8592f5b3fe52c893581fc29b60.jpg",
+    "filepath": "test/85844_jpg.rf.42240a8592f5b3fe52c893581fc29b60.jpg",
+    "success": true,
+    "data": {
+      "text": {
+        "brand": "DUVAL- LEROY",
+        "vintage": "",
+        "varietal": "",
+        "region": "FRANCE",
+        "alcohol_content": "",
+        "other_text": [
+          "CHAMPAGNE",
+          "DEPUIS 1859",
+          "Maison Familiale & Independante",
+          "BRUT RESERVE",
+          "A VERTUS",
+          "Depuis 1859",
+          "la famille Duval-Leroy cultive l'excellence et sublime l'art de vivre pour celebrer vos succes.",
+          "Notre promesse : UNE FINESSE ABSOLUE",
+          "Carol Duval-Leroy"
+        ]
+      },
+      "graphics": {
+        "primary_artwork": "",
+        "colors": [
+          "black",
+          "gold",
+          "white"
+        ],
+        "design_style": "classic, elegant, luxurious",
+        "logos_emblems": "monogram",
+        "overall_description": "The label features a black background with gold and white text, surrounded by a gold border. A monogram is present above the brand name. The design is classic, elegant, and luxurious, suggesting a high-end champagne."
+      }
+    }
+  },
+  {
+    "filename": "87191_jpg.rf.c05f2614bca33a3aa3f01d3401a6b930.jpg",
+    "filepath": "test/87191_jpg.rf.c05f2614bca33a3aa3f01d3401a6b930.jpg",
+    "success": true,
+    "data": {
+      "text": {
+        "brand": "Veuve Clicquot",
+        "vintage": "",
+        "varietal": "Rosé",
+        "region": "Reims, France",
+        "alcohol_content": "",
+        "other_text": [
+          "CHAMPAGNE",
+          "MAISON FONDEE EN 1772",
+          "BRUT",
+          "A Reims France"
+        ]
+      },
+      "graphics": {
+        "primary_artwork": "A stylized shield with an anchor and 'VC' monogram",
+        "colors": [
+          "Pink",
+          "Yellow",
+          "Black",
+          "Red",
+          "Gray"
+        ],
+        "design_style": "Elegant, luxurious, and sophisticated",
+        "logos_emblems": "A shield with an anchor and 'VC' monogram",
+        "overall_description": "The label features a pink background with a yellow rectangle in the center, containing the brand name and other text. A stylized shield with an anchor and 'VC' monogram is positioned above the rectangle. The label also includes red and gray swirling lines and text in various fonts and colors."
+      }
+    }
+  },
+  {
+    "filename": "90757_jpg.rf.e27209f17fd829ef71e5c1c31ef7c122.jpg",
+    "filepath": "test/90757_jpg.rf.e27209f17fd829ef71e5c1c31ef7c122.jpg",
+    "success": true,
+    "data": {
+      "text": {
+        "brand": "JANSZ",
+        "vintage": "",
+        "varietal": "",
+        "region": "TASMANIA",
+        "alcohol_content": "",
+        "other_text": [
+          "Premium Rosé",
+          "Pipers River"
+        ]
+      },
+      "graphics": {
+        "primary_artwork": "A stylized black panther or lion-like creature with gold accents",
+        "colors": [
+          "Black",
+          "Gold",
+          "White",
+          "Beige",
+          "Gray"
+        ],
+        "design_style": "Elegant, luxurious, and sophisticated",
+        "logos_emblems": "Two logos: a circular logo with a panther-like creature and a rectangular logo with a textured background",
+        "overall_description": "The image features two logos for Jansz Tasmania, a wine brand. The top logo is circular with a black panther-like creature and gold accents, surrounded by text. The bottom logo is rectangular with a textured beige background and gray and gold text."
+      }
+    }
+  },
+  {
+    "filename": "100140_jpg.rf.e95fb096aa0b22600f02372c04c6751e.jpg",
+    "filepath": "test/100140_jpg.rf.e95fb096aa0b22600f02372c04c6751e.jpg",
+    "success": true,
+    "data": {
+      "text": {
+        "brand": "ALAMEDA",
+        "vintage": "",
+        "varietal": "CREAM",
+        "region": "SPAIN",
+        "alcohol_content": "18% vol.",
+        "other_text": [
+          "BODEGAS HIDALGO",
+          "FUNDADA EN 1752",
+          "SANLUCAR DE BARRAMEDA",
+          "PRODUCE OF SPAIN",
+          "DENOMINACION DE ORIGEN",
+          "JEREZ - XERES - SHERRY",
+          "75 cl. e"
+        ]
+      },
+      "graphics": {
+        "primary_artwork": "A woman holding a glass of wine",
+        "colors": [
+          "red",
+          "gold",
+          "black",
+          "white"
+        ],
+        "design_style": "Ornate, vintage",
+        "logos_emblems": "A diamond-shaped emblem with gold filigree and a circular portrait",
+        "overall_description": "The label features a diamond-shaped emblem with a circular portrait of a woman holding a glass of wine, surrounded by gold filigree on a red background. The emblem is outlined in blue. Below the emblem is a white rectangle with the brand name 'ALAMEDA' in red text and 'CREAM' in black text. At the bottom of the label is a smaller white rectangle with gold and black text providing additional information about the wine."
+      }
+    }
+  },
+  {
+    "filename": "101108_jpg.rf.cb2f5c4b539356e10f1ee949bebd860c.jpg",
+    "filepath": "test/101108_jpg.rf.cb2f5c4b539356e10f1ee949bebd860c.jpg",
+    "success": true,
+    "data": {
+      "text": {
+        "brand": "MUMM NAPA",
+        "vintage": "",
+        "varietal": "BRUT ROSÉ",
+        "region": "NAPA",
+        "alcohol_content": "",
+        "other_text": [
+          "METHODE TRADITIONNELLE"
+        ]
+      },
+      "graphics": {
+        "primary_artwork": "Interconnected circles",
+        "colors": [
+          "Pink",
+          "Black",
+          "Gold",
+          "Red"
+        ],
+        "design_style": "Elegant, minimalist",
+        "logos_emblems": "Small flag emblem",
+        "overall_description": "Simple, elegant design with a small flag emblem and interconnected circles on a pink background, framed in black and gold."
+      }
+    }
+  },
+  {
+    "filename": "102077_jpg.rf.e72a1dea2c4a2ed5083db913e2a4e1fa.jpg",
+    "filepath": "test/102077_jpg.rf.e72a1dea2c4a2ed5083db913e2a4e1fa.jpg",
+    "success": true,
+    "data": {
+      "text": {
+        "brand": "Ruinart",
+        "vintage": "1729",
+        "varietal": "Blanc de Blancs",
+        "region": "Reims, France",
+        "alcohol_content": "12.5% vol.",
+        "other_text": [
+          "CHAMPAGNE",
+          "BRUT",
+          "PRODUIT DE FRANCE",
+          "ELABORE PAR CHAMPAGNE RUINART A REIMS - FRANCE",
+          "PRODUCT OF FRANCE",
+          "NM-54593-03"
+        ]
+      },
+      "graphics": {
+        "primary_artwork": "A gold crest or coat of arms",
+        "colors": [
+          "Gold",
+          "Beige",
+          "Black"
+        ],
+        "design_style": "Classic, elegant, traditional",
+        "logos_emblems": "A gold crest or coat of arms featuring a crown and two lions, with the year '1729' underneath",
+        "overall_description": "The label features a gold border and a beige background with black and gold text. A gold crest or coat of arms is centered at the top, with the brand name 'Ruinart' in large black letters below. The overall design is classic, elegant, and traditional, suggesting a high-end champagne."
+      }
+    }
+  }
+]
