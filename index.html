@@ -143,15 +143,20 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 10/01/2026 à 17:27:29<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 11/01/2026 à 19:54:47<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>11-01-2025</b></p>
+<p>Journée maussadissime comme seul Brest peut en produire.🌧️🌧️🌧️</p>
+<p>J'organise les dossiers des skills que je compte utiliser avec pi. Elles proviennent de 3 sources : <a href="https://github.com/badlogic/pi-skills">Mario Zechner</a>, <a href="https://github.com/mitsuhiko/agent-stuff">Armin Ronacher</a> et <a href="https://github.com/anthropics/skills">Claude</a>. Puis je demande à pi de créer une skill à partir d'un script en Python qui fait une recherche sur le web avec DuckDuckGo et en fait un petit résumé. Pi s'exécute avec Big Pickle et Minimax et me crée une nouvelle skill : <code>web-search-summarize</code>, que je teste et qui fonctionne.</p>
+<p>Cet après-midi, visio avec Olivier où nous échangeons pendant 2h sur nos projets respectifs et l'évolution des outils de codage agentique.🤓</p>
 <p><b>10-01-2026</b></p>
 <p>Je teste pi avec le modèle <code>opencode/big-pickle</code>. J'essaie de modifier le script de départ de mon assistant vocal, qui fonctionnait avec <a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a> et qui avait nécessité de compiler whisper.cpp depuis la source, ce qui rendait le projet très fouilli. Je propose à pi d'utiliser <a href="https://pypi.org/project/pywhispercpp/">pywhispercpp</a> à la place.</p>
 <p>Big-pickle démarre au quart de tour et s'attaque au problème sans traîner. Je suis impressionné. Suite à une erreur, il propose d'utiliser <code>arecord</code> un outil natif de Python à la place de <code>pyaudio</code>.</p>
 <p>"I've successfully converted the script to use arecord (Linux command-line tool) instead of pyaudio/sounddevice. This eliminates the PortAudio dependency issue."</p>
-<p>Je teste avec <a href="https://huggingface.co/ggerganov/whisper.cpp/blob/main/ggml-base.en.bin">ce modèle</a> de 148 Mo et ça marche nickel, avec une vitesse comparable à celle de Groq.</p>
+<p>Je teste le script avec <a href="https://huggingface.co/ggerganov/whisper.cpp/blob/main/ggml-base.en.bin">ce modèle de whisper</a> de 148 Mo et ça marche nickel, avec une vitesse comparable à celle de Groq.</p>
+<p>Note : Olivier découvre que derrière l'appellation "Big Pickle" se cache <a href="https://github.com/anomalyco/opencode/issues/4276">le modèle GLM 4.6</a> de z.ai.</p>
 <p><b>09-01-2026</b></p>
 <p>J'aimerais bien utiliser l'API payante de Groq pour la rapidité de l'inférence, mais je trouve <a href="https://console.groq.com/docs/models">leur sélection de modèles</a> assez bizarre, assez pauvre en termes d'agentic coding, et à chaque fois ça me dissuade de sauter le pas. J'en parle à ChatGPT, qui me répond que le produit phare de Groq est maintenant <b>Compound</b>, un système d'IA agentique spécialement conçu qui intègre l'utilisation d'outils (recherche sur le Web, exécution de code, automatisation du navigateur, etc.) dans un seul appel API. Pas sûr de comprendre vraiment comment ça marche. En plus, le tarif pour 1M de tokens de Compound ou Compound Mini est bizarrement absent de leur tableau.</p>
 <p><b>08-01-2026</b></p>
