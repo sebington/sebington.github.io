@@ -143,14 +143,17 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 11/01/2026 à 19:54:47<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 13/01/2026 à 23:07:45<br>
 Contact : sebington arobase gémel point com
 </p>
 
-<p><b>11-01-2025</b></p>
-<p>Journée maussadissime comme seul Brest peut en produire.🌧️🌧️🌧️</p>
+<p><b>13-01-2026</b></p>
+<p>Bien avancé sur mon assistant vocal. Ajout d'icônes dans la barre des tâches en haut. Pas mal d'essais avant d'obtenir quelque chose qui tienne la route. Carré vert quand processus lancé et carré rouge clignotant quand ça enregistre et ça transcrit. C'est le script qui construit l'icône à la volée au lieu d'utiliser une image par exemple. Utilisation de Git pour récupérer mon code si le LLM s'emballe. J'ai fait appel à GLM 4.6 ("Big Pickle"). Modèle très réactif et pertinent, vraiment un plaisir à utiliser. Pour l'instant mon outil reste un peu délicat à manipuler mais il fait le taf. Gemini repasse derrière et en remet une couche. Il trouve des améliorations possible au niveau du "Clipboard Manager" qui est maintenant compatible avec Wayland et X11. Je fais un git push sur GitHub, mais n'ai plus la force de m'occuper du fichier README.md ce soir. C'est de la folie ces outils. 😵</p>
+<p><b>11-01-2026</b></p>
+<p>Journée maussadissime comme seul(e) Brest sait en produire 🌧️🌧️🌧️</p>
 <p>J'organise les dossiers des skills que je compte utiliser avec pi. Elles proviennent de 3 sources : <a href="https://github.com/badlogic/pi-skills">Mario Zechner</a>, <a href="https://github.com/mitsuhiko/agent-stuff">Armin Ronacher</a> et <a href="https://github.com/anthropics/skills">Claude</a>. Puis je demande à pi de créer une skill à partir d'un script en Python qui fait une recherche sur le web avec DuckDuckGo et en fait un petit résumé. Pi s'exécute avec Big Pickle et Minimax et me crée une nouvelle skill : <code>web-search-summarize</code>, que je teste et qui fonctionne.</p>
 <p>Cet après-midi, visio avec Olivier où nous échangeons pendant 2h sur nos projets respectifs et l'évolution des outils de codage agentique.🤓</p>
+<p>Ce soir comme prévu je modifie mon script "voice assistant daemon/groq" pour le faire fonctionner en local avec <code>pywhispercpp</code>. Minimax s'en occupe en deux temps trois mouvements. Je teste avec un modèle multilingue et non anglais-seul : à ma surprise quand je parle en français Whisper traduit ce que je dis et me livre la transcription en anglais. Je fais plusieurs essais, rien à faire. C'est peut-être le modèle qui a été mal étiqueté. On verra ça plus tard.</p>
 <p><b>10-01-2026</b></p>
 <p>Je teste pi avec le modèle <code>opencode/big-pickle</code>. J'essaie de modifier le script de départ de mon assistant vocal, qui fonctionnait avec <a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a> et qui avait nécessité de compiler whisper.cpp depuis la source, ce qui rendait le projet très fouilli. Je propose à pi d'utiliser <a href="https://pypi.org/project/pywhispercpp/">pywhispercpp</a> à la place.</p>
 <p>Big-pickle démarre au quart de tour et s'attaque au problème sans traîner. Je suis impressionné. Suite à une erreur, il propose d'utiliser <code>arecord</code> un outil natif de Python à la place de <code>pyaudio</code>.</p>
@@ -703,9 +706,9 @@ INFO: Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)</code></pr
 <p>Je continue d'essayer de construire un plugin Hugging Face pour Willison's <a href="https://llm.datasette.io/">LLM</a> avec Gemini-CLI. C'est de la folie pure de s'attaquer à un truc pareil. Je vais néanmoins beaucoup plus loin qu'hier. Le plugin s'installe et récupère une liste de modèles. Cependant impossible de lancer une requête (<code>Client error '404 Not Found'</code>).</p>
 <p><b>18-10-2025</b></p>
 <p>J'active Copilot dans VScode et le teste timidement. Copilot n'a pas compris que j'utilise uv et tente d'installer des librairies Python avec pip sur Ubuntu. Je l'arrête et y reviendrai dès que possible.</p>
-<p>Suite à la découverte du nouveau HuggingChat il y a 2 jours, je me dis qu'il est probable que HF essaie de proposer quelque chose comme OpenRouter : une seule API donne accès à de nombreux modèles. Je pose la question à ChatGPT qui finit par me le confirmer après être allé lire la doc de HF "en direct".</p>
+<p>Suite à la découverte du nouveau HuggingChat il y a 2 jours, je me dis qu'il est probable que HF essaie de proposer quelque chose comme OpenRouter : une seule API donne accès à de nombreux modèles. Je pose la question à ChatGPT qui finit par me le confirmer après être allé lire la doc sur le site de Hugging Face.</p>
 <p><span class="code-box">Yes, Hugging Face is now offering a multi-provider inference capability via its Inference Providers framework that approximates the “one API, many models/providers” goal. The OpenAI-compatible API support is a particularly strong move, enabling you to reuse existing client libraries against HF’s routing system.</span></p>
-<p>Convaincu par cette explication, je me dis qu'en théorie, je pourrais créer un plugin pour Simon Willison's <a href="https://llm.datasette.io/">LLM</a> qui donnerait accès aux modèles de HF. Mais je me dis que c'est peut-être un peu trop ambitieux de commencer par ça. Essayons déjà de voir si l'API de HF fonctionne comme prévu.</p>
+<p>Convaincu par cette explication, je me dis qu'en théorie, je pourrais créer un plugin pour Simon Willison's <a href="https://llm.datasette.io/">LLM</a> qui donnerait accès aux modèles de HF. Mais je me dis aussi que c'est peut-être un peu ambitieux de commencer par ça. Essayons déjà de voir si l'API de HF fonctionne comme prévu.</p>
 <p>Je me rends sur https://huggingface.co/docs/inference-providers/ et finit par trouver un bout de code pour tester l'API. Il faut créer une clé spéciale (allowing inference providers). Le script fonctionne.</p>
 <p>Je demande alors à Gemini-CLI d'incorporer HF aux 3 autres providers de mon script 2_analyze_gemini_v1.py (projet YouTube).</p>
 <p>Prompt :<br><span class="code-box">Use @test_hf.py to add Hugging Face as a new model provider in @2_analyze_gemini_v2.py.</span></p>
