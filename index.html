@@ -143,10 +143,28 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 17/01/2026 à 15:11:21<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 19/01/2026 à 09:34:21<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>19-01-2026</b></p>
+<p>"Many of us got hit by the agent coding addiction. It feels good, we barely sleep, we build amazing things. Every once in a while that interaction involves other humans, and all of a sudden we get a reality check that maybe we overdid it. The most obvious example of this is the massive degradation of quality of issue reports and pull requests. As a maintainer many PRs now look like an insult to one’s time, but when one pushes back, the other person does not see what they did wrong. They thought they helped and contributed and get agitated when you close it down."</p>
+<p>-- Armin Ronacher - <a href="https://lucumr.pocoo.org/2026/1/18/agent-psychosis/">Agent Psychosis: Are We Going Insane?</a></p>
+<p><b>18-01-2026</b></p>
+<p>Mon outil <code>voice2prompt</code> fonctionne à nouveau. La deuxième partie de la session de "refactoring" s'est bien terminée. Le modèle principalement utilisé était <code>google-antigravity/gemini-3-pro-high</code>. Une fois le free tier épuisé, je suis passé à <code>opencode/glm-4.7-free</code>, puis à <code>opencode/big-pickle</code>. Tous les deux m'ont laissé tombé après quelques minutes, mais l'essentiel du travail avait été fait et l'outil était fonctionnel. J'ai supprimé les fichiers temporaires et ai fait un <code>/init</code> avec Claude Code pour recréer un fichier CLAUDE.md "propre" et mettre à jour le fichier README.md de GitHub (que j'ai modifié à la main ensuite).</p>
+<p>L'outil se comporte maintenant comme les autres outils du même genre. Un modèle de Whisper est automatiquement téléchargé si pas déjà présent sur la machine. On enregistre sa voix en restant appuyé sur une touche du clavier et quand on lâche la touche, la transcription s'effectue et le texte est collé automatiquement là où se trouve le curseur. L'ensemble est constitué de 3 fichiers : deux scripts en Python et un script en Bash.</p>
+<p>Mise en ligne de <a href="https://github.com/sebington/voice2prompt">la nouvelle version</a> sur GitHub. Claude Code me propose de gérer les commandes git à ma place mais je préfère m'astreindre à les passer manuellement pour mieux comprendre. Finalement on peut s'en sortir avec un nombre réduit de commandes. Voici celles que j'ai utilisées jusqu'à maintenant (en ordre alphabétique) :</p>
+<p><pre><code>git add .
+git clone
+git commit
+git config
+git diff
+git init
+git log --oneline
+git push
+git remote add origin
+git rm --cached fichier.md
+git status</code></pre></p>
 <p><b>17-01-2026</b></p>
 <p>Sortie il y a 3 jours de <a href="https://kyutai.org/blog/2026-01-13-pocket-tts">Pocket TTS</a>, un <a href="https://huggingface.co/kyutai/pocket-tts">modèle</a> text-to-speech de seulement 236_Mo qui peut donc fonctionner en local et semble donner de très bons résultats. <a href="https://kyutai.org/">Kyutai</a> est un laboratoire français de recherche ouverte en intelligence artificielle. En consultant leur site, je constate qu'ils ont également développé un modèle de <a href="https://huggingface.co/kyutai/stt-1b-en_fr">speech-to-text</a> comparable à Whisper et surtout <a href="https://unmute.sh/">Unmute.sh</a>, un outil qui permet de dialoguer en direct avec un modèle spécialement prompté pour adopter un comportement ou incarner un personnage défini. Je discute un moment avec le Général de Gaulle, puis avec un personnage féminin qui parle français avec un délicieux accent anglais et m'explique comment Unmute a été conçu (apparemment avec un modèle de Mistral finetuné). En tout cas l'interface est superbe et ça marche du feu de Dieu.</p>
 <p>Le problème des MCP qui bouffent le contexte de Claude Code aurait été résolu par Anthropic, si l'on en croit <a href="https://www.youtube.com/watch?v=1RpGVqgqLaE">cette vidéo</a>.</p>
