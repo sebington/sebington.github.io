@@ -143,10 +143,50 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 21/01/2026 à 09:55:44<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 24/01/2026 à 19:34:58<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>24-01-2026</b></p>
+<p>L'algorithme de YouTube me recommande une vidéo "de" Richard Feynman [kWCl7diBGos]. Je clique. On entend la voix de Richard Feynman et des propos sur la vitesse de la lumière s'affichent en temps réel à l'écran. Très vite je questionne l'origine de ce truc. Aujourd'hui on peut cloner n'importe quelle voix et lui faire dire ce qu'on veut. Je regarde le nombre de vues : 2,3 million. Je regarde les commentaires. Il y en a plus de 5000. Les auteurs de la vidéo ont épinglé un commentaire expliquant que ce n'est pas Richard Feynman qu'on entend :</p>
+<p>"This channel isn't officially connected to Richard Feynman or his estate. We're here to share his incredible way of explaining physics with a new generation who never got to learn from him directly. This isn't his voice — it's our tribute to his teaching style, created purely for education and inspiration. No impersonation intended, just deep respect for one of history's greatest teachers."</p>
+<p>Reste à savoir si les propos tenus sont bien ceux de Feynman et s'ils sont tirés d'un cours, d'une conférence ou d'un livre. Pour le savoir il faut aujourd'hui faire tout un travail d'investigation. Un internaute résume la situation :</p>
+<p>"'cloned voice'  '15% fictionalized'  this is what Youtube has become".</p>
+<p>Je me renseigne sur les revenus potentiellement générés par une vidéo YT de 2,3 M de vues. ChatGPT donne la fourchette suivante : entre 2000 et 8000 dollars, tandis que Claude est plus optimiste : entre 6900 et 11500 dollars. Pas mal pour du Feynman recyclé !</p>
+<p><b>22-01-2026</b></p>
+<p>Le modèle <a href="https://huggingface.co/zai-org/GLM-4.7-Flash">zai-org/GLM-4.7-Flash</a> vient d'être mis à jour. Je tente de l'ajouter à la liste de modèles dans pi en utilisant Hugging Face (HF) Inference Providers. J'utilise les infos trouvées quand on clique sur "Deploy > Inference Providers" que je recopie dans <a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#custom-models-and-providers">un modèle de fichier JSON</a> propre à pi.</p>
+<p><pre><code>{
+  "providers": {
+    "huggingface": {
+      "baseUrl": "https://router.huggingface.co/v1",
+      "apiKey": "HUGGINGFACE_API_KEY",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "zai-org/GLM-4.7-Flash",
+          "name": "GLM-4.7-Flash (HuggingFace)",
+          "reasoning": true,
+          "input": ["text"],
+          "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+          "contextWindow": 128000,
+          "maxTokens": 32000
+        }
+      ]
+    }
+  }
+}</code></pre></p>
+<p>J'ajoute la clé API de HF à .bashrc puis je teste et au début ça semble marcher. Puis en fait non : "Error: 400 Incorrect role information". Apparemment pi n'est pas tout à fait paramétré pour parler correctement à l'API de HF.</p>
+<p><b>22-01-2026</b></p>
+<p>Un client nous donne accès à un glossaire terminologique sous la forme d'un tableur multi-colonnes. Je l'exporte en CSV. Petit problème : il peut y avoir plusieurs termes sur la même ligne pour une langue donnée, séparés par "|". Par exemple :</p>
+<p><pre><code>item,item1|item2|item3</code></pre></p>
+<p>Je demande à big-pickle de modifier le glossaire pour n'avoir qu'un terme par ligne et par langue, quitte à multiplier les lignes.</p>
+<p><pre><code>@glossary.csv is a bilingual glossary. Modify its entries in order to remove the pipe '|' character and add more lines. For example if you find item,item1|item2|item3 (one-to-many) you will create 3 lines: item,item1 item,item2 and item,item3. Do the same thing if you have many-to-one or many-to-many lines. Is this clear?</code></pre></p>
+<p>Pi/big-pickle résoud le problème en un peu plus d'une minute. Il écrit un script en Python qui fait appel à Pandas et modifie mon glossaire dans la foulée. Je vérifie que j'ai bien à présent des données du type</p>
+<p><pre><code>item,item1
+item,item2
+item,item3</code></pre></p>
+<p><b>21-01-2026</b></p>
+<p>Je constate sur models.dev qu'il y a deux fournisseurs distincts pour les modèles MiniMax : minimax et minimax-cn, avec leurs sites respectifs <a href="https://www.minimax.io/">https://www.minimax.io/</a> et <a href="https://www.minimaxi.com/">https://www.minimaxi.com/</a>. Les deux sites sont identiques. Les tarifs aussi. Étrange. J'imagine que https://www.minimax.io/ est la vitrine occidentale du MiniMax chinois.</p>
 <p><b>20-01-2026</b></p>
 <p>Petite annecdote symptomatique de cette folie agentique dans laquelle nous baignons. Ce matin je veux récupérer une image par seconde d'une vidéo pour un projet. Je sais que je l'ai déjà fait, que c'était facile, et que j'avais probablement utilisé ffmpeg. Mais je ne me souviens pas de la méthode. Je fais des recherches dans mes tablettes, rien. Je me dis, demandons à Claude, il va me chier un truc en deux secondes.</p>
 <p>Je prompte Claude et par curiosité ne mentionne pas ffmpeg ("Write a Python script that will do a video frame freeze every second"). Claude me pond un script d'une soixantaine de lignes faisant appel à une bibliothèque nommée <code>opencv-python</code>. Le script ne fonctionne pas, je demande à pi de le réparer, rien à faire. Je lui demande alors de "refactor" le code en utilisant ffmpeg, pi s'exécute puis vérifie dans la foulée si ffmpeg est installé sur le système (WSL), et comme ce n'est pas le cas, s'arrête.</p>
