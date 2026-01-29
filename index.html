@@ -143,18 +143,64 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 24/01/2026 à 19:34:58<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 29/01/2026 à 15:44:41<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>29-01-2026</b></p>
+<p>Mario Zechner vient d'<a href="https://github.com/badlogic/pi-mono/issues/994">ajouter Hugging Face</a> aux fournisseurs par défaut de <a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent">pi</a>. Plus besoin donc pour ce fournisseur du fichier <code>models.json</code> mentionné il y a trois jours.</p>
+<p>Je teste <code>npx skills add owner/repo</code> (voir <a href="https://skills.sh/">skills.sh</a>). Il faut faire attention aux nombreuses options qu'ils proposent car ça a tendance a vouloir installer beaucoup de choses, surtout si on répond oui à <code>Install the find-skills skill?</code>. Si on se contente de l'installation d'une skill ou deux, ça marche très bien. Deux options sont proposées pour la méthode d'installation : <code>Symlink (Recommended)</code> ou <code>Copy to all agents</code>, ce qui manque de clarté. Apparemment il y a un module de tracking anonyme qui recense quelles skills sont installées (peut-être activé quand on choisit l'option "Symlink"). Plus de détails dans la <a href="https://www.youtube.com/watch?v=PkeC2hNQ9Zw"> vidéo de Substack</a> ou dans celle de <a href="https://www.youtube.com/watch?v=rcRS8-7OgBo">Hugging Face</a>. Pour info, j'ai volontairement fait le test de télécharger une skill que j'avais déjà et le script écrase la skill déjà présente.</p>
+<p><b>27-01-2026</b></p>
+<p>J'utilise pi comme assistant linguistique, toujours avec claude-sonnet-4-5-thinking sous le capot. Je veux compléter un glossaire incomplet (fichier .csv bilingue français-anglais) et l'adapter le mieux possible à un texte ("source") à traduire. Je demande à pi/sonnet de comparer le glossaire au texte source et de l'adapter en conséquence. Je lui demande aussi de traduire les éventuelles nouvelles entrées du glossaire, soit par lui-même, soit en utilisant DeepL via son API (je lui donne un exemple de script en Python).</p>
+<p><pre><code>Read @texte_brut_fr.txt and @glossaire_general.csv, then do 2 things: (a) find new potential entries to be added to the glossary and (b) remove entries that are not in @texte_brut_fr.txt from @glossaire_general.csv. Entries can be a single word or expressions. For new entries, propose a translation in English, using your own capabilities or @deepl_test.py Python script.</code></pre></p>
+<p>Le système se débrouille très bien avec mes instructions et se crée les outils au fur à mesure pour atteindre l'objectif. Le résultat est vraiment chouette. Voici un extrait du log.</p>
+<p>SUMMARY<br>--------------------------------------------------------------------------------------<br>Original glossary entries:    145<br>Entries removed:               91 (not found in source text)<br>Entries kept:                  54 (found in source text)<br>New entries added:            114 (extracted from source text)<br>Final glossary entries:       168</p>
+<p>TRANSLATION METHOD<br>--------------------------------------------------------------------------------------<br>- New entries were translated using DeepL API<br>- 23 translations were manually corrected for better accuracy in academic publishing context<br>- All entries verified to exist in the source text (texte_brut_fr.txt)</p>
+<p>FILES CREATED<br>--------------------------------------------------------------------------------------<br>- glossaire_general_backup.csv (backup of original glossary)<br>- glossaire_general.csv (updated glossary - 168 entries)<br>- new_entries_translated.csv (114 new translated entries)<br>- new_entries_to_translate.txt (list of terms to translate)</p>
+<p>Je constate dans le log de session de pi que l'outil a bien utilisé DeepL pour traduire les 114 nouvelles entrées et que –cerise sur le gâteau– il a ensuite décidé comme un grand de modifier 23 d'entre-elles, jugées "mal-traduites" par DeepL ! Par exemple "coquille" (dans le sens de faute de frappe) avait été traduit par "shell" au lieu de "typo". L'outil a donc tenu compte du contexte pour proposer une traduction plus pertinente, qualité essentielle à tout traducteur. Waoh.<br>------<br>Un <a href="https://korben.info/llm-biologie-decouverte-structurelle.html">billet</a> très intéressant de Korben sur une "capacité émergente" des LLM.<br>------<br>Il y aurait un risque avéré que Clawdbot sème la pagaille (et je reste poli) sur Internet. En tous cas c'est ce que <a href="https://www.youtube.com/watch?v=Fh-9Y5Q4c20">certains prédisent</a>. Bref, on va voir si "Clawdbot = Recipe for disaster".</p>
+<p><b>26-01-2026</b></p>
+<p>Je trouve la solution au problème de GLM-4.7-Flash / Hugging Face (voir 24/01/2026). Je demande à claude-sonnet-4-5-thinking directement dans pi.</p>
+<p><pre><code>I am getting the following error: "Error: 400 Incorrect role information" when trying to use the Hugging Face model set in @/home/seb/.pi/agent/models.json. Please investigate.</code></pre></p>
+<p>Le système fait une sorte d'auto-diagnostic et trouve la solution en quelques secondes. Je suis sur le cul.</p>
+<p><pre><code>I've updated your Hugging Face provider configuration with compatibility flags:
+• Added "supportsDeveloperRole": false - This tells Pi to use `system` role instead of `developer` role, which many models don't support
+• Added "supportsUsageInStreaming": false - Disables streaming usage stats which HuggingFace router may not support
+The "400 Incorrect role information" error typically occurs when a model receives a message role it doesn't recognize (like developer instead of system). This should fix the issue.</code></pre></p>
+<p>Voici le fichier de configuration réparé :</p>
+<p><pre><code>{
+  "providers": {
+    "huggingface": {
+      "baseUrl": "https://router.huggingface.co/v1",
+      "apiKey": "HUGGINGFACE_API_KEY",
+      "api": "openai-completions",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsUsageInStreaming": false
+      },
+      "models": [
+        {
+          "id": "zai-org/GLM-4.7-Flash",
+          "name": "GLM-4.7-Flash (HuggingFace)",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+          "contextWindow": 128000,
+          "maxTokens": 32000
+        }
+      ]
+    }
+  }
+}</code></pre></p>
+<p>------</p>
+<p>HYPE : sortie de Clawdbot accompagné d'une <a href="https://www.youtube.com/watch?v=Qkqe-uRhQJE">rumeur</a> partiellement <a href="https://ucstrategies.com/news/why-everyone-is-suddenly-buying-mac-minis-to-run-clawdbot-you-probably-dont-need-one/">expliquée</a> selon laquelle il faudrait un Mac Mini pour en tirer pleinement parti. Heureusement <a href="https://www.youtube.com/watch?v=ALXaWL70w9M">certains youtubeurs</a> font l'effort de rétablir un semblant de rationalité dans leurs explications.</p>
 <p><b>24-01-2026</b></p>
 <p>L'algorithme de YouTube me recommande une vidéo "de" Richard Feynman [kWCl7diBGos]. Je clique. On entend la voix de Richard Feynman et des propos sur la vitesse de la lumière s'affichent en temps réel à l'écran. Très vite je questionne l'origine de ce truc. Aujourd'hui on peut cloner n'importe quelle voix et lui faire dire ce qu'on veut. Je regarde le nombre de vues : 2,3 million. Je regarde les commentaires. Il y en a plus de 5000. Les auteurs de la vidéo ont épinglé un commentaire expliquant que ce n'est pas Richard Feynman qu'on entend :</p>
 <p>"This channel isn't officially connected to Richard Feynman or his estate. We're here to share his incredible way of explaining physics with a new generation who never got to learn from him directly. This isn't his voice — it's our tribute to his teaching style, created purely for education and inspiration. No impersonation intended, just deep respect for one of history's greatest teachers."</p>
 <p>Reste à savoir si les propos tenus sont bien ceux de Feynman et s'ils sont tirés d'un cours, d'une conférence ou d'un livre. Pour le savoir il faut aujourd'hui faire tout un travail d'investigation. Un internaute résume la situation :</p>
-<p>"'cloned voice'  '15% fictionalized'  this is what Youtube has become".</p>
-<p>Je me renseigne sur les revenus potentiellement générés par une vidéo YT de 2,3 M de vues. ChatGPT donne la fourchette suivante : entre 2000 et 8000 dollars, tandis que Claude est plus optimiste : entre 6900 et 11500 dollars. Pas mal pour du Feynman recyclé !</p>
+<p>"cloned voice, 15% fictionalized, this is what Youtube has become".</p>
+<p>Je me renseigne sur les revenus potentiellement générés par une vidéo de 2,3 M de vues. ChatGPT donne la fourchette suivante : entre 2000 et 8000 dollars, tandis que Claude est plus optimiste : entre 6900 et 11500 dollars. Pas mal pour du Feynman recyclé.</p>
 <p><b>22-01-2026</b></p>
-<p>Le modèle <a href="https://huggingface.co/zai-org/GLM-4.7-Flash">zai-org/GLM-4.7-Flash</a> vient d'être mis à jour. Je tente de l'ajouter à la liste de modèles dans pi en utilisant Hugging Face (HF) Inference Providers. J'utilise les infos trouvées quand on clique sur "Deploy > Inference Providers" que je recopie dans <a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#custom-models-and-providers">un modèle de fichier JSON</a> propre à pi.</p>
+<p>Le modèle <a href="https://huggingface.co/zai-org/GLM-4.7-Flash">zai-org/GLM-4.7-Flash</a> vient d'être mis à jour. Je tente de l'ajouter à la liste de modèles dans pi en utilisant Hugging Face (HF) Inference Providers. J'utilise les infos trouvées quand on clique sur "Deploy > Inference Providers" que je recopie dans <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/models.md">un modèle de fichier JSON</a> propre à pi.</p>
 <p><pre><code>{
   "providers": {
     "huggingface": {
