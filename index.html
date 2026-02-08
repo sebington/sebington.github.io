@@ -143,14 +143,49 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 03/02/2026 à 01:16:17<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 08/02/2026 à 18:04:29<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>08-02-2026</b></p>
+<p>Les sessions avec pi s'enchaînent et me permettent d'améliorer mes applis basées sur la voix. Il y en a maintenant trois : voice2prompt, voice2llm_local et voice2llm_groq. Les deux dernières sont inspirées comme dit précédemment des travaux de Kyutai en matière de speech-to-text (STT) et de text-to-speech (TTS) combinés avec un LLM au milieu.</p>
+<p>Comme la partie STT ne fonctionnait pas sur mon ordi. Je l'ai remplacée par Whisper, avec le code de voice2prompt. J'en ai fait une version qui fonctionne entièrement en local (Whisper/Ollama/Pocket-TTS) et une autre version dont la partie "LLM/TTS" est gérée par Groq. Cette version semi-locale fonctionne plutôt mieux, avec moins de latence que la version 100 % locale.</p>
+<p>L'écueil principal est la latence entre la sortie du LLM et sa reconstitution sonore. Plusieurs stratégies ont été utilisée pour tenter de résoudre ce problème, avec notamment l'idée de "streamer" les phrases ou les mots par "chunks" dans l'entrée du modèle TTS plutot que le texte en un seul bloc. Mais cela ne fonctionne  que partiellement.</p>
+<p>En revanche, j'ai fait une grande découverte (pour moi) : j'ai enfin trouvé un moyen de ne plus charger la version standard de PyTorch (par exemple avec Pocket-TTS) qui est énorme et télécharge toutes sortes de bibliothèques CUDA compatibles avec les machines équippées de GPU. Si comme moi vous avez une modeste machine sans GPU, il est préférable d'utiliser <code>pytorch-cpu</code>, bibliothèque ultra-légère qui est téléchargée par uv en un clin d'oeil.</p>
+<p>Ensuite il faut modifier les "inline scripts" de uv comme suit.</p>
+<p>Avant :</p>
+<p><pre><code># /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "numpy",
+#     "torch",
+# ]
+# ///</code></pre></p>
+<p>Après :</p>
+<p><pre><code># /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "numpy",
+#     "torch",
+# ]
+#
+# [tool.uv]
+# extra-index-url = ["https://download.pytorch.org/whl/cpu"]
+# ///</code></pre></p>
+<p>Le reste du temps j'écoute et réécoute <a href="https://www.youtube.com/watch?v=AEmHcFH1UgQ">une interview</a> de mes deux stars du moment parler de leur travaux autour de <a href="https://shittycodingagent.ai/">pi</a>, qui je le rappelle est utilisé comme orchestrateur dans OpenClaw. Pour saisir toutes les subtilités de cet entretien passionnant, j'en fait une transcription avec Whisper, que je suis en train d'améliorer.</p>
+<p><b>05-02-2026</b></p>
+<p>La traduction via LLM (ex. ChatGPT) fonctionne de mieux en mieux. Le LLM traite le texte dans son intégralité et est capable d'une certaine abstraction ce qui lui fait traduire certaines phrases de façon non-littérale. Pour moi ChatGPT traduit beaucoup mieux que DeepL. J'échange avec ChatGPT sur le sujet. Conversation intéressante même si ChatGPT marche un peu sur des oeufs et avance des choses qu'il tempère juste après, typique.<br>------<br>J'utilise beaucoup Codex CLI avec <code>gpt-5.2-codex</code>, le modèle "recommandé". Tellement que j'ai quasiment atteint la limite hebdomadaire d'usage (il me reste 3%). Je dois attendre jusqu'au 11 février 16:13 pour avoir plus. Et moi qui pensais que c'était open bar.<br>------<br>J'ai réussi à remanier l'appli "Unmute" avec Codex. J'ai décidé de tout passer en local :<br>- STT avec <code>pywhispercpp</code> et le modèle <code>base.en</code> de whisper (code de mon appli voice2prompt)<br>- LLM avec Ollama et <code>gemma3:1b</code>, un petit modèle très rapide en mode CPU<br>- TTS toujours avec Pocket-TTS. Le problème est la latence, que j'ai réussi à réduire à force de réglages (6 sec. > 1 sec.).</p>
+<p>Expérimenter ainsi est très amusant. On ne s'exprime pas de la même façon à l'oral et à l'écrit. On voit les limites des connaissances et les hallucinations des petits modèles. J'ai essayé <code>qwen3:0.6b</code> mais c'est un "thinking model" donc pas exploitable à cause de la latence (à ma connaissance, on ne peut pas l'empêcher de penser). J'ai aussi essayé <code>smollm2:135m</code> mais il si petit qu'il déraille assez vite.</p>
+<p><b>04-02-2026</b></p>
+<p>Retour sur <a href="https://kyutai.org/">Kyutai</a> et ses modèles STT et TTS. L'idée serait de reproduire le comportement de <a href="https://unmute.sh/">Unmute</a> en local. Selon Kyutai, cela ce fait en 3 parties : un modèle STT qui écoute l'utilisateur et produit une transcription, un LLM qui récupère la transcription et prépare une réponse aux propos tenus et un modèle TTS qui génère une réponse audio à partir de la sortie du LLM. Pour info, il est possible de dialoguer à l'oral sur Unmute et de poser des questions sur son fonctionnement (choisir "Explanations").</p>
+<p>Pour le text-to-speech, le système Pocket-TTS de Kyutai fonctionne merveilleusement bien pour un modèle de cette taille (236 Mo), notamment avec uv. Pour le speech-to-text en revanche, c'est plus compliqué : le modèle fait quasiment 2 Go et le script télécharge aussi un autre fichier de 385 Mo, plus toute la ribambelle de fichiers pytorch et autre (environ 13 Go !).</p>
+<p>Moi qui voulais un truc léger, c'est raté. De plus, je n'arrive pas à faire fonctionner la partie STT en local. Je finis par la remplacer par le whisper local que j'utilise déjà avec mon assistant vocal. J'expérimente aussi une variante avec un modèle généraliste + un modèle TTS de Groq : ça fonctionne, mais avec un temps de latence de plusieurs secondes.</p>
+<p>Je réalise ces expérimentations avec <a href="https://developers.openai.com/codex/cli/">Codex CLI</a> qui propose un accès gratuit et (apparemment pleine balle) à gpt-5.2-codex pendant un mois.</p>
 <p><b>03-02-2026</b></p>
 <p>J'essaie de comprendre comment les agents effectuent des recherches sur le web. Comme pi est beaucoup plus "bas niveau" que Claude Code, à chaque fois que pi effectue une recherche, j'examine comment il fait, afin de dissiper des idées préconçues ou fausses croyances que je pourrais avoir sur son fonctionnement.</p>
 <p>Je demande à pi/kimi-k2-free de créer de nouvelles skills en s'inspirant de skills existantes. Pi crée des skills "sur mesure" qu'il teste abondamment. Je lui demande notamment de faire appel à l'<a href="https://ai.google.dev/gemini-api/docs">API de Gemini</a>, dont je découvre l'accès par un heureux hasard. Google Cloud a longtemps été si compliqué d'accès que j'avais depuis des années complètement renoncé ! Pi me crée une skill "genai-web-search" aux petits oignons. Je lui demande également de s'inspirer de "web-search-summarize" (qui utilise duckduckgo ET groq) pour en créer une version simplifiée ("simple-ddg-web-search") qui utilise uniquement DDG via le module pypi "ddgs".</p>
-<p>J'explore les possibilités offertes par l'API de Gemini. En faisant des essais et alors que je pointe vers un fichier en utilisant l'arobase, je constate que pi/kimi-k2.5 pense que @ fait partie du nom du fichier et me dit qu'il ne le trouve pas ! Je regarde sur GitHub si d'autres utilisateurs ont eu le même problème mais rien. Alors je crée une nouvelle <a href="https://github.com/badlogic/pi-mono/issues/1206">GitHub Issue</a> en expliquant le problème. Mario Zechner me répond en me disant que c'est le modèle qui est un peu simplet (!) et met néanmoins en place une stratégie pour éviter que ça ne se reproduise.</p>
+<p>J'explore les possibilités offertes par l'API de Gemini. En faisant des essais et alors que je pointe vers un fichier en utilisant l'arobase, je constate que pi/kimi-k2.5 pense que @ fait partie du nom du fichier et me dit qu'il ne le trouve pas. Je regarde sur GitHub si d'autres utilisateurs ont eu le même problème mais rien. Alors je crée une <a href="https://github.com/badlogic/pi-mono/issues/1206">GitHub Issue</a> en expliquant le problème. Mario Zechner me répond en me disant que c'est le modèle qui est un peu simplet ! Il met néanmoins en place une stratégie pour éviter que ça ne se reproduise.</p>
+<p>Ce soir, après avoir perdu beaucoup de temps à installer et tester amp, droid et codex (avec zéro résultats), je retourne sur pi et –ô surprise– constate que <code>claude-opus-4-5-thinking</code> est disponible via google-antigravity. J'en profite pour améliorer mon wavideo-editor avec un opus véloce et précis, c'est jouissif. Trente minutes plus tard opus me lâche et je termine la session avec <code>anthropic/claude-sonnet-4-5</code> (payant via l'api). Mais les deux modèles ont fait du super boulot. Je suis content.</p>
 <p><b>02-02-2026</b></p>
 <p>Je suis très surpris <a href="https://lucumr.pocoo.org/2026/1/31/pi/">d'apprendre</a> que pi, l'outil d'agentic coding que j'utilise depuis le 1er janvier, est ce qui fait fonctionner <a href="https://openclaw.ai/">OpenClaw</a> (appelé précédemment ClawdBot, puis MoltBot). OpenClaw fait le buzz sur les réseaux depuis plusieurs jours et j'ignorais complètement le lien entre pi et OpenClaw. Par curiosité j'ai fait une recherche de la plus ancienne vidéo YouTube trouvée avec le mot clé "clawdbot", ce serait <a href="https://www.youtube.com/watch?v=qz23zld5oX4">celle-ci</a>. Pour info le tout premier commit d'OpenClaw date du 24 novembre 2025. Montée fulgurante donc, mais je continue de penser que ce truc est potentiellement source de chaos, et <a href="https://www.youtube.com/watch?v=esXXuejofgk">je ne suis pas le seul</a>. Simon Willison, un fervent pourfendeur du slop, se montre <a href="https://simonwillison.net/2026/Jan/30/moltbook/">étrangement indulgent</a> envers OpenClaw, même s'il <a href="https://til.simonwillison.net/llms/openclaw-docker">reste sur ses gardes</a> quand il s'agit de l'utiliser.</p>
 <p><b>01-02-2026</b></p>
