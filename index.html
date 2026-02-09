@@ -143,10 +143,12 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 08/02/2026 à 20:04:59<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 09/02/2026 à 11:23:00<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>09-02-2026</b></p>
+<p>Hier, "mésaventure" avec anthropic/claude-haiku-4-5. D'abord je lui demande de se familiariser avec le projet avec un "Read this codebase", puis je lui demande d'écrire le résultat de son analyse dans un fichier markdown, jusque là tout va bien. Je lui demande ensuite plusieurs modifications majeures et termine mon prompt par "...or any other improvements you could think of". Haiku effectue (très mal) les tâches demandées et dans la foulée se met à écrire rapport après rapport sur ce qu'il vient de faire. Je dirais qu'il brûle 60 % de tokens sur les rapports et 40 % sur les tâches. Je suis très déçu du résultat car rien de ce que j'ai demandé fonctionne. Je lui demande de défaire ses conneries et de ne pas continuer à produire tous ces rapports inutiles. Il est possible que ce comportement ait été induit par mon prompt trop permissif. Ceci dit je ne peux m'empêcher de penser que cela est voulu par Anthropic, notamment avec Haiku, qui est probablement davantage utilisé par les développeurs "amateurs", moins enclins à remarquer ou remettre en cause son comportement "indiscipliné".</p>
 <p><b>08-02-2026</b></p>
 <p>Les sessions avec pi s'enchaînent et me permettent d'améliorer mes applis basées sur la voix. Il y en a maintenant trois : voice2prompt, voice2llm_local et voice2llm_groq. Les deux dernières sont inspirées comme dit précédemment des travaux de <a href="https://kyutai.org/">Kyutai</a> en matière de speech-to-text (STT) et de text-to-speech (TTS) combinés avec un LLM au milieu.</p>
 <p>Comme la partie STT ne fonctionnait pas sur mon ordi. Je l'ai remplacée par Whisper, avec le code de voice2prompt. J'en ai fait une version qui fonctionne entièrement en local (Whisper/Ollama/Pocket-TTS) et une autre version dont la partie "LLM/TTS" est gérée par Groq. Cette version semi-locale fonctionne plutôt mieux, avec moins de latence que la version 100 % locale.</p>
