@@ -143,10 +143,21 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 11/02/2026 à 10:36:14<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 13/02/2026 à 11:05:51<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>13-02-2026</b></p>
+<p>Le début de la fin ? Un agent autonome géré par OpenClaw <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/">se rebelle</a> contre la personne en charge de la gestion des pull requests de Matplotlib. Conseil : lire en premier le billet de blog de <a href="https://simonwillison.net/">Simon Willison</a> ("An AI Agent Published a Hit Piece on Me"). Internet est en train de devenir un bordel sans nom. Je suis inquiet.</p>
+<p>La puissance de Google continue de m'impressionner. Avec un prompt d'une seule phrase, je crée une appli qui transcrit et identifie parfaitement les interlocuteurs d'un enregistrement audio d'une discussion entre 4 personnes. Quel contraste avec la bataille que je mène depuis plusieurs jours avec WhisperX, whisper-diarization, etc., usines à gaz aux résultats incertains...</p>
+<p>Le mieux est l'ennemi du bien : hier soir tentative d'amélioration de mon appli voice2voice 100 % locale (whisper/ollama/pocket-tts) avec Sonnet. Je dépense 1,50 $ et le résultat est pire que le point de départ. J'ai peut-être fait l'erreur de démarrer la session avec GLM-5 avant de switcher pour Sonnet à cause du très faible free tier de HuggingFace.</p>
+<p><b>12-02-2026</b></p>
+<p>Pour mon outil de dialogue oral avec une IA (renommé voice2voice), je voudrais pouvoir m'exprimer en français. Quand je choisis un modèle multilingue (whisper tiny, base ou small) et parle en français, ça ne fonctionne pas. Alors je cherche et trouve un petit modèle de Whisper (base) finetuné pour le français. Mais ça ne marche toujours pas. Je demande à pi de m'aider, ce qu'il fait avec gemini, puis sonnet. J'apprends ainsi qu'il ne faut pas juste changer le modèle, il faut également ajouter <code>language = 'fr'</code> dans la fonction qui effectue la transcription avec pywhispercpp.</p>
+<p>Avant :</p>
+<p><pre><code>segments = whisper_model.transcribe(tmp_path)</code></pre></p>
+<p>Après :</p>
+<p><pre><code>segments = whisper_model.transcribe(tmp_path, language='fr')</code></pre></p>
+<p>L'utilisation d'un modèle multilingue de Whisper devrait donc être possible.</p>
 <p><b>11-02-2026</b></p>
 <p>Hier soir je fais une session avec pi/sonnet pour essayer d'obtenir une version "cpu-friendly" d'un outil de transcription avec "diarisation". La diarisation consiste à identifier les différents interlocuteurs d'une conversation. Le résultat est très décevant. Le modèle perd vite de vue que l'objectif de l'outil est précisément la diarisation et me propose des solutions au rabais comme s'il voulait terminer la tâche qui lui a été assignée à tout prix, quitte à cacher la poussière sous le tapis. Intéressant de prendre conscience de cela.</p>
 <p>Tout comme Haïku, Sonnet écrit des tonnes de fichiers markdown. Je modifie les instructions de AGENTS.md pour limiter cette tendance. Bref, quand il s'agit d'adapter du code existant, il faut être très strict et précis dans les instructions données au modèle et éviter de parler de "simplification", de "solution alternative", etc. Les choses se passent un peu comme dans la vraie vie. Dès que nous baissons nos exigences ou que nous exposons une faiblesse, le modèle s'y engouffre et adopte une solution de facilité. Tirer les leçons de cela.</p>
@@ -157,9 +168,9 @@ Contact : sebington arobase gémel point com
 <p>Je lui demande de défaire ses conneries et de ne pas continuer à produire tous ces rapports inutiles. Ce comportement a peut-être été induit par mon prompt trop permissif et au fait que pi est en mode YOLO par défaut. Ceci dit je ne peux m'empêcher de penser que cela est voulu par Anthropic. Il est possible que le modèle Haiku, grand public et moins cher, soit particulièrement bavard voire "indiscipliné" pour nous faire griller davantage de tokens.</p>
 <p><b>08-02-2026</b></p>
 <p>Les sessions avec pi s'enchaînent et me permettent d'améliorer mes applis basées sur la voix. Il y en a maintenant trois : voice2prompt, voice2llm_local et voice2llm_groq. Les deux dernières sont inspirées comme dit précédemment des travaux de <a href="https://kyutai.org/">Kyutai</a> en matière de speech-to-text (STT) et de text-to-speech (TTS) combinés avec un LLM au milieu.</p>
-<p>Comme la partie STT ne fonctionnait pas sur mon ordi. Je l'ai remplacée par Whisper, avec le code de voice2prompt. J'en ai fait une version qui fonctionne entièrement en local (Whisper/Ollama/Pocket-TTS) et une autre version dont la partie "LLM/TTS" est gérée par Groq. Cette version semi-locale fonctionne plutôt mieux, avec moins de latence que la version 100 % locale.</p>
-<p>L'écueil principal est la latence entre la sortie du LLM et sa reconstitution sonore. Plusieurs stratégies ont été utilisées pour tenter de résoudre ce problème, avec notamment l'idée de "streamer" les phrases ou les mots par "chunks" dans l'entrée du modèle TTS plutot que lui balancer le texte en un seul bloc. Mais cela ne fonctionne que partiellement.</p>
-<p>En revanche, j'ai fait une grande découverte (pour moi) : j'ai enfin trouvé un moyen de ne plus charger la version standard de PyTorch (par exemple avec Pocket-TTS) qui est énorme et télécharge toutes sortes de bibliothèques CUDA compatibles avec les machines équippées de GPU. Si comme moi vous avez une modeste machine sans GPU, il est préférable d'utiliser <code>pytorch-cpu</code>, bibliothèque ultra-légère qui est téléchargée par uv en un clin d'oeil.</p>
+<p>Comme la partie STT ne fonctionne pas sur mon ordi, je la remplace par Whisper, avec le code de voice2prompt. J'en fais une version qui fonctionne entièrement en local (Whisper/Ollama/Pocket-TTS) et une autre dont la partie "LLM/TTS" est gérée par Groq. Cette version semi-locale fonctionne plutôt mieux, avec moins de latence que la version 100 % locale.</p>
+<p>L'écueil principal est la latence entre la sortie du LLM et sa reconstitution sonore. Plusieurs stratégies sont utilisées pour tenter de résoudre ce problème, avec notamment l'idée de "streamer" les phrases ou les mots par "chunks" dans l'entrée du modèle TTS plutot que lui balancer le texte en un seul bloc. Mais cela ne fonctionne que partiellement.</p>
+<p>En revanche, je fais une grande découverte : je trouve enfin un moyen de ne plus utiliser la version standard de PyTorch (ce que fait Pocket-TTS par ex.) qui est énorme et télécharge toutes sortes de bibliothèques CUDA compatibles avec les machines équipées de GPU. Si comme moi vous avez une modeste machine sans GPU, il est préférable d'utiliser <code>pytorch-cpu</code>, bibliothèque ultra-légère qui est téléchargée par uv en un clin d'oeil.</p>
 <p>Pour cela, il faut modifier les "inline scripts" de uv comme suit.</p>
 <p>Avant :</p>
 <p><pre><code># /// script
