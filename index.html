@@ -143,20 +143,47 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 19/02/2026 à 22:37:30<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 20/02/2026 à 16:56:53<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p><b>20-02-2026</b></p>
+<p>Je demande à pi de me dire comment il gère le degré de "thinking" qu'un modèle déploie. Voici sa réponse.</p>
+<p>How Pi Regulates Thinking Level</p>
+<p>Pi controls the thinking/reasoning budget through token limits that are sent to the LLM provider's API. Here's the mechanism:</p>
+<p>1. Configuration Levels<br>Pi supports these thinking levels: off, minimal, low, medium, high</p>
+<p>2. Token Budget Mapping<br>The thinking level translates to specific token budgets. The default mapping (configurable via thinkingBudgets in settings):</p>
+<p><pre><code>{
+  "thinkingBudgets": {
+    "minimal": 1024,
+    "low": 4096,
+    "medium": 10240,
+    "high": 32768
+  }
+}</code></pre></p>
+<p>3. How It's Applied<br>Pi sends the thinking budget to the LLM provider via API parameters. For models that support extended thinking (like Claude, Gemini, etc.), this is typically sent as:</p>
+<p>- <code>max_tokens</code> for thinking/reasoning (separate from output tokens)<br>- Provider-specific parameters like <code>thinking.budget</code> (Anthropic) or <code>thoughts</code> (Google)</p>
+<p>The thinking budget directly controls how many tokens the model can use for internal reasoning before producing its actual response - higher budgets allow for more complex problem-solving but use more tokens (cost) and take longer.</p>
+<p>---</p>
+<p>Sur une suggestion d'Olivier je fais un nouvel essai avec le fichier de sous-titres et le texte de la vidéo en anglais (voir hier), cette fois avec le nouveau Sonnet 4.6.</p>
+<p>La différence de fonctionnement entre Opus 4.6 et Sonnet 4.6 est flagrante. Sonnet RÉFLÉCHIT VRAIMENT BEAUCOUP et consomme une quantité impressionnante de "thinking tokens". Beaucoup plus qu'Opus.</p>
+<p>Sonnet détecte néanmoins quelque chose sur lequel Opus est passé sans bruit : un paragraphe est manquant dans le texte en anglais. Pour ce passage, Opus a décidé de ne pas respecter mes consignes et a traduit lui-même le passage manquant, tandis que Sonnet s'arrête pour me demander comment il faut gérer le problème :</p>
+<p><pre><code>What would you like me to do with those cues?</code></pre></p>
+<p><pre><code>a) Remove them entirely from the output VTT
+b) Leave the French text in place for those cues only
+c) You supply an English version and I slot it in</code></pre></p>
+<p>Je lui demande de laisser ces passages en français (b) pour pouvoir facilement les retrouver et voir ce qu'il en est.</p>
+<p>Pour le reste Sonnet ne se débrouille pas aussi bien qu'Opus. Même s'il respecte le texte source et n'altère les timestamps, le placement de nombreux sous-titres laisse à désirer. Cette désynchronisation est flagrante quand quand on regarde la vidéo. Cela n'était pas le cas avec Opus, qui reste synchro du début à la fin.</p>
 <p><b>19-02-2026</b></p>
 <p>Ce soir je fais une petite expérience inédite. Mon idée est de donner à une IA deux fichiers : un fichier de sous-titres finalisés en français (VTT) et un fichier contenant le texte de la vidéo traduit en anglais mais non calé. Je demande à l'IA de conserver les repères temporels du fichier VTT en français et d'insérer le texte en anglais à la place du français, si possible en le découpant comme il faut.</p>
 <p>Je fais un premier essai avec Codex/gpt-5.3-codex avec le prompt suivant :</p>
 <p><pre><code>In this folder there is a subtitle file called video_2.vtt and there is a transcription of the video that was then translated into English: transcription.txt. I would like you to replace the French text in the VTT file with English text in the transcription.txt file. You musn't translate the VTT file but find the appropriate text in transcription.txt and insert it in the VTT file without modifying the VTT timestamps. Ask me questions if this is unclear.</code></pre></p>
-<p>Le résultat est très décevant. C'est peut-être en partie ma faute car mon prompt n'est pas top. Je reprompte Codex plusieurs fois lors de la même session sans obtenir de résultat probant. Codex génère bien des ST mais ils sont trop chargés ou mal découpés ou même décalés alors que je lui avait dit de ne pas toucher aux "timestamps". Bref je n'arrive pas à rattraper le coup.</p>
+<p>Le résultat est très décevant. C'est peut-être en partie ma faute car mon prompt n'est pas top. Je reprompte Codex plusieurs fois lors de la même session sans obtenir de résultat probant. Codex génère bien des ST mais ils sont trop chargés ou mal découpés ou même décalés alors que je lui avait dit de ne pas toucher aux "timestamps". Bref, je n'arrive pas à rattraper le coup.</p>
 <p>Je fais un deuxième essai avec pi/claude-opus-4-6-thinking • medium [thinking off/minimal/low/medium/high], disponible via antigravity, avec le prompt suivant :</p>
 <p><pre><code>There are two files in this project. I want you to modify the VTT file and replace the French already cued text with the loose English text in the TXT file, while leaving the timestamps untouched. Only use text in @transcription.txt. Do not translate @video_02.fr.vtt yourself. You can adapt the text in @transcription.txt if you deem it necessary but in general you keep it as is. Pay attention to the way text is structured and be careful when cutting up the text into chuncks. Make sure sentences are easy to read and subtitles are professional. Let me know if you have any questions or need any extra tools.</code></pre></p>
 <p>Le résultat est absolument nickel. Je suis bluffé. En un seul prompt.</p>
-<p>Du coup je me dis que je me dois d'essayer à nouveau avec Codex et le même prompt, pour lui donner une seconde chance. Le deuxième essai n'est toujours pas satisfaisant. Codex n'a pas touché aux timestamps mais contrairement à Opus, chaque nouveau sous-titre ne correspond pas au contenu du sous-titre original en français et donc aux propos tenus dans la vidéo. Codex échoue là où Opus, à la manière d'un humain, semble comprendre le SENS de chaque sous-titre. C'est ce qui m'impressionne le plus.</p>
-<p>Je me pose la question de savoir si j'aurais obtenu le même résultat dans l'interface web de ChatGPT et de Claude. Est-ce que l'utilisation d'un outil d'agentic coding était vraiment nécessaire ? A vérifier.</p>
+<p>Du coup je me dis que je me dois d'essayer à nouveau avec Codex et le même prompt, pour lui donner une seconde chance. Le deuxième essai n'est toujours pas satisfaisant. Cette fois Codex ne touche pas aux timestamps mais contrairement à Opus, chaque nouveau sous-titre en anglais ne correspond pas au contenu du sous-titre original en français et donc aux propos tenus dans la vidéo.</p>
+<p>Codex échoue là où Opus, à la manière d'un humain, semble comprendre le SENS de chaque sous-titre. C'est ce qui m'impressionne le plus. Je me pose la question de savoir si j'aurais obtenu le même résultat dans l'interface web de ChatGPT et de Claude. Est-ce que l'utilisation d'un outil d'agentic coding était vraiment nécessaire ? A vérifier. En tous cas, l'avantage de l'utilisation d'un "coding harness" c'est qu'on a le choix du modèle, ce qui en général n'est pas le cas avec les interfaces web.</p>
 <p><b>18-02-2026</b></p>
 <p>Grosse prise de tête avec Codex depuis plusieurs jours. Dès que je le démarre et écris un prompt, j'obtiens l'erreur suivante : <code>{"error":{"message":"invalid character '(' looking for beginning of value","type":"invalid_request_error","param":null,"code":null}}"</code>.</p>
 <p>Je finis par trouver la raison en questionnant ChatGPT : par le passé certains de mes scripts en Python faisaient appel à Ollama comme API, ce qui impliquait l'ajout de la ligne <code>export OPENAI_BASE_URL=http://localhost:11434/v1</code> dans le fichier .bashrc d'Ubuntu. J'avais complètement oublié ce détail.</p>
