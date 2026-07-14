@@ -8,12 +8,21 @@
 <lastBuildDate>Tue, 14 Jul 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="http://bytepacking.free.fr/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>14-07-2026</title>
+<link>http://bytepacking.free.fr/#14-07-2026</link>
+<guid isPermaLink="false">logbook-14-07-2026</guid>
+<pubDate>Tue, 14 Jul 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="14-07-2026"><b>14-07-2026</b></p>
+<p>C'est incroyable à quel point notre habitude de faire les choses "à la main" est imprimée en nous. Ce matin je m'apprête à faire une série de copier-coller hyper chiants, quand soudain je me "souviens" que j'ai un clanker à disposition !🤪</p>]]></description>
+</item>
+
+<item>
 <title>13-07-2026</title>
 <link>http://bytepacking.free.fr/#13-07-2026</link>
 <guid isPermaLink="false">logbook-13-07-2026</guid>
 <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="13-07-2026"><b>13-07-2026</b></p>
-<p>Je me replonge dans le codage agentique ces jours ci. Reprise de plusieurs projets délaissés depuis quelques mois et beaucoup d'expérimentation. Les idées fusent. J'essaie les modèles d'OpenCode via l'API sur laquelle j'ai mis 20 euros. Je modifie le script qui génère ce blog avec Minimax 2.7. Ajout d'un fichier XML qui sert de feed RSS et est mis à jour en même temps que la page HTML. Voyons si ça marche.</p>]]></description>
+<p>Je me replonge dans le codage agentique ces jours ci. Reprise de plusieurs projets délaissés depuis quelques mois et beaucoup d'expérimentation. Les idées fusent. J'essaie les modèles d'OpenCode via l'API sur laquelle j'ai investi 20 euros. Je modifie le script qui génère ce blog avec Minimax 2.7. Ajout d'un fichier XML qui sert de feed RSS et est mis à jour en même temps que la page HTML. Voyons si ça marche.<br>---<br>Sortie inattendue de l'<a href="https://youtu.be/_lfpEy_9vf0">épisode 8</a> de la série "State of Agentic Coding", avec cette fois Mario Zechner comme troisième larron. Je répète l'expérience d'hier avec exactement le même prompt et un résultat similaire, très agréable à lire et moins prenant que de visionner la vidéo entière. Fichier markdown à venir.</p>]]></description>
 </item>
 
 <item>
@@ -28,7 +37,7 @@
 <p>Le résultat est décevant. ChatGPT indentifie bien entendu les différents sujets traités mais reste trop général et lapidaire dans les résulés qu'il en fait. Mon prompt n'est pas le bon.</p>
 <p>Je décide d'essayer un autre prompt, sur Claude cette fois :</p>
 <p><pre><code>This is the transcript of a conversation between two senior developers about the state and future of agentic coding. Make a summary of each topic discussed, keeping the technical details and experiences/stories. Don't generalize too much.</code></pre></p>
-<p>Le <a href="https://claude.ai/share/ec53e4f1-e2e9-442b-9923-3fbaa6ac8ab5">résultat</a> est nickel, exactement ce que je souhaitais. Je télécharge le fichier en markdown et me fabrique un convertisseur markdown vers epub pour pouvoir lire ça tranquillement sur mon smartphone. Certains noms de personnes restent mal compris (ex. "Andy Res" au lieu de antirez) mais globalement c'est très satisfaisant. Claude parvient même à attribuer les propos au bon interlocuteur ("Armin" / "Ben") sans aucun repère dans le texte et à produire un document cohérent et fiable à partir d'un script nécessairement approximatif (langage parlé). Les modèles sont très doués pour séparer le bon grain de l'ivraie, pour clarifier, et remettre du sens à partir de données partiellement redondantes et brouillones.</p>]]></description>
+<p>Le résultat est nickel, exactement ce que je souhaitais. Je télécharge le fichier en markdown et me fabrique un convertisseur markdown vers epub pour pouvoir lire ça tranquillement sur mon smartphone. Certains noms de personnes restent mal compris (ex. "Andy Res" au lieu de antirez) mais globalement c'est très satisfaisant. Claude parvient même à attribuer les propos au bon interlocuteur ("Armin" / "Ben") sans aucun repère dans le texte et à produire un document cohérent et fiable à partir d'un script nécessairement approximatif (langage parlé). Les modèles sont très doués pour séparer le bon grain de l'ivraie, pour clarifier, et remettre du sens à partir de données partiellement redondantes et brouillones.</p>]]></description>
 </item>
 
 <item>
@@ -447,7 +456,7 @@ c) You supply an English version and I slot it in</code></pre></p>
 <guid isPermaLink="false">logbook-16-02-2026</guid>
 <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="16-02-2026"><b>16-02-2026</b></p>
-<p>Sur models.dev, je filtre les modèles pour afficher uniquement opus-4-6 et constate qu'Amazon Bedrock, "un service complet, sécurisé et flexible destiné à la création d’agents et d’applications d’IA générative", décline Opus en version "EU", "GLOBAL" et "US". Ce genre de pratique ne me dit rien qui vaille. On peut facilement en déduire que l'Europe pourrait avoir accès à une version légèrement dégradée d'Opus, pour que les Etats-Unis puissent conserver un avantage compétitif.</p>
+<p>Sur <a href="https://models.dev/">models.dev/</a>, je filtre les modèles pour afficher uniquement opus-4-6 et constate qu'Amazon Bedrock, "un service complet, sécurisé et flexible destiné à la création d’agents et d’applications d’IA générative", décline Opus en version "EU", "GLOBAL" et "US". Ce genre de pratique ne me dit rien qui vaille. On peut facilement en déduire que l'Europe pourrait avoir accès à une version légèrement dégradée d'Opus, pour que les Etats-Unis puissent conserver un avantage compétitif.</p>
 <p>EDIT : Mais il n'en est rien, Olivier a trouvé l'explication. Les services proposés sont segmentés par "régions", ce qui permet aux utilisateurs d'optimiser leurs connexions en <a href="https://docs.aws.amazon.com/fr_fr/bedrock/latest/userguide/cross-region-inference.html">se connectant aux serveurs les plus proches</a>.</p>]]></description>
 </item>
 
@@ -745,7 +754,7 @@ item,item3</code></pre></p>]]></description>
 <guid isPermaLink="false">logbook-21-01-2026</guid>
 <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="21-01-2026"><b>21-01-2026</b></p>
-<p>Je constate sur models.dev qu'il y a deux fournisseurs distincts pour les modèles MiniMax : minimax et minimax-cn, avec leurs sites respectifs <a href="https://www.minimax.io/">https://www.minimax.io/</a> et <a href="https://www.minimaxi.com/">https://www.minimaxi.com/</a>. Les deux sites sont identiques. Les tarifs aussi. Étrange. J'imagine que https://www.minimax.io/ est la vitrine occidentale du MiniMax chinois.</p>]]></description>
+<p>Je constate sur <a href="https://models.dev/">models.dev/</a> qu'il y a deux fournisseurs distincts pour les modèles MiniMax : minimax et minimax-cn, avec leurs sites respectifs <a href="https://www.minimax.io/">https://www.minimax.io/</a> et <a href="https://www.minimaxi.com/">https://www.minimaxi.com/</a>. Les deux sites sont identiques. Les tarifs aussi. Étrange. J'imagine que https://www.minimax.io/ est la vitrine occidentale du MiniMax chinois.</p>]]></description>
 </item>
 
 <item>
@@ -827,7 +836,7 @@ git status</code></pre></p>]]></description>
 <guid isPermaLink="false">logbook-15-01-2026</guid>
 <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="15-01-2026"><b>15-01-2026</b></p>
-<p>Je fais une session inédite et excitante sur pi avec claude-sonnet-4-5. Je lui demande de se connecter à l'API de models.dev (https://models.dev/api.json) pour faire quelques analyses statistiques. Pi se débrouille avec Curl pour récupérer le fichier JSON et l'aventure commence. Je pose mes questions sur les données directement dans pi, qui utilise les outils adéquats pour me répondre (au début du Bash très sophistiqué). Je lui conseille d'utiliser uv, Python et Pandas pour de meilleurs résultats. Il faut être attentif à ce qu'il trouve quand il filtre les données mais globalement ça marche plutôt bien. Je lui pose des questions de plus en plus complexes qui demandent une analyse croisée et il fait du super boulot. Vraiment génial comme outil car tellement polyvalent.</p>
+<p>Je fais une session inédite et excitante sur pi avec claude-sonnet-4-5. Je lui demande de se connecter à <a href="https://models.dev/api.json">l'API de models.dev</a> pour faire quelques analyses statistiques. Pi se débrouille avec Curl pour récupérer le fichier JSON et l'aventure commence. Je pose mes questions sur les données directement dans pi, qui utilise les outils adéquats pour me répondre (au début du Bash très sophistiqué). Je lui conseille d'utiliser uv, Python et Pandas pour de meilleurs résultats. Il faut être attentif à ce qu'il trouve quand il filtre les données mais globalement ça marche plutôt bien. Je lui pose des questions de plus en plus complexes qui demandent une analyse croisée et il fait du super boulot. Vraiment génial comme outil car tellement polyvalent.</p>
 <p>Je refais refais le même exercice avec Mistral-Vibe et Gemini CLI, en utilisant exactement les mêmes prompts (au moins au début). Tous les deux s'en sortent honorablement, Vibe étant beaucoup plus réactif que Gemini. Olivier fait la même chose avec Claude Code. A première vue les résultats semblent diverger et demanderaient une analyse comparative plus poussée. A noter que Claude Code et Gemini CLI "nettoient derrière eux" et suppriment la plupart des fichiers temporaires utilisés pour générer les statistiques, tandis que pi et Vibe laissent tout le bazar dans leurs répertoires de travail, qui à la fin de la session font 109 et 114 Mo respectivement.<br>---<br>Ce soir je visionne la <a href="https://www.youtube.com/watch?v=WNx-s-RxVxk">dernière vidéo</a> de Matt Pocock, qui pour la première fois me déçoit car elle promet sans tenir, ce qui est typique du comportement de certains youtubeurs avides de clics et d'auto-promotion. Toute une vidéo pour deux malheureuses lignes qui sont sensées révolutionner la manière avec laquelle Claude Code va planifier votre futur projet. Du vent.</p>
 <p>Bon, la vidéo de Pocock m'a tout de même donné envie de tester le "mode plan" de Claude Code. Je l'utilise pour planifier la suite des améliorations prévues pour mon assistant vocal, ce qui me revient à $0.86. A la fin de la phase de planification Claude me propose de visualiser le plan dans VSCode en faisant Ctrl + G (ou qq ch comme ça) et quand je reviens dans le terminal, Claude Code bugue grave et "freeze" au point que je dois faire un double Ctrl + C sauvage pour sortir.</p>]]></description>
 </item>
@@ -1430,7 +1439,7 @@ Installed 54 packages in 12ms</code></pre></p>
 <description><![CDATA[<p id="17-11-2025"><b>17-11-2025</b></p>
 <p>Olivier me parle d'<a href="https://www.affinity.studio/">affinity</a> comme alternative à InDesign pour ouvrir les fichiers IDML. Je télécharge l'appli et la teste. Elle permet sans problème de visualiser in fichier IDML. Bon à savoir.</p>
 <p>Découverte de la <a href="https://www.youtube.com/@mattpocockuk/videos">chaîne YouTube</a> de Matt Pocock, un adepte de TypeScript. Ses conseils ou explications en matière d'IA me semblent très claires et utiles et loin des "buzzeries" habituelles.</p>
-<p>Le site https://models.dev/ liste tous les LLM et leurs "providers" avec les tarifs des API et autres informations utiles. Olivier y découvre <a href="https://iflow.cn/">iflow.cn</a>, qui propose une API gratuite et de nombreux modèles. China taking over?</p>
+<p>Le site <a href="https://models.dev/">https://models.dev/</a> liste tous les LLM et leurs "providers" avec les tarifs des API et autres informations utiles. Olivier y découvre <a href="https://iflow.cn/">iflow.cn</a>, qui propose une API gratuite et de nombreux modèles. China taking over?</p>
 <p>Réflexion sur le module qui permet d'écouter le texte de <a href="https://blog.sshh.io/p/how-i-use-every-claude-code-feature">cet excellent billet de blog</a> sur Claude Code. Je me demande si c'est une IA qui génère la voix "à la volée" ou si c'est un fichier mp3 pré-enregistré. En fait il s'agit un peu des deux : c'est un mp3 (dont je finis par trouver le lien dans le code source) qui a certainement été généré par une IA sur une version antérieure du texte avant sa mise en ligne. En effet la version audio ne colle pas tout à fait au texte de la page.</p>]]></description>
 </item>
 
