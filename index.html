@@ -144,12 +144,40 @@ ol>li:before {
 <main>
 <h1>Paradis artificiels ✨</h1>
 <h2><i>Carnet de notes d'un traducteur passionné d'IA</i></h2>
-<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 10/09/2026 à 16:26:13<br>
+<p style="color: var(--url-color); font-size: 0.9em; margin-top: 10px;">Dernière modification : 30/09/2026 à 21:43:31<br>
 Contact : sebington arobase gémel point com
 </p>
 
+<p id="30-09-2026"><b>30-09-2026</b></p>
+<p>Découverte grâce à un ami de <a href="https://www.youtube.com/watch?v=0Ssi-9wS1so">Angine de Poitrine</a>, un duo de rock expérimental québécois très original, à la musique faussement linéaire et répétitive. Pas à mettre dans toutes les oreilles. J'en écoute quelques morceaux sur Spotify, avant de découvrir avec stupéfaction qu'ils sont un véritable phénomène sur YouTube, de nombreuses vidéos tentant d'<a href="https://www.youtube.com/watch?v=96D7DKZh-es">expliquer</a> ou de reproduire la complexité de la structure tonale et rythmique de leurs compositions. On les affuble souvent de "groupe vraiment humain, que l'IA n'arrivera jamais à imiter". Leur look est à l'image de leur musique. Enfin quelque chose de réjouissant dans ce monde qui semble (mais semble seulement) partir à vau-l'eau. Et dire que j'aurais pu passer à côté de cette dinguerie.</p>
+<p id="26-09-2026"><b>26-09-2026</b></p>
+<p>Avec la suppression de Snap de ma distro, j'ai réinstallé LibreOffice via apt-get. Je constate que l'application démarre vraiment beaucoup plus vite que quand elle était installée via Snap.<br>---<br>Marre d'entendre des <a href="https://www.radiofrance.fr/franceculture/podcasts/l-invite-e-des-matins-d-apres/futurologie-de-l-intelligence-artificielle-par-antoine-bueno-1059438">pseudos spécialistes de l'IA</a> nous prédire un soi-disant futur science-fictionnesque juste parce qu'ils viennent de découvrir l'existence d'OpenClaw et les capacités de l'IA agentique. Ils surfent sur la vague pour vendre leur bouquin mais ne nous apprennent rien du tout.<br>---<br>Je donne deux travaux identiques (post-édition et relecture d'un texte traduit avec DeepL) à deepseek-v4-flash et à claude-sonnet-5. Le résultat est quasi identique dans les deux cas. En revanche, les coûts diffèrent : deepseek = $0,15, claude = $1,21 !</p>
+<p id="16-09-2026"><b>16-09-2026</b></p>
+<p>En suivant scrupuleusement une recette concoctée par Claude, je parviens à complètement désinstaller snap de ma machine (Ubuntu 26.04 Gnome).</p>
+<p>1. Remove any installed snap packages</p>
+<p><pre><code>snap list
+sudo snap remove --purge package-name</code></pre></p>
+<p>(order matters — remove dependents, then remove core/bare and keep snapd)</p>
+<p>2. Stop and disable the snapd service</p>
+<p><pre><code>sudo systemctl stop snapd
+sudo systemctl disable snapd
+sudo systemctl disable snapd.socket</code></pre></p>
+<p>3. Delete the snapd package</p>
+<p><pre><code>sudo apt purge snapd</code></pre></p>
+<p>4. Clean up leftover directories</p>
+<p><pre><code>rm -rf ~/snap
+sudo rm -rf /snap /var/snap /var/lib/snapd /var/cache/snapd</code></pre></p>
+<p>5. Prevent snapd from being reinstalled</p>
+<p>Create a hold file:</p>
+<p><pre><code>sudo nano /etc/apt/preferences.d/nosnap.pref</code></pre></p>
+<p>With contents:</p>
+<p><pre><code>Package: snapd
+Pin: release a=*
+Pin-Priority: -10</code></pre></p>
+<p id="14-09-2026"><b>14-09-2026</b></p>
+<p>Quand la tempête se déchaîne, il arrive qu'une petite éclaircie surgie de nulle part fait que tout s'apaise pendant un temps. C'est ce que je ressens ce soir en écoutant Stanislas Dehaene <a href="https://www.radiofrance.fr/franceculture/podcasts/serie-stanislas-dehaene-tout-sur-le-cerveau">raconter sa vie</a> dans À voix nue sur France Culture. Avec quelques autres (Andy Clark, Lionel Naccache, Albert Moukheiber, Karl Friston...), <a href="https://fr.wikipedia.org/wiki/Stanislas_Dehaene">Dehaene</a> fait partie de ces gens pour lesquels j'ai une estime infinie, sorte de héros qui ont changé à jamais ma manière de comprendre les choses, en l'occurence le fonctionnement du cerveau humain. L'écouter est toujours un plaisir. Quelle vie parfaite et utile. Né un an avant moi, Dehaene est de ma génération. Enfant, il faisait des "expériences" dans la cave de la maison, comme moi dans le "cellier" de la maison de Saint-Georges. Quand il a 13-14 ans son père ramène un <a href="https://fr.wikipedia.org/wiki/TRS-80">TRS-80</a> à la maison. Cet ordinateur va le fasciner pendant des années. Mais il ne choisit pas de devenir informaticien, il est trop bon en maths pour cela. Aujourd'hui nous avons l'IA, des ordinateurs surpuissants, une capacité de stockage quasi illimitée et qu'en faisons nous réellement à part reproduire des choses existantes, nous amuser à regarder les clankers coder à toute vitesse ? Il [nous] manque quelque chose d'essentiel : le cheminement de la pensée vers un but précis, une direction claire, un rétrécissement des possibles, le choix d'un sujet d'étude, une approche scientifique.</p>
 <p id="10-09-2026"><b>10-09-2026</b></p>
-<p>En attendant de passer une IRM, je lis <a href="https://lucumr.pocoo.org/2026/9/7/astra-why/">ce billet</a> d'Armin Ronacher, qui a laissé GPT-6 Astra travailler seule en mode "software factory" pendant 35h. Les agents ont produit 75 000 lignes de code, brûlé un milliard de tokens (!) pour un coût API de 1200 dollars, effectué 79 commits et échangé 1400 messages. Seul petit problème : les résultats sont à chier.</p>
+<p>En attendant de passer une IRM, je lis <a href="https://lucumr.pocoo.org/2026/9/7/astra-why/">ce billet</a> d'Armin Ronacher, qui a laissé GPT-6 Astra travailler seule en mode "software factory" pendant 35h. Les agents ont produit 75 000 lignes de code, brûlé un milliard de tokens (!) pour un coût API de 1200 dollars, effectué 79 commits et échangé 1400 messages. Seul petit problème : les résultats sont à chier. Armin n'est <a href="https://www.youtube.com/watch?v=uwHQLLa4Rpc">pas le seul</a> à avoir eu cette mésaventure.</p>
 <p id="08-09-2026"><b>08-09-2026</b></p>
 <p>Vu dans une <a href="https://www.youtube.com/watch?v=c9nRxEy1kUY&t=20s">video</a> de David Ondrej : <a href="https://github.com/get-bb/bb">bb</a>, une sorte de herdr qui serait sorti de son enclos et permet de piloter toutes sortes de clankers en même temps à partir de n'importe quel appareil. Personne d'autre qu'Ondrej ne semble en parler sur YouTube. Pour tester bb rien de plus simple : <code>npx bb-app@latest</code>.</p>
 <p id="06-09-2026"><b>06-09-2026</b></p>
