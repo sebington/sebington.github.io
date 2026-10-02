@@ -5,15 +5,448 @@
 <link>http://bytepacking.free.fr/</link>
 <description>Carnet de notes d'un traducteur passionné d'IA</description>
 <language>fr</language>
-<lastBuildDate>Tue, 14 Jul 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Wed, 30 Sep 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="http://bytepacking.free.fr/feed.xml" rel="self" type="application/rss+xml" />
+<item>
+<title>30-09-2026</title>
+<link>http://bytepacking.free.fr/#30-09-2026</link>
+<guid isPermaLink="false">logbook-30-09-2026</guid>
+<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="30-09-2026"><b>30-09-2026</b></p>
+<p>Découverte grâce à un ami de <a href="https://www.youtube.com/watch?v=0Ssi-9wS1so">Angine de Poitrine</a>, un duo de rock expérimental québécois très original, à la musique faussement linéaire et répétitive. Pas à mettre dans toutes les oreilles. J'en écoute quelques morceaux sur Spotify, avant de découvrir avec stupéfaction qu'ils sont un véritable phénomène sur YouTube, de nombreuses vidéos tentant d'<a href="https://www.youtube.com/watch?v=96D7DKZh-es">expliquer</a> ou de reproduire la complexité de la structure tonale et rythmique de leurs compositions. On les affuble souvent de "groupe vraiment humain, que l'IA n'arrivera jamais à imiter". Leur look est à l'image de leur musique. Enfin quelque chose de réjouissant dans ce monde qui semble (mais semble seulement) partir à vau-l'eau. Et dire que j'aurais pu passer à côté de cette dinguerie.</p>]]></description>
+</item>
+
+<item>
+<title>26-09-2026</title>
+<link>http://bytepacking.free.fr/#26-09-2026</link>
+<guid isPermaLink="false">logbook-26-09-2026</guid>
+<pubDate>Sat, 26 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="26-09-2026"><b>26-09-2026</b></p>
+<p>Avec la suppression de Snap de ma distro, j'ai réinstallé LibreOffice via apt-get. Je constate que l'application démarre vraiment beaucoup plus vite que quand elle était installée via Snap.<br>---<br>Marre d'entendre des <a href="https://www.radiofrance.fr/franceculture/podcasts/l-invite-e-des-matins-d-apres/futurologie-de-l-intelligence-artificielle-par-antoine-bueno-1059438">pseudos spécialistes de l'IA</a> nous prédire un soi-disant futur science-fictionnesque juste parce qu'ils viennent de découvrir l'existence d'OpenClaw et les capacités de l'IA agentique. Ils surfent sur la vague pour vendre leur bouquin mais ne nous apprennent rien du tout.<br>---<br>Je donne deux travaux identiques (post-édition et relecture d'un texte traduit avec DeepL) à deepseek-v4-flash et à claude-sonnet-5. Le résultat est quasi identique dans les deux cas. En revanche, les coûts diffèrent : deepseek = $0,15, claude = $1,21 !</p>]]></description>
+</item>
+
+<item>
+<title>16-09-2026</title>
+<link>http://bytepacking.free.fr/#16-09-2026</link>
+<guid isPermaLink="false">logbook-16-09-2026</guid>
+<pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="16-09-2026"><b>16-09-2026</b></p>
+<p>En suivant scrupuleusement une recette concoctée par Claude, je parviens à complètement désinstaller snap de ma machine (Ubuntu 26.04 Gnome).</p>
+<p>1. Remove any installed snap packages</p>
+<p><pre><code>snap list
+sudo snap remove --purge package-name</code></pre></p>
+<p>(order matters — remove dependents, then remove core/bare and keep snapd)</p>
+<p>2. Stop and disable the snapd service</p>
+<p><pre><code>sudo systemctl stop snapd
+sudo systemctl disable snapd
+sudo systemctl disable snapd.socket</code></pre></p>
+<p>3. Delete the snapd package</p>
+<p><pre><code>sudo apt purge snapd</code></pre></p>
+<p>4. Clean up leftover directories</p>
+<p><pre><code>rm -rf ~/snap
+sudo rm -rf /snap /var/snap /var/lib/snapd /var/cache/snapd</code></pre></p>
+<p>5. Prevent snapd from being reinstalled</p>
+<p>Create a hold file:</p>
+<p><pre><code>sudo nano /etc/apt/preferences.d/nosnap.pref</code></pre></p>
+<p>With contents:</p>
+<p><pre><code>Package: snapd
+Pin: release a=*
+Pin-Priority: -10</code></pre></p>]]></description>
+</item>
+
+<item>
+<title>14-09-2026</title>
+<link>http://bytepacking.free.fr/#14-09-2026</link>
+<guid isPermaLink="false">logbook-14-09-2026</guid>
+<pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="14-09-2026"><b>14-09-2026</b></p>
+<p>Quand la tempête se déchaîne, il arrive qu'une petite éclaircie surgie de nulle part fait que tout s'apaise pendant un temps. C'est ce que je ressens ce soir en écoutant Stanislas Dehaene <a href="https://www.radiofrance.fr/franceculture/podcasts/serie-stanislas-dehaene-tout-sur-le-cerveau">raconter sa vie</a> dans À voix nue sur France Culture. Avec quelques autres (Andy Clark, Lionel Naccache, Albert Moukheiber, Karl Friston...), <a href="https://fr.wikipedia.org/wiki/Stanislas_Dehaene">Dehaene</a> fait partie de ces gens pour lesquels j'ai une estime infinie, sorte de héros qui ont changé à jamais ma manière de comprendre les choses, en l'occurence le fonctionnement du cerveau humain. L'écouter est toujours un plaisir. Quelle vie parfaite et utile. Né un an avant moi, Dehaene est de ma génération. Enfant, il faisait des "expériences" dans la cave de la maison, comme moi dans le "cellier" de la maison de Saint-Georges. Quand il a 13-14 ans son père ramène un <a href="https://fr.wikipedia.org/wiki/TRS-80">TRS-80</a> à la maison. Cet ordinateur va le fasciner pendant des années. Mais il ne choisit pas de devenir informaticien, il est trop bon en maths pour cela. Aujourd'hui nous avons l'IA, des ordinateurs surpuissants, une capacité de stockage quasi illimitée et qu'en faisons nous réellement à part reproduire des choses existantes, nous amuser à regarder les clankers coder à toute vitesse ? Il [nous] manque quelque chose d'essentiel : le cheminement de la pensée vers un but précis, une direction claire, un rétrécissement des possibles, le choix d'un sujet d'étude, une approche scientifique.</p>]]></description>
+</item>
+
+<item>
+<title>10-09-2026</title>
+<link>http://bytepacking.free.fr/#10-09-2026</link>
+<guid isPermaLink="false">logbook-10-09-2026</guid>
+<pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="10-09-2026"><b>10-09-2026</b></p>
+<p>En attendant de passer une IRM, je lis <a href="https://lucumr.pocoo.org/2026/9/7/astra-why/">ce billet</a> d'Armin Ronacher, qui a laissé GPT-6 Astra travailler seule en mode "software factory" pendant 35h. Les agents ont produit 75 000 lignes de code, brûlé un milliard de tokens (!) pour un coût API de 1200 dollars, effectué 79 commits et échangé 1400 messages. Seul petit problème : les résultats sont à chier. Armin n'est <a href="https://www.youtube.com/watch?v=uwHQLLa4Rpc">pas le seul</a> à avoir eu cette mésaventure.</p>]]></description>
+</item>
+
+<item>
+<title>08-09-2026</title>
+<link>http://bytepacking.free.fr/#08-09-2026</link>
+<guid isPermaLink="false">logbook-08-09-2026</guid>
+<pubDate>Tue, 08 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="08-09-2026"><b>08-09-2026</b></p>
+<p>Vu dans une <a href="https://www.youtube.com/watch?v=c9nRxEy1kUY&t=20s">video</a> de David Ondrej : <a href="https://github.com/get-bb/bb">bb</a>, une sorte de herdr qui serait sorti de son enclos et permet de piloter toutes sortes de clankers en même temps à partir de n'importe quel appareil. Personne d'autre qu'Ondrej ne semble en parler sur YouTube. Pour tester bb rien de plus simple : <code>npx bb-app@latest</code>.</p>]]></description>
+</item>
+
+<item>
+<title>06-09-2026</title>
+<link>http://bytepacking.free.fr/#06-09-2026</link>
+<guid isPermaLink="false">logbook-06-09-2026</guid>
+<pubDate>Sun, 06 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="06-09-2026"><b>06-09-2026</b></p>
+<p>Premier weekend après la reprise du travail. Je suis épuisé. Je meuble mon existence en continuant de découvrir les vidéos (en réalité plutôt des podcasts) de <a href="https://www.youtube.com/channel/UCYlMGSxDy8fCQGXesK64aEg">YouTux</a>, même si la voix synthétique, à l'intonation monocorde, finit par être lassante. Mais bon, j'ai entendu la <a href="https://www.youtube.com/watch?v=TOUby-uuZ4I">vraie voix de l'auteur</a> et son fort accent italien quand il parle anglais n'est guère mieux. En tous cas le gars, visiblement un spécialiste/puriste de Linux, semble pleurer un âge d'or révolu. Il connaît l'écosystème du pingouin à fond, non seulement d'un point de vue technique, mais aussi historique et politique, c'est impressionnant.</p>
+<p>L'écouter me donne envie d'essayer de nouvelles distributions, une activité que d'habitude je repousse car je la sais chronophage et souvent décevante. Mais je ne résiste pas, j'installe <a href="https://www.ventoy.net/en/index.html">Ventoy</a> sur une carte micro SD de 256 Go et copie une dizaine d'images .iso fraîchement téléchargées. Je privilégie des distributions basées sur Arch, mais pas que : Alpine, Archbang, Artix, CorePlus, EndeavourOS, EnigmarsOS, Garuda, OpenMandriva, RebornOS, Slitaz et Void. J'ai déjà essayé CachyOS et Manjaro.</p>
+<p>Je n'ai pas le courage de décrire mes essais en détail mais j'assiste à tous les comportements possibles. Certaines distros ne bootent pas du tout, certaines sont très lentes à booter, certaines ne vont pas plus loin que l'invite de commande, certaines se chargent entièrement en mémoire et la plupart heureusement démarrent normalement.</p>
+<p>Celles qui me font mauvaise impression : Alpine, CorePlus, EnigmarOS, Slitaz, Void. Celles qui m'ont l'air honnêtes : Endeavour, Open Mandriva, RebornOS. Celles qui m'interpellent : Artix (Lxqt et Cinnamon), un peu old school mais différent et rapide; Archbang (tellement proche d'Omarchy qu'on se demande lequel a copié l'autre) et Garuda (Gnome), une distro qui semble au même niveau que CachyOS, Manjaro ou Open Mandriva et me fait forte impression. À suivre.</p>]]></description>
+</item>
+
+<item>
+<title>04-09-2026</title>
+<link>http://bytepacking.free.fr/#04-09-2026</link>
+<guid isPermaLink="false">logbook-04-09-2026</guid>
+<pubDate>Fri, 04 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="04-09-2026"><b>04-09-2026</b></p>
+<p>Cet après-midi ça ne va pas fort et je me repose sur mon lit en regardant des vidéos sur YouTube. L'<a href="https://youtu.be/zGJuf9IgY3I">une d'entre elles</a> est très critique sur Omarchy. Elle provient d'une chaîne (YouTux) un peu mystérieuse, où on soupçonne assez vite la voix off des vidéos d'être artificielle. Mais le contenu est intéressant et bien structuré. Je finis par apprendre que l'auteur est italien, qu'il écrit les scripts de ses vidéos dans sa langue maternelle, puis que ceux-ci sont traduits et lus à voix haute par IA. Toujours la même voix, très bien choisie d'ailleurs. Je récupère la transcription de la vidéo et demande à ChatGPT d'en faire un résumé en français, que voici.</p>
+<p><pre><code>L’auteur porte un jugement très critique mais nuancé sur Omarchy. Il estime que, techniquement, cette distribution n’apporte rien de véritablement nouveau : c’est essentiellement Arch Linux préconfiguré selon les préférences personnelles de DHH, avec de nombreux logiciels, outils et intégrations déjà choisis pour l’utilisateur. Sa critique principale vise donc la confusion entre simplicité et imposition. Il reconnaît pourtant une idée importante : les utilisateurs apprécient des systèmes prêts à l’emploi et de bons réglages par défaut. Selon lui, ces choix devraient surtout concerner les fondations techniques — sécurité, performances, reproductibilité et chaîne d’approvisionnement — plutôt que décider quels logiciels ou services chacun doit utiliser. Il est particulièrement inquiet de la place centrale accordée aux agents d’IA et aux services commerciaux : Omarchy lui apparaît presque comme une infrastructure destinée à encourager la consommation d’abonnements à l’IA. Enfin, il considère que le succès d’Omarchy repose davantage sur la notoriété, le marketing et le capital que sur sa supériorité technique. Sa conclusion est toutefois équilibrée : un système beau et immédiatement fonctionnel a une vraie valeur, mais l’utilisateur doit conserver sa liberté de choix.</code></pre></p>
+<p>La chaîne propose également <a href="https://youtu.be/fvxPYqGD76w">deux</a> <a href="https://youtu.be/gOYIPuLyh08">vidéos</a> intéressantes sur <a href="https://cachyos.org/">CachyOS</a> en essayant de comprendre pourquoi cette distribution a tant de succès, tout en la replaçant dans l'écosystème des distributions Linux, où une "distro" domine les autres pendant quelques années avant d'être inexorablement déchue.</p>]]></description>
+</item>
+
+<item>
+<title>03-09-2026</title>
+<link>http://bytepacking.free.fr/#03-09-2026</link>
+<guid isPermaLink="false">logbook-03-09-2026</guid>
+<pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="03-09-2026"><b>03-09-2026</b></p>
+<p>"I think the fundamental misunderstanding that a lot of programmers have of AI, is that they wish it was deterministic. No, no, no. Temperature is the most beautiful part of the AI setup. The fact that it is not deterministic, the fact that creativity requires little tweaks in the road, that the human brain, if it was perfectly deterministic, would not be the creative brain that it is. And the main charge against AI [is in itself] a contradiction. There’s both the charge that it’s not deterministic and therefore bad, and also that it is not creative. It’s one or the other, bro. Either it’s non-deterministic and therefore creative, therefore, to some degree random, or it’s not creative. Both of those charges can’t be true at the same time, and I have fully come to embrace the fact that the same prompt won’t produce the same response every time. You can’t step in the same river twice, and it is the most beautiful part of the whole interaction. It’s what makes it so human." --David Heinemeier Hansson</p>
+<p>J'avoue que je suis séduit par l'intelligence et l'enthousiasme de DHH. Mais le personnage est controversé. Dans son interview par Lex Friedman, DHH n'hésite pas à trouver toutes sortes d'excuses à Elon Musk (qu'il appelle juste "Elon") et à donner son avis sur ce qu'il appelle une "immigration de masse" qui menacerait l'Europe. Il sort de son rôle de développeur-entrepreneur et s'engage sur une pente glissante. Dommage.</p>]]></description>
+</item>
+
+<item>
+<title>02-09-2026</title>
+<link>http://bytepacking.free.fr/#02-09-2026</link>
+<guid isPermaLink="false">logbook-02-09-2026</guid>
+<pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="02-09-2026"><b>02-09-2026</b></p>
+<p>J'ai un doute sur l'origine humaine de certains sites, comme par exemple le blog ByteByteGo Newsletter, dont tous les billets se ressemblent sur le fond et la forme. En témoigne le commentaire d'un lecteur à la fin de <a href="https://blog.bytebytego.com/p/how-to-shrink-a-language-model-without-295">ce billet</a> pointant une faute pour le moins étrange...<br>---<br>Une <a href="https://0xcc.io/posts/omarchy-root-creds/">faille de sécurité</a> sur Omarchy aurait été détectée, signalée et patchée.<br>---<br>Un truc sympa sur Omarchy, c'est les <a href="https://omarchy.org/manual/shell-tools/">shell-tools</a> préinstallés, sortes de plugins qui facilitent la navigation et la recherche dans le terminal, comme avec zsh.</p>]]></description>
+</item>
+
+<item>
+<title>01-09-2026</title>
+<link>http://bytepacking.free.fr/#01-09-2026</link>
+<guid isPermaLink="false">logbook-01-09-2026</guid>
+<pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="01-09-2026"><b>01-09-2026</b></p>
+<p>Je continue d'utiliser Omarchy. Quand j'ai un problème, je demande à pi/deepseek de m'aider à le résoudre. L'ensemble des fichiers de la <a href="https://www.skills.sh/omacom/omarchy/omarchy">skill omarchy</a> mettent le clanker tout de suite sur la bonne voie. Ce nouvel OS est stimulant. La contrainte liée à Hyprland est compensée par la nouveauté et l'esthétique du système. Pour l'instant je n'éprouve pas le besoin ou l'envie de retourner sur Ubuntu. Mais je ne travaille pas encore. Je découvre et j'apprends, pas pareil. Le vrai test sera de continuer à travailler sur une appli commencée sur Ubuntu ou de trouver quelque chose de nouveau à construire. Et maintenant je regarde l'<a href="https://www.youtube.com/watch?v=NYFGCESmikA">interview</a> fleuve de DHH par Lex Fridman (5h15) en essayant de garder un oeil critique. La vidéo a été mise en ligne il y a cinq jours et a déjà dépassé le million de vues.</p>]]></description>
+</item>
+
+<item>
+<title>31-08-2026</title>
+<link>http://bytepacking.free.fr/#31-08-2026</link>
+<guid isPermaLink="false">logbook-31-08-2026</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="31-08-2026"><b>31-08-2026</b></p>
+<p><a href="https://www.youtube.com/watch?v=F7fe9pa8OeE">Omarchy</a> <a href="https://www.frandroid.com/culture-tech/3225941_hype-ou-vraie-revolution-on-a-teste-la-distribution-linux-omarchy-fait-tant-de-bruit">continue</a> <a href="https://www.virtualizationhowto.com/2026/08/i-tried-omarchy-linux-as-my-home-lab-workstation-this-weekend-heres-what-happened/">de</a> <a href="https://www.youtube.com/watch?v=EGv6INolB2c&t=1414s">faire</a> <a href="https://www.youtube.com/watch?v=_CuibYl_Fh0">le</a> <a href="https://ulrichrozier.com/omarchy/">buzz</a>.</p>]]></description>
+</item>
+
+<item>
+<title>29-08-2026</title>
+<link>http://bytepacking.free.fr/#29-08-2026</link>
+<guid isPermaLink="false">logbook-29-08-2026</guid>
+<pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="29-08-2026"><b>29-08-2026</b></p>
+<p>Depuis deux jour j'utilise <a href="https://omarchy.org/">Omarchy</a>, une distribution Linux basée sur Arch à l'installation impressionnante de simplicité et de rapidité. Bon, il faut "juste" prendre en main <a href="https://hypr.land/">Hyprland</a>, un gestionnaire de fenêtres de type "tuiles", que l'on pilote au clavier. Je sais que c'est un peu aride/raide, mais me dis que ça ne coûte rien d'essayer. Au niveau graphique, le système repose sur Quickshell, un <a href="https://korben.info/quickshell-toolkit-qml-desktop-linux-wayland.html">framework</a> qui permet de créer des interfaces graphiques personnalisées (en anglais : "ricing") sous Linux/Wayland.</p>
+<p>Globalement je suis vraiment très impressionné par le travail de DHH, qui, si on en juge par sa <a href="https://dhh.dk/">page web</a> en forme de CV, n'est pas le premier venu. L'interface est à la fois esthétiquement très réussie et  très pro ("because a beautiful system is a motivating system"). Tout est fluide et l'installation des paquets Arch vraiment très rapide quand on vient d'Ubuntu.</p>
+<p>La distribution a été conçue pour les développeurs et facilite le déploiement d'outils de codage comme Claude Code, Codex ou pi. Leur mise à jour simultanée est possible grâce à <a href="https://github.com/jdx/mise">mise</a> et la commande <code>mup</code>. Tmux et Herdr sont préinstallés, ainsi qu'une riche sélection d'applis. L'intégration étroite des agents IA avec Omarchy (omarchy skill) permet à l'utilisateur de modifier l'OS comme bon lui semble. Le truc est puissant.</p>
+<p>La seule chose qui m'inquiète un peu, c'est que NetworkChuck et Alex Finn viennent de s'emparer du sujet... 🫣</p>]]></description>
+</item>
+
+<item>
+<title>27-08-2026</title>
+<link>http://bytepacking.free.fr/#27-08-2026</link>
+<guid isPermaLink="false">logbook-27-08-2026</guid>
+<pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="27-08-2026"><b>27-08-2026</b></p>
+<p>Séance étonnante avec deepseek-v4-flash hier soir : le modèle est hyper rapide. Il décide d'effectuer des actions sans me demander, comme prendre l'initiative de faire des "git commit" et de mettre à jour le fichier AGENTS.md à la fin de la session. Je me retrouve simple spectateur bouche bée.</p>
+<p>J'apprends en outre que si je veux utiliser un modèle d'opencode en dehors de pi (c'est à dire demander à un LLM d'opencode d'effectuer une action au sein d'un script en Python par exemple), la procédure est beaucoup plus compliquée que pour Anthropic, OpenAI, Groq et autre. L'API d'OpenCode ne permet pas de s'y connecter directement, il faut installer opencode (<code>curl -fsSL https://opencode.ai/install | bash</code>), puis démarrer opencode server :</p>
+<p><pre><code>The local opencode server is not OpenAI-compatible — it's a proprietary REST API (default 127.0.0.1:4096, optional basic auth via OPENCODE_SERVER_PASSWORD), with model listing at GET /config/providers and completions via sessions.</code></pre></p>
+<p>Je ne me donne pas cette peine mais j'aurai appris quelque chose.<br>---<br>Je découvre via une vidéo de Better Stack <a href="https://github.com/AlexsJones/llmfit">llmfit</a>, un outil qui permet de savoir quels sont les LLM compatibles avec sa machine pour les exécuter en local. J'adore la magnifique interface, qui s'exécute au sein du terminal (TUI). Je demande à Claude quelques infos complémentaires.</p>
+<p><pre><code>That's called a TUI — Terminal User Interface (sometimes "Text-based User Interface"). It sits between a plain CLI and a full GUI: everything runs inside the terminal, but instead of just printing lines and reading input, it uses ANSI escape codes / a terminal library to draw panels, menus, progress bars, colors, scrollable lists, live-updating widgets, etc.</code></pre></p>
+<p>J'adorerais développer un outil comme celui-ci. Peut-être que je pourrais en prendre de la graine pour RSS-VIBE. Pour l'essayer avec uv, il suffit de taper <code>uvx llmfit</code>.<br>---<br>Dans une <a href="https://youtu.be/Ct-mtWqV3Ro">vidéo sur herdr</a>, je remarque qu'Alejandro AO utilise un outil de reconnaissance vocale pour dicter ses prompts que je ne connaissais pas : <a href="https://spokenly.app/">Spokenly</a>. Je vais l'essayer pour le comparer avec mon voice2prompt : j'apprendrai peut-être comment finaliser une appli pour qu'elle soit la plus conviviale, efficace et facile à installer.</p>]]></description>
+</item>
+
+<item>
+<title>20-08-2026</title>
+<link>http://bytepacking.free.fr/#20-08-2026</link>
+<guid isPermaLink="false">logbook-20-08-2026</guid>
+<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="20-08-2026"><b>20-08-2026</b></p>
+<p>Une <a href="https://www.youtube.com/watch?v=qy1Z43uXdN4">interview passionnante</a> d'Alain Aspect par Anne Rosencher en date du 30 juin (42 min).</p>]]></description>
+</item>
+
+<item>
+<title>19-08-2026</title>
+<link>http://bytepacking.free.fr/#19-08-2026</link>
+<guid isPermaLink="false">logbook-19-08-2026</guid>
+<pubDate>Wed, 19 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="19-08-2026"><b>19-08-2026</b></p>
+<p>J'avance sur mon outil <a href="https://github.com/sebington/voice2prompt-rust/">voice2prompt-rust</a>. Je génère un paquet .deb que je teste sur le laptop. Ça fonctionne. Pi/Haiku me propose même d'utiliser GitHub Actions pour créer un workflow qui génère automatiquement le paquet .deb. Territoire inconnu pour moi. Je tente un "build" mais pour l'instant ça ne fonctionne pas.<br>---<br>Je visionne <a href="https://www.youtube.com/watch?v=LDiklt4dV24">une autre vidéo</a> sur les chaînes de Markov avec de meilleures explications. Ce qui n'était pas dit dans la vidéo précédente est ceci (important) : "A Markov chain is a sequence of random states where <b>the probability of the next state dependends only on the current state</b>." Pour cette raison une chaîne de Markov est dite « sans mémoire » (memoryless).<br>---<br>J'écoute une <a href="https://youtu.be/xdDKq59MaxU">conférence</a> de Stéphane Mallat sur le fonctionnement de l'IA d'un point de vue technique. La carrière de Stéphane Mallat a été couronnée par la médaille d'or du CNRS l'année dernière. Je vois s'établir des ponts entre les disciplines (mathématiques, physique, statistiques...) et c'est très agréable. Stéphane Mallat a le don de la vulgarisation et nous fait comprendre des choses assez complexes dans une langue simple et précise.</p>]]></description>
+</item>
+
+<item>
+<title>18-08-2026</title>
+<link>http://bytepacking.free.fr/#18-08-2026</link>
+<guid isPermaLink="false">logbook-18-08-2026</guid>
+<pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="18-08-2026"><b>18-08-2026</b></p>
+<p>Hier j'ai des problèmes de disponibilité des modèles sur OpenCode (et ça continue aujourd'hui) :</p>
+<p><pre><code>Error: 503: {"type":"server_error","message":"Upstream request failed: Endpoint is unavailable."}</code></pre></p>
+<p>Du coup je retourne sur Gemini-CLI, devenu entretemps Antigravity-CLI, juste pour voir. Ça marche plutôt bien même si la gestion des autorisations après des mois de pi est un peu rebutante. J'ai tout laissé par défaut et c'est le modèle Gemini 3.7 Flash qui propulse le clanker. Je lui demande d'analyser et de lister toutes les interfaces par lesquelles l'utilisateur de VeilleInfo peut agir sur l'appli (boutons et réglages) et il produit une liste très détaillée. Je lui pose ensuite des questions sur le fonctionnement de cette appli que je n'ai pas conçue et dont certains mécanismes m'échappent. Gemini me répond de façon claire et convaincante. Enfin je lui demande de modifier certaines petites choses, ce qu'il fait rapidement, avant de me laisser en rade avec le message suivant :</p>
+<p><pre><code>⚠ Individual quota reached. Please upgrade your subscription to increase your limits. Resets in 162h4m26s.</code></pre></p>]]></description>
+</item>
+
+<item>
+<title>17-08-2026</title>
+<link>http://bytepacking.free.fr/#17-08-2026</link>
+<guid isPermaLink="false">logbook-17-08-2026</guid>
+<pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="17-08-2026"><b>17-08-2026</b></p>
+<p>Simon Willison consacre <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">un billet infiniment long</a> à Qwen 3.8 27B. Il dénonce la tendance du modèle à trop réfléchir. Visiblement, cette réflexion excessive a déteint sur lui.</p>]]></description>
+</item>
+
+<item>
+<title>16-08-2026</title>
+<link>http://bytepacking.free.fr/#16-08-2026</link>
+<guid isPermaLink="false">logbook-16-08-2026</guid>
+<pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="16-08-2026"><b>16-08-2026</b></p>
+<p>Suite à mes observations du 8 août dernier concernant la vidéo sur la statistique bayésienne, je demande à Claude de générer une appli web qui montre de façon plus pédagogique ce que l'auteur cherchait à démontrer, à savoir que, selon le théorème de Bayes, la probabilité qu'un événement se produise peut se modifier au fur et à mesure que l'on accumule des données concernant cet événement.</p>
+<p>On peut tester cela dans l'<a href="http://bytepacking.free.fr/files/bayesian_coin_lab.html">appli</a> en tirant à pile ou face (en anglais 'tails' or heads') avec une pièce "normale" (50 % de chance de tomber sur pile ou sur face) ou avec une pièce "truquée" (70 % de chance de tomber sur face). Au départ, pièce truquée ou non, on suppose une probabilité de 50-50. On voit qu'en tirant la pièce une centaine de fois, la probabilité évolue dans le temps et se stabilise avec l'accumulation de données, renforçant l'hypothèse 50/50 de départ, ou l'infirmant.</p>
+<p>Si on souhaite mieux comprendre ces sujets, on pourra visionner la série de cours que Stanislas Dehaene y a consacré en 2012 au Collège de France intitulée "Le cerveau statisticien : la révolution Bayésienne...". Dans le <a href="https://www.youtube.com/watch?v=Q0AO6GmqzSQ">premier</a>, vers 45:00, Dehaene explique le concept de vraisemblance bayésienne précisément avec l'exemple de la pièce de monnaie.</p>]]></description>
+</item>
+
+<item>
+<title>15-08-2026</title>
+<link>http://bytepacking.free.fr/#15-08-2026</link>
+<guid isPermaLink="false">logbook-15-08-2026</guid>
+<pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="15-08-2026"><b>15-08-2026</b></p>
+<p>Parfois je suis vraiment épaté par ce que les IA arrivent à produire. Ce matin l'algorithme de YouTube me propose <a href="https://www.youtube.com/watch?v=3qodjHRUxAo">cette vidéo</a>, dans la veine des statistiques bayésiennes que j'explore ces jours-ci et que je trouve lumineuse dans ses explications. Je me dis que ce serait cool de reproduire l'animation interactive qui lui sert de support.</p>
+<p>Bien entendu, le choix de la méthode pour ce faire est immense et me file le tournis. Dans un premier temps j'utilise Gemini Flash (version web) avec le prompt suivant :</p>
+<p><pre><code>Find the code that could reproduce the 2D examples in this video on Markov Chain Monte Carlo: https://www.youtube.com/watch?v=3qodjHRUxAo</code></pre></p>
+<p>Gemini me propose tout d'abord un script en Python non interactif qui fait appel à NumPy, SciPy, and Matplotlib, bon. Je l'oriente un peu et il produit une <a href="http://bytepacking.free.fr/files/gemini-1.html">première visualisation</a> en HTML/Javascript, fonctionnelle et interactive, mais pas du tout ressemblante à la vidéo. Je précise ce que je souhaite obtenir et Gemini produit une <a href="http://bytepacking.free.fr/files/gemini-2.html">seconde visualisation</a> non-interactive très décevante. Au passage, il mentionne tout de même que certaines animations de la vidéo ont probablement été réalisées avec <a href="https://github.com/3b1b/manim">manim</a>, le moteur d'animations créé par 3Blue1Brown.</p>
+<p>Je me tourne alors vers Claude Sonnet 5 Medium (version web) avec un second prompt :</p>
+<p><pre><code>Can you help me reproduce the visualization of the Markov chain Monte Carlo example in the following video, the first interactive example from 0:22 to 1:30-ish?</code></pre></p>
+<p>Claude me répond ne pas pouvoir extraire d'information de la vidéo. Je demande au clanker (deepseek-v4-flash) de télécharger la vidéo ainsi que sa transcription et d'en extraire une image par seconde, ce qu'il fait à sa façon, sans faire appel aux outils que j'utilise habituellement (encore une dinguerie mais passons).</p>
+<p>Je donne 9 images significatives et la transcription à Claude et lui demande de continuer. Le <a href="http://bytepacking.free.fr/files/mcmc_manual_sampling_claude_demo_1.html">résultat</a> est bluffant je trouve. Très proche du rendu de la vidéo. On ajoute chaque point à la main avec la souris et on regarde ce qui se passe ou bien on essaie le mode automatique (bouton "Let MCMC try it").</p>
+<p>Je remarque qu'avec ce mode automatique, la distribution des points générés aléatoirement n'est parfois pas assez étalée sous la courbe et se concentre sous une seule bosse de la fonction. Claude corrige en générant une certaine proportion de points sur des intervales spatiaux plus larges. Je fais aussi en sorte que les histogrammes soient légèrement plus étroits.</p>
+<p>Je demande enfin à Claude d'ajouter les améliorations dont il est question dans la vidéo ("burn in period" et "thinning"). Voici la <a href="http://bytepacking.free.fr/files/mcmc_manual_sampling_claude_demo_5.html">version la plus aboutie</a>, qui continue de fonctionner en mode manuel si on le souhaite.</p>
+<p>Concernant la manière d'utiliser les IA, je suis conscient que mon approche manque de rigueur. Nous savons la sensibilité des LLM à la manière dont est rédigé le prompt. Je me dois donc de tester le second prompt (utilisé avec Claude) sur Gemini, ce que je fais. J'obtiens <a href="http://bytepacking.free.fr/files/gemini-3.html">ce résultat</a>, qui sans être extraordinaire, est plus proche de ce que je souhaitais obtenir, compte tenu du fait que je ne lui ai pas fourni les images, ni la transcription. J'ai pensé, peut-être à tort, que Gemini/Google avait un accès direct aux contenus de YouTube/Google, mais cela n'est peut-être pas tout à fait le cas.</p>]]></description>
+</item>
+
+<item>
+<title>14-08-2026</title>
+<link>http://bytepacking.free.fr/#14-08-2026</link>
+<guid isPermaLink="false">logbook-14-08-2026</guid>
+<pubDate>Fri, 14 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="14-08-2026"><b>14-08-2026</b></p>
+<p>Hier soir, je constate que, comme annoncé, la version gratuite de deekseek-v4-flash ne fonctionne plus. Je me rabats sur la version payante pour apporter quelques modifs à rss-vibe.</p>
+<p>À la fin de la session, je tape <code>/reasonix-status</code> et obtient comme prévu les statistiques d'usage du modèle.<br>---<br>Un projet potentiellement intéressant déniché par la chaîne Better Stack, mais encore un peu immature je crois : <a href="https://github.com/0xShug0/audio.cpp">audio.cpp</a>. À surveiller.<br>---<br>Better Stack a aussi interviewé <a href="https://youtu.be/90t4HgAFqZU">Florian Dedov</a>, le créateur (encore un Autrichien !) de la chaîne NeuralNine. Ce dernier présente d'ailleurs le <a href="https://www.youtube.com/watch?v=qg9EyGOZd9U">nouveau clanker de DeepSeek</a>.</p>]]></description>
+</item>
+
+<item>
+<title>12-08-2026</title>
+<link>http://bytepacking.free.fr/#12-08-2026</link>
+<guid isPermaLink="false">logbook-12-08-2026</guid>
+<pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="12-08-2026"><b>12-08-2026</b></p>
+<p>Sur les conseils d'Olivier, j'installe <a href="https://reasonix.io/">Reasonix</a>, un clanker plus ou moins autonome qui s'appuie nativement sur l'API et les modèles de DeepSeek. J'installe ensuite <a href="https://pi.dev/packages/pi-reasonix">un plugin de Reasonix</a> pour pi. Pas encore essayé.</p>]]></description>
+</item>
+
+<item>
+<title>11-08-2026</title>
+<link>http://bytepacking.free.fr/#11-08-2026</link>
+<guid isPermaLink="false">logbook-11-08-2026</guid>
+<pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="11-08-2026"><b>11-08-2026</b></p>
+<p>Je reviens sur <a href="https://youtu.be/SkM4k4SKvCM">la vidéo d'Alejandro AO</a> dont je parlais hier. Voici <a href="https://claude.ai/share/c6ed1650-c746-4a98-a295-ce4883ba7c11">ce que Claude préconise</a> suite à l'analyse de la transcription de la vidéo.<br>---<br>Je télécharge et lance muse-glimmer-30B-kquant-17gb.gguf, le nouveau modèle de Meta, mais l'inférence est beaucoup plus lente qu'avec gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf (à peine 2 t/s). Très décevant.</p>
+<p>Le modèle "local" qui m'impressionne le plus reste de loin gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf, qui malgré sa taille (14.2 GB) fonctionne du tonnerre. Ce modèle présente une fluidité jamais observée auparavant chez un modèle de taille similaire, probablement due à son architecture en Mixture of Experts (MOE). En effet, je teste gemma-4-12b-it-UD-Q4_K_XL.gguf, un modèle plus modeste en taille (7.4 GB) et en nombre de paramètres (12b) et la vitesse de l'inférence est largement inférieure (~3 t/s).</p>
+<p>À un moment je pense trouvé la raison : <a href="https://unsloth.ai/docs/models/gemma-4/qat">Gemma 4 QAT</a>.</p>
+<p>"Gemma 4 QAT (Quantization-Aware Training) is Google DeepMind’s new Gemma 4 variants designed to reduce memory requirements while preserving model quality. This makes it possible to run larger models, such as Gemma 4 26B-A4B, locally on consumer GPUs with as little as 16GB of RAM.</p>
+<p>Gemma 4 QAT is trained with quantization in mind, allowing 4-bit format to have ~72% lower memory usage with near original performance. 2 special mobile quants of E2B and E4B are also provided which uses a mixture of quant widths."</p>
+<p>Voir aussi <a href="https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/">cette page</a> du blog de Google.</p>
+<p>Mais un essai avec un autre modèle QAT ne donne pas les résultats escomptés, donc je reste sur l'idée que le MOE reste l'ingrédient essentiel de la recette.</p>]]></description>
+</item>
+
+<item>
+<title>10-08-2026</title>
+<link>http://bytepacking.free.fr/#10-08-2026</link>
+<guid isPermaLink="false">logbook-10-08-2026</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="10-08-2026"><b>10-08-2026</b></p>
+<p>Ce matin je suis pris d'une énième attaque de panique, que je parviens à diagnostiquer (ce qui est paradoxalement le plus difficile à faire) et à endiguer au bout d'au moins deux heures d'une inexorable montée de noirceur.</p>
+<p>Je me concentre sur mon fil d'actualité et constate que deekseek-v4-flash <a href="https://youtu.be/93iYf9wp7Qw">semble faire l'objet de louanges</a> en ce moment, ce qui me procure une certaine satisfaction puisque depuis plus d'un mois j'utilise quasi exclusivement ce modèle, et gratuitement en plus. Un game changer pour moi, même si sa gratuité <a href="https://startupfortune.com/deepseek-warns-its-ultra-cheap-v4-flash-pricing-wont-last/">risque de ne pas durer</a>.</p>
+<p>Vidéo intéressante d'Alejandro AO sur le <a href="https://developers.openai.com/api/docs/guides/prompt-caching">prompt caching</a>, une technique à laquelle on ne pense pas assez et qui peut nous faire faire des économies substancielles. Mais le sujet est complexe car chaque provider gère le truc à sa sauce. Alejandro dit qu'il faut paramétrer son clanker, mais sans vraiment expliquer comment ! J'obtiens des informations avec deepseek-v4-free dans pi et gemini 3.6 flash dans Antigravity CLI que je viens de réinstaller et qui est très réactif et agréable à utiliser. Gemini version web me donne aussi <a href="https://share.gemini.google/JYNJsHNV7SdG">son avis sur la chose</a>.</p>
+<p>Je continue d'améliorer RSS-VIBE, un visualiseur de flux RSS en ligne de commande en lui ajoutant un menu que je raffine sans cesse. La contrainte liée au "terminal only" peut faire naitre des fonctionnalités intéressantes et permet de se concentrer sur l'essentiel.</p>
+<p>Je travaille aussi sur un outil qui scanne ma collection de mp3 et qui détecte les fichiers mal encodés ou à la qualité douteuse ("upsampled"). Claude version web avec Sonnet 5 améliore énormément le script pondu par DeepSeek-V4.</p>]]></description>
+</item>
+
+<item>
+<title>09-08-2026</title>
+<link>http://bytepacking.free.fr/#09-08-2026</link>
+<guid isPermaLink="false">logbook-09-08-2026</guid>
+<pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="09-08-2026"><b>09-08-2026</b></p>
+<p>Ce matin je décide de descendre au jardin partagé avec mon laptop. Il y a une table de picnic à l'ombre jusqu'à midi. Problème : tel que configuré actuellement, la connexion SSH entre le laptop et le PC maison ne fonctionne qu'au sein de mon réseau domestique. À l'extérieur, le laptop sera forcément connecté à internet via mon smartphone. Claude me conseille d'utiliser Tailscale, en exécutant les 2 commandes ci-dessous sur chaque machine.</p>
+<p><pre><code>curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up</code></pre></p>
+<p>Il faut s'enregister sur le site de Tailscale, puis je peux lancer la commande SSH habituelle <code>ssh your_username@pc1-tailscale-ip</code> sur le laptop pour connecter les deux machines via le terminal. Ça marche. Une fois rentré chez moi, la connexion perdure même si je coupe le point d'accès sur le smartphone : elle bascule automatiquement sur le réseau domestique.<br>---<br>Suite à mes activités d'hier, je cherche à mieux comprendre le théorème de Bayes et ce qui en découle (inférence bayésienne, statistiques bayésienne, etc.). Pour moi il s'agit d'un concept central de l'expérience humaine. La théorie bayésienne est d'ailleurs mentionnée dans <a href="https://arenes.fr/livre/la-verite-sur-le-placebo/">Placebo</a>, l'excellent ouvrage de Richard Monvoisin et consorts sorti en mai.</p>
+<p>Selon Wikipédia, "La statistique bayésienne est une approche statistique fondée sur l'inférence bayésienne, où la probabilité exprime un degré de croyance en un événement. Le degré initial de croyance peut être basé sur des connaissances a priori, telles que les résultats d'expériences antérieures, ou sur des croyances personnelles concernant l'événement".</p>
+<p>Selon nos expériences de vie, nos croyances sont sans cesse mises à jour et c'est de cette façon que nous affinons (ou pas) notre compréhension des choses.</p>
+<p>Plusieurs vidéos sur YouTube qui se veulent éclairantes sur le sujet ne le sont pas du tout jusqu'à ce que je tombe sur <a href="https://youtu.be/x-2uVNze56s">cette vidéo</a> de l'excellente chaîne "Hygiène Mentale". Monsieur Phi aborde également ce vaste sujet, dans 2 vidéos (<a href="https://youtu.be/3FOrWMDL8CY">celle-ci</a> et <a href="https://youtu.be/aU7EWwLtiOg">celle-là</a>).<br>---<br>Une <a href="https://www.youtube.com/watch?v=MnS0TvxLzaU">technique</a> originale pour transférer des données d'un smartphone à l'autre sans utiliser les technologies sans fil ou filaires habituelles. Passionnant.</p>]]></description>
+</item>
+
+<item>
+<title>08-08-2026</title>
+<link>http://bytepacking.free.fr/#08-08-2026</link>
+<guid isPermaLink="false">logbook-08-08-2026</guid>
+<pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="08-08-2026"><b>08-08-2026</b></p>
+<p>Je visionne <a href="https://youtu.be/XCEpIBqKogo">une vidéo</a> sur la <a href="https://fr.wikipedia.org/wiki/Statistique_bay%C3%A9sienne">statistique bayésienne</a>, un sujet que j'avais mentionné dans un <a href="https://sebington.substack.com/p/andy-clark-et-le-cerveau-predictif">billet de blog</a>.</p>
+<p>Vers 14:30 dans la vidéo, l'auteur propose une implémentation en Python d'un premier exemple. J'essaie de trouver un lien vers ce code dans la description de la vidéo et sur internet, sans succès. Alors je fais une copie d'écran du code, que je donne à ChatGPT avec le prompt : <code>OCR this code and check if it can run as is or if something is missing</code>.</p>
+<p>ChatGPT m'indique qu'il y a <a href="https://chatgpt.com/share/6a774e07-bc60-83ed-af62-6936123f9641">une erreur de logique dans le code</a>, même si celui-ci s'exécutera sans problème.</p>
+<p>Je donne le même code à Claude, qui <a href="https://claude.ai/share/2be5e8c9-f83d-4f4b-be44-f5f924962561">repère la même erreur logique</a>. Cependant, Claude va plus loin en détectant ce qu'il qualifie d'erreur conceptuelle dans la manière dont les données aléatoires sont générées (50/50 au lieu de 70/30). Dans les commentaires de la vidéo, quelqu'un a repéré l'erreur logique, mais l'auteur ne répond pas à l'objection.</p>
+<p>Pour un ensemble de raisons que je ne développerai pas ici, je trouve cet enchaînement de hasards (le fait que je pense à la théorie bayésienne, que je tombe justement sur cette vidéo etc. etc.) assez fascinant.<br>---<br>Il est de plus en plus facile de se fabriquer des outils sur mesure, même avec des technologies il y a encore un an rares ou délicates à mettre en oeuvre. Ce soir par exemple, je me fabrique la pipeline suivante en 3 coups de cuiller à pot : transcription d'une vidéo YouTube > résumé de la transcription > lecture à voix haute du résumé.<br>Transcription : youtube-transcript-api<br>Résumé : n'importe quel LLM en accès API gratuit (ex. Groq)<br>Text-to-Speech : Microsoft Edge TTS (edge-tts)</p>]]></description>
+</item>
+
+<item>
+<title>06-08-2026</title>
+<link>http://bytepacking.free.fr/#06-08-2026</link>
+<guid isPermaLink="false">logbook-06-08-2026</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="06-08-2026"><b>06-08-2026</b></p>
+<p>Trois vidéos ont attiré mon attention ces derniers jours.</p>
+<p>Dans la <b><a href="https://youtu.be/u_k9cwDNPcM">première</a></b> Armin Ronacher explique avec plusieurs exemples les problèmes et dérives engendrés par ce qu'il appelle "Agent psychosis", faisant ainsi un parallèle avec "LLM psychosis", un terme qui décrit la relation addictive que certaines personnes développent avec les IA. Même si l'emprise du code continue de s'étendre dans tous les domaines, il faut selon Ronacher que l'humain reste dans la boucle et continue d'être à même de <b>comprendre</b> le code généré par les machines.</p>
+<p>Dans la <b><a href="https://youtu.be/wjXstnM8co0">seconde</a></b>, Armin Ronacher et Colin Daymond Hanna présentent leur vision d'une IA "locale avant tout". Earendil, leur entreprise, vise à construire un stack IA open source, techniquement neutre, basé sur pi. Ils dénoncent la domination du secteur par quelques plateformes fermées, avec des utilisateurs captifs qui perdent progressivement toute possibilité d'initiative et d'inventivité (Armin étaye son propos avec plusieurs exemples techniques).</p>
+<p>Dans la <b><a href="https://youtu.be/qyPCVqFUyDo">troisième</a></b>, Boris Cherny, le créateur de Claude Code, explique à quel point "less is more" avec chaque nouveau modèle produit par Anthropic. Ironiquement, il semble rejoindre le point de vue de Mario Zechner, le créateur de pi, qui avait compris avant tout le monde que moins on enferme le modèle dans un carcan d'instructions, plus il "respire" et mieux il fonctionne. Tout comme Armin Ronacher dans "A Year of Agents", Cherny évoque la réécriture largement automatisée de Bun (Zig vers Rust, en 11 jours). Les deux hommes ont cependant des avis très divergents sur l'opération et son résultat.<br>---<br>Je continue de tester pi/llama.cpp. Cette fois ça fonctionne mieux et j'obtiens la même vitesse d'inférence (~10t/s) avec pi et avec llama-cli. Le paramétrage et l'utilisation ne sont pas très fluides et la lenteur au chargement et à la mise en oeuvre des modèles génère de la frustration quand on est habitué aux services hébergés dans le cloud. Mais je parviens à générer des scripts en Python que le clanker teste et corrige au besoin. J'ai pour l'instant essayé les modèles suivants (versions gguf):<br>• Laguna-XS-2.1-Q4_K_M (20.3 Go)<br>• LFM2.5-2.6B-Q4_K_M (1.67 Go)<br>• gemma-4-26B-A4B-it-qat-UD-Q4_K_XL (14.2 Go)<br>• Qwen3.6-27B-GGUF:Q4_K_M (19.1 Go)<br>Il faut reconnaitre que les choses progressent. Il y a ne serait-ce qu'un an, faire tourner un modèle d'une vingtaine de gigas sur ma machine "CPU only" était une expérience pour le moins "désagréable".</p>]]></description>
+</item>
+
+<item>
+<title>05-08-2026</title>
+<link>http://bytepacking.free.fr/#05-08-2026</link>
+<guid isPermaLink="false">logbook-05-08-2026</guid>
+<pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="05-08-2026"><b>05-08-2026</b></p>
+<p>Suite à <a href="https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b">ce billet</a> sur le blog de Hugging Face, je continue d'utiliser llama.cpp avec pi, cette fois pour tester le modèle <a href="https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF">LFM2.5-2.6B</a>.</p>
+<p>Sur les conseils de deepseek-v4-flash, j'installe à nouveau llama.cpp et l'ajoute à "PATH" avec la commande suivante :</p>
+<p><pre><code># install
+mkdir -p ~/llama.cpp
+curl -sL -o /tmp/llama.tar.gz \
+  "https://github.com/ggml-org/llama.cpp/releases/latest/download/llama-b10285-bin-ubuntu-x64.tar.gz"
+tar -xzf /tmp/llama.tar.gz -C ~/llama.cpp
+ln -sfn ~/llama.cpp/llama-b10285 ~/llama.cpp/current
+echo 'export PATH="$HOME/llama.cpp/current:$PATH"' >> ~/.bashrc
+source ~/.bashrc</code></pre></p>
+<p>Vu la fréquence des releases de llama.cpp, je demande à deepseek de me proposer une méthode de mise à jour :</p>
+<p><pre><code># update (asset name changes per release, so fetch tag first)
+TAG=$(curl -s https://api.github.com/repos/ggml-org/llama.cpp/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
+curl -sL -o /tmp/llama.tar.gz "https://github.com/ggml-org/llama.cpp/releases/latest/download/llama-${TAG}-bin-ubuntu-x64.tar.gz"
+tar -xzf /tmp/llama.tar.gz -C ~/llama.cpp
+ln -sfn ~/llama.cpp/llama-${TAG} ~/llama.cpp/current</code></pre></p>
+<p>Je me rends compte qu'il existe au moins 3 façons de faire tourner un modèle sur pi avec llama.cpp selon que l'on suit les instructions sur :<br>1. le <a href="https://docs.liquid.ai/examples/agent-harnesses">site du fabriquant du modèle</a><br>2. le <a href="https://pi.dev/docs/latest/llama-cpp">site de pi</a><br>3. le <a href="https://llama.app/">site llama.app</a> (sorte de nouvelle vitrine de llama.cpp)</p>
+<p>Je teste différentes méthodes et constate que la vitesse d'inférence de LFM2.5-2.6B via pi est beaucoup plus lente qu'avec llama-cli par exemple. À investiguer.</p>]]></description>
+</item>
+
+<item>
+<title>01-08-2026</title>
+<link>http://bytepacking.free.fr/#01-08-2026</link>
+<guid isPermaLink="false">logbook-01-08-2026</guid>
+<pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="01-08-2026"><b>01-08-2026</b></p>
+<p>Pour moi une des fonctionnalités majeures de <a href="https://herdr.dev/docs/integrations/">Herdr</a> est la possibilité de lancer plusieurs agents pour effectuer des tâches parallèles. Dans les vidéos de présentation de Herdr, on évoque cette possibilité mais on trouve peu d'exemples de cas concrets. J'essaie donc de mettre en pratique cette fonctionnalité en lançant dans herdr une première instance de pi que je définis comme "orchestrateur", puis lui demande de créer 2 autres instances de pi dans deux terminaux distincts de la même "tab", ce qu'il fait.</p>
+<p>Je demande ensuite à l'orchestrateur de faire travailler chaque sous-agent en parallèle sur une même tâche dans deux sous-dossiers distincts. Chaque sous-agent doit analyser le contenu d'un prototype de projet. Quand les deux sous-egents ont terminé, l'orchestrateur reprends la main, récupère les conclusions de chaque sous-agent et fait un rapport. Tout se passe comme prévu. Un des sous-agents met plus de temps à effectuer sa tâche et l'orchestrateur attend avec un timeout de 900 secondes. Quand les deux sous-agents ont terminé, je le signale à l'orchestrateur pour lui éviter une attente inutile.</p>
+<p>Pour que ceci fonctionne, il faut configurer herdr pour qu'il fonctionne avec le clanker de son choix, en faisant par exemple <code>herdr integration install pi</code> ce qui ajoute l'extension <code>~/.pi/agent/extensions/herdr-agent-state.ts</code> à pi. Je crois qu'il est également fortement recommandé d'installer la skill "herdr" <code>npx skills add herdrdev/herdr --skill herdr -g</code>.<br>---<br>Depuis hier je teste à nouveau des approches de recherche pour développer de nouveaux outils ou améliorer ma compréhension de techniques d'IA. Je pars en général d'un problème et demande à une IA de faire des recherches en vue de le résoudre. Je constate que l'outil <a href="https://jules.google.com/">Jules</a> de Google fonctionne toujours et lui soumets l'énoncé du problème. Jules, qui semble utiliser Gemini 3 Flash, travaille tout seul pendant un certain temps et donne sa réponse sous la forme d'un PR dans Github, qu'il me suffit d'accepter. En parallèle je demande la même chose à Kimi K3 via pi. Etonnant de voir les similitudes et parfois la complémentarité des réponses.</p>
+<p>Aujourd'hui ma tentative consiste à tenter de trouver un moyen d'améliorer l'inférence d'un modèle local sur une machine comme la mienne. Voici le prompt donné à Jules et à Kimi K3 :</p>
+<p><pre><code>Search for information or ideas that could drastically improve the local inference of LLMs (such as a quantized version of Gemma4) on consumer hardware, for instance an Intel® Core™ i5-10400 × 12 with 32 Gb of RAM. You may draw inspiration from the following (Mac) projects: https://github.com/drumih/turbo-fieldfare https://github.com/antirez/ds4 or projects like Ollama or Llama.cpp.</code></pre></p>
+<p>Les <a href="https://github.com/sebington/research/tree/main/gemma4_local_inference_optimization_research">résultats</a> détaillés sont vraiment très intéressants. Les deux modèles vont au fond des choses. Après un moment de tourbillon mental, je constate de part et d'autre qu'une solution pourrait résider dans un réglage fin fin de llama.cpp via la <b>commande qui lance l'inférence de llama-cli</b>. Au travers de celle-ci, l'essentiel est de trouver un paramétrage sur mesure adapté à la fois au <a href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF">modèle ciblé</a> ET au matériel dont on dispose.</p>
+<p>Jules propose une commande prête à l'emploi et Kimi en détaille les contours. Je me contente de lui demander de la finaliser. Je télécharge le modèle Gemma4 (15 Go) et teste immédiatement les deux commandes avec le même prompt. La commande de Kimi donne de meilleurs résultats en terme de vitesse : 10 t/s contre 8 t/s pour Jules. Il y a un an ou deux, j'obtenais ce genre de vitesse avec des modèles beaucoup plus modestes de 4 ou 5 Go (7b ou 8b).</p>
+<p>Au delà de ces résultats, mon essai montre qu'à minima on peut influer sur les performances d'une inférence locale en trouvant les bons réglages. Ce paramétrage, essentiel, ne nous était auparavant pas accessible ou l'était uniquement aux spécialistes. Cela montre la complexité des outils dont nous disposons et que nous sous-utilisons par ignorance ou manque de temps.</p>
+<p>Commande "Jules" :</p>
+<p><pre><code>./llama-cli \
+  -m "models/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf" \
+  -c 8192 \
+  -ngl 99 \
+  --n-cpu-moe 15 \
+  -t 6</code></pre></p>
+<p>Commande "Kimi" :</p>
+<p><pre><code>./llama-cli \
+  -m "models/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf" \
+  -c 8192 \
+  -t 6 -tb 12 \
+  -b 2048 -ub 512 \
+  -fa on \
+  --cache-type-k q8_0 --cache-type-v q8_0 \
+  --mlock \
+  --temp 0.2 --top-k 64 --top-p 0.95 \
+  -cnv</code></pre></p>]]></description>
+</item>
+
+<item>
+<title>31-07-2026</title>
+<link>http://bytepacking.free.fr/#31-07-2026</link>
+<guid isPermaLink="false">logbook-31-07-2026</guid>
+<pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="31-07-2026"><b>31-07-2026</b></p>
+<p>Je relaie <a href="https://keepandroidopen.org/">cet appel</a> pour conserver l'OS Android ouvert. "À partir de 2027, une mise à jour silencieuse, imposée par Google sans le consentement des utilisateurs, bloquera toutes les applications Android dont le développeur ne se sera pas enregistré auprès de Google, n'aura pas signé son contrat, payé les frais requis et fourni une pièce d'identité officielle."<br>---<br>J'avance sur <a href="https://github.com/sebington/voice2prompt-rust">la version en Rust</a> de Voice2Prompt. Kimi K3 a planifié des améliorations en vue d'un déploiement en me donnant une vision d'ensemble de ce qui était possible. Sa "roadmap" m'a été très utile pour comprendre les différentes étapes de la construction d'un logiciel. J'ai ensuite demandé à DeepSeek V4 Flash de commencer à implémenter. Il a fait le plus gros du travail : fusionner 2 fichiers binaires en un seul et gérer les droits d'exécution une seule fois lors de l'installation et non plus à chaque lancement de l'outil.</p>]]></description>
+</item>
+
+<item>
+<title>30-07-2026</title>
+<link>http://bytepacking.free.fr/#30-07-2026</link>
+<guid isPermaLink="false">logbook-30-07-2026</guid>
+<pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="30-07-2026"><b>30-07-2026</b></p>
+<p>Ce matin j'utilise Kimi K3 pour la première fois. Kimi est légèrement plus lent que DeepSeek V4 Flash, mais il semble très efficace et beaucoup plus économe en tokens. Il me suggère une "feuille de route" pour Voice2Prompt en Rust qui permettrait de passer d'une "appli de geek" à une application plus conviviale et utilisable par tout un chacun. Avant d'en arriver là, je lui demande de réparer plusieurs petits bugs, ce qu'il fait sans problème. En tous cas l'appli marche du tonnerre sans que je n'aie lu la moindre ligne de Rust.<br>---<br>Un résumé de l'affaire <a href="https://www.frandroid.com/culture-tech/intelligence-artificielle/openai-chatgpt/3199179_un-agent-dopenai-sechappe-et-pirate-le-plus-grand-hub-dia-un-scenario-de-science-fiction-pourtant-bien-reel">GPT vs Hugging Face</a> qui a fait le buzz ces derniers jours. Ou bien <a href="https://simonwillison.net/2026/Jul/22/openai-cyberattack/">la version de Simon Willison</a> (en anglais).</p>]]></description>
+</item>
+
+<item>
+<title>29-07-2026</title>
+<link>http://bytepacking.free.fr/#29-07-2026</link>
+<guid isPermaLink="false">logbook-29-07-2026</guid>
+<pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="29-07-2026"><b>29-07-2026</b></p>
+<p>Ce matin <a href="https://addons.mozilla.org/en-US/firefox/addon/feedbroreader/">FeedBro</a> bugue et n'affiche plus aucun RSS. Heureusement que j'ai pensé à faire une sauvegarde hier. Ne pas trop compter sur cet outil et continuer d'améliorer le fork de VeilleInfo.</p>]]></description>
+</item>
+
+<item>
+<title>28-07-2026</title>
+<link>http://bytepacking.free.fr/#28-07-2026</link>
+<guid isPermaLink="false">logbook-28-07-2026</guid>
+<pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="28-07-2026"><b>28-07-2026</b></p>
+<p>Immobilisé suite à un accident, je passe le temps avec mes outils de codage agentique. Le modèle <b>deepseek-v4-flash</b> continue de me stupéfier par son efficacité et sa rapidité. Avec son contexte de "seulement" 200 000 tokens, il fait des merveilles. Je vais à la pêche aux skills sur <a href="skills.sh">skills.sh</a> et continue de me familiariser avec <a href="https://herdr.dev/">Herdr</a>.</p>
+<p>Je configure mon laptop pour que le terminal puisse se connecter en SSH à celui de mon ordi principal. Idem pour l'authentification avec Github, qui se fait désormais en SSH. Le clanker m'aide quand les choses ne se passent pas comme prévu. Il vérifie, configure, répare, installe... quel bonheur.</p>
+<p><a href="https://www.youtube.com/channel/UCPGrgwfbkjTIgPoOh2q1BAg">David Ondrej</a>, un jeune et ambitieux développeur-youtubeur d'origine tchèque, n'arrête pas de dire que "the human is the bottleneck", que nous avons du mal à nous débarrasser de nos habitudes et que nous devons laisser les clankers résoudre les problèmes pour nous. Je crois qu'il n'a pas tort. <a href="https://youtu.be/FU5_kpTAVDo">Thorsten Ball</a> ne dit pas autre chose.</p>
+<p>Je continue de modifier mon fork de VeilleInfo mais finis par atteindre les limites de l'ergonomie de l'outil tel qu'il a été conçu, ce qui fait que je me mets à tourner en rond sans parvenir à résoudre certains problèmes. Aller plus loin impliquerait un changement plus radical de l'architecture et des fonctionnalités du projet, un saut que je renonce à faire sans une idée plus précise de ce que je souhaiterais obtenir.</p>
+<p>En attendant je bricole un visualiseur de flux RSS en ligne de commande (RSS-VIBE) qui parse, valide ou rejette les URL et peut les importer et les exporter en TXT ou OPML. Je finis par installer <a href="https://addons.mozilla.org/en-US/firefox/addon/feedbroreader/">FeedBro</a>, un add-on de Firefox, dont l'interface me permet de visualiser rapidement les flux qui m'intéressent vraiment. Au passage me vient l'idée de récupérer toutes les URL d'une newsletter de Crouzet à partir de liens qu'il a pris soin de rediriger vers son Substack pour se créer du trafic (naughty) et qui n'affichent donc pas l'URL finale. Après quelques ruses de Sioux, le problème est réglé. J'ajoute les nouveaux liens à une liste d'une soixantaine d'entrées que je n'arrête pas de remanier.</p>
+<p>Autres trucs en vrac :</p>
+<p>• Je gère une collection de fichiers audio (surtout des mp3 mais pas que) directement avec pi. Je découvre <a href="https://github.com/nicfit/eyeD3">eyeD3</a>, super efficace pour éditer ou retirer les tags. Je vérifie la qualité audio de l'encodage, avec 128 kbps/44.1KHz comme minimum. L'idée serait de tout convertir en MP3 pour la bibliothèque du smartphone. À suivre.</p>
+<p>• Je tombe "par hasard" sur <a href="https://ollama.com/library/laguna-xs-2.1">laguna-xs-2.1</a>, un modèle de type Mixture-of-Experts (MOE) de 33 milliards de paramètres dont 3 milliards activés par token. Ce modèle est conçu pour faire du codage agentique en local. Je l'installe sur Ollama et constate avec surprise que même sur ma machine sans GPU, l'inférence n'est pas hyper lente comme cela arrive souvent avec des modèles beaucoup plus petits. Le fait que le modèle soit un MOE doit y être pour quelque chose.</p>
+<p>• Je tente de porter Voice2prompt, mon outil de dictée vocale, <a href="https://github.com/sebington/voice2prompt-rust">en Rust</a>, toujours avec deepseek-v4-flash. Le pire c'est que ça marche. À voir si la nouvelle version en Rust est plus rapide et plus pratique que la version en Python comme cela m'a été annoncé. Le projet n'est pas encore tout à fait finalisé.</p>
+<p>• Je découvre <a href="https://github.com/kunchenguid">Kun Chen</a>, un développeur qui s'exprime dans un anglais fluide et précis, agréable à écouter. Enthousiaste et compétent, il expose sa manière de travailler dans les moindres détails tout en présentant certains outils qu'il a conçus (firstmate, lavish, no-mistakes). Lui aussi a pris conscience que les outils avec "interfaces pour humains" doivent être repensés pour être "agent-compatibles". Même Github n'est plus adapté à l'arrivée des clankers. On peut s'attendre à pas mal de nouveautés dans les mois qui viennent.</p>
+<p>Trucs à faire / idées :</p>
+<p>• Donner à pi un "cahier des charges" (en anglais) des paramétrages que je dois effectuer à chaque fois que je réinstalle Ubuntu (instructions, tweaks, lignes de commande, etc.). Lui demander d'interpréter ces instructions pour créer un fichier <code>autoinstall.yaml</code>. Puis utiliser le fichier YAML pour effectuer le paramétrage. Correctement formatté, ce fichier peut en effet servir lors de l'install "officielle" d'Ubuntu à partir d'une clé USB.</p>
+<p>• Pour un ami photographe de "friches", créer un outil de prospection de lieux abandonnés en utilisant toutes les données disponibles sur le net (réseaux sociaux, sites spécialisés, news, cartographie, gps, imagerie satellite, etc.).</p>
+<p>• Configurer <a href="https://pi.dev/docs/latest/llama-cpp">pi avec llama.cpp</a> "par curiosité", pour voir si ça marche mieux qu'avec Ollama (il paraît que oui).</p>]]></description>
+</item>
+
 <item>
 <title>14-07-2026</title>
 <link>http://bytepacking.free.fr/#14-07-2026</link>
 <guid isPermaLink="false">logbook-14-07-2026</guid>
 <pubDate>Tue, 14 Jul 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="14-07-2026"><b>14-07-2026</b></p>
-<p>C'est incroyable à quel point notre habitude de faire les choses "à la main" est imprimée en nous. Ce matin je m'apprête à faire une série de copier-coller hyper chiants, quand soudain je me "souviens" que j'ai un clanker à disposition !🤪</p>]]></description>
+<p>C'est incroyable à quel point notre habitude de faire les choses "à la main" est imprimée en nous. Ce matin je m'apprête à faire une série de copier-coller hyper chiants, quand soudain je me "souviens" que j'ai un clanker à disposition ! 🤪</p>
+<p>Depuis hier, je crée un fork de VeilleInfo, l'aggrégateur de news d'Olivier. Bosser avec ces nouveaux outils me procure une joie calme. Herdr est un environnement agréable. Je teste les modèles d'OpenCode et finalise le fork, que j'envoie à Olivier avec un fichier contenant tous les prompts utilisés (environ 50).</p>
+<p>Olivier me parle de <a href="https://github.com/ccusage/ccusage">ccusage</a>, qui est un outil très pratique pour avoir une trace de la consommation de tokens par agent et par modèle (faire <code>npx ccusage@latest</code> ou créer un <a href="https://doc.ubuntu-fr.org/alias">alias bash</a>).</p>
+<p>Je lui parle de <a href="https://pi.dev/packages">pi-web-access</a>, une extension qui permet à pi de faire des recherches sur le web. J'utilise aussi <a href="https://github.com/mitsuhiko/agent-stuff/tree/main/skills/native-web-search">native-web-search</a> d'Armin Ronacher. Pour cette dernière, il faut que la clé API d'Anthropic (ou d'OpenAI) soit renseignée dans le fichier <code>auth.json</code> à la racine du dossier /agent de pi.</p>
+<p>Je regarde les tarifs des modèles d'OpenCode et je vois des trucs surprenants. Par exemple, Sonnet 5 est moins cher que Sonnet 4.5 et 4.6 et tous les Opus (4.5 > 4.8) sont au même prix. Olivier me rappelle qu'indépendament de leur prix, les modèles ne sont pas tous égaux dans leur consommation de tokens.</p>
+<p>Je demande à pi de faire une analyse multi-critères des modèles d'OpenCode à partir de l'API de <a href="https://models.dev/">model.dev</a> en donnant un score à chaque modèle et en me proposant le meilleur rapport qualité-prix.</p>
+<p>Voici la conclusion du rapport :</p>
+<p><pre><code>The killer deal is DeepSeek V4 Flash — $0.19/1M blended, 1M context, reasoning + structured output. Nothing else comes close on pure value. If you want free: DeepSeek V4 Flash Free ($0, 200K ctx, reasoning + structured output). If you need attachments + reasoning: GPT-5 Nano at $0.22/1M is hard to beat. If you need 1M+ context and can pay more: Gemini 3 Flash ($1.68/1M), DeepSeek V4 Pro ($2.55), GLM-5.2 ($2.73).</code></pre></p>
+<p>Au passage, le clanker m'informe qu'OpenCode et Models.dev sont liés. Bon à savoir.</p>]]></description>
 </item>
 
 <item>
@@ -22,7 +455,7 @@
 <guid isPermaLink="false">logbook-13-07-2026</guid>
 <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="13-07-2026"><b>13-07-2026</b></p>
-<p>Je me replonge dans le codage agentique ces jours ci. Reprise de plusieurs projets délaissés depuis quelques mois et beaucoup d'expérimentation. Les idées fusent. J'essaie les modèles d'OpenCode via l'API sur laquelle j'ai investi 20 euros. Je modifie le script qui génère ce blog avec Minimax 2.7. Ajout d'un fichier XML qui sert de feed RSS et est mis à jour en même temps que la page HTML. Voyons si ça marche.<br>---<br>Sortie inattendue de l'<a href="https://youtu.be/_lfpEy_9vf0">épisode 8</a> de la série "State of Agentic Coding", avec cette fois Mario Zechner comme troisième larron. Je répète l'expérience d'hier avec exactement le même prompt et un résultat similaire, très agréable à lire et moins prenant que de visionner la vidéo entière. Fichier markdown à venir.</p>]]></description>
+<p>Je me replonge dans le codage agentique ces jours ci. Reprise de plusieurs projets délaissés depuis quelques mois et beaucoup d'expérimentation. Les idées fusent. J'essaie les modèles d'OpenCode via l'API sur laquelle j'ai investi 20 euros. Je modifie le script qui génère ce blog avec Minimax 2.7. Ajout d'un fichier XML qui sert de feed RSS et est mis à jour en même temps que la page HTML. Voyons si ça marche.<br>---<br>Sortie inattendue de l'<a href="https://youtu.be/_lfpEy_9vf0">épisode 8</a> de la série "State of Agentic Coding", avec cette fois Mario Zechner comme troisième larron. Je répète l'expérience d'hier avec quasiment le même prompt et j'obtiens un <a href="http://bytepacking@ftpperso.free.fr/files/state-of-agentic-coding-ep8-summary.md">résultat</a> similaire, très agréable à lire et moins chronophage que de visionner la vidéo entière (même si l'un n'empêche pas l'autre).</p>]]></description>
 </item>
 
 <item>
@@ -31,13 +464,13 @@
 <guid isPermaLink="false">logbook-12-07-2026</guid>
 <pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="12-07-2026"><b>12-07-2026</b></p>
-<p>Je visionne la <a href="https://youtu.be/QqtW2q9ftu0">dernière vidéo</a> (épisode 7) de la série "State of Agentic Coding", une conversation mensuelle entre Armin Ronacher et Ben Vinegar. Comme certaines références et subtilités m'échappent, ce qui est un peu frustrant, je décide de récupérer la transcription auto-générée par Google directement à partir de YouTube avec un script qui fait appel à <a href="https://github.com/jdepoix/youtube-transcript-api">YouTube Trancript API</a>.</p>
+<p>Je visionne la <a href="https://youtu.be/QqtW2q9ftu0">dernière vidéo</a> (épisode 7) de la série "State of Agentic Coding", une conversation mensuelle entre Armin Ronacher et Ben Vinegar. Comme certaines références et subtilités m'échappent, je décide de récupérer la transcription auto-générée par Google directement à partir de YouTube avec un script qui fait appel à <a href="https://github.com/jdepoix/youtube-transcript-api">YouTube Trancript API</a>.</p>
 <p>Je donne ensuite le texte brut (avec des erreurs de transcription manifestes que je ne prends pas le temps de corriger) à ChatGPT avec le prompt suivant :</p>
 <p><pre><code>List all the topics discussed in this conversation between two developers and for each topic, make a summary of their findings or lessons to be learned.</code></pre></p>
-<p>Le résultat est décevant. ChatGPT indentifie bien entendu les différents sujets traités mais reste trop général et lapidaire dans les résulés qu'il en fait. Mon prompt n'est pas le bon.</p>
+<p>Le résultat est décevant. ChatGPT indentifie bien entendu les différents sujets traités mais reste trop général et lapidaire dans les résumés qu'il en fait. Mon prompt n'est pas le bon.</p>
 <p>Je décide d'essayer un autre prompt, sur Claude cette fois :</p>
 <p><pre><code>This is the transcript of a conversation between two senior developers about the state and future of agentic coding. Make a summary of each topic discussed, keeping the technical details and experiences/stories. Don't generalize too much.</code></pre></p>
-<p>Le résultat est nickel, exactement ce que je souhaitais. Je télécharge le fichier en markdown et me fabrique un convertisseur markdown vers epub pour pouvoir lire ça tranquillement sur mon smartphone. Certains noms de personnes restent mal compris (ex. "Andy Res" au lieu de antirez) mais globalement c'est très satisfaisant. Claude parvient même à attribuer les propos au bon interlocuteur ("Armin" / "Ben") sans aucun repère dans le texte et à produire un document cohérent et fiable à partir d'un script nécessairement approximatif (langage parlé). Les modèles sont très doués pour séparer le bon grain de l'ivraie, pour clarifier, et remettre du sens à partir de données partiellement redondantes et brouillones.</p>]]></description>
+<p>Le <a href="http://bytepacking.free.fr/files/state-of-agentic-coding-ep7-summary.md">résultat</a> est nickel, exactement ce que je souhaitais. Je télécharge le fichier en markdown et me fabrique un convertisseur markdown vers epub pour pouvoir lire ça tranquillement sur mon smartphone. Certains noms de personnes restent mal compris (ex. "Andy Res" au lieu de antirez) mais globalement c'est très satisfaisant. Claude parvient même à attribuer les propos au bon interlocuteur ("Armin" / "Ben") sans aucun repère dans le texte et à produire un document cohérent et fiable à partir d'un script nécessairement approximatif (langage parlé). Les modèles sont très doués pour séparer le bon grain de l'ivraie, pour clarifier, et remettre du sens à partir de données redondantes ou brouillonnes.</p>]]></description>
 </item>
 
 <item>
@@ -82,7 +515,7 @@
 <guid isPermaLink="false">logbook-30-06-2026</guid>
 <pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="30-06-2026"><b>30-06-2026</b></p>
-<p>Découverte via <a href="https://www.radiofrance.fr/franceinter/podcasts/la-tech-la-premiere/la-tech-la-premiere-du-jeudi-25-juin-2026-2227808">une chronique</a> de France Inter d'un super projet de mise en application de nombreux domaines en IA : Le Baguette Index. <a href="https://www.youtube.com/watch?v=JLk63PL4tUY&t=355s">Interview</a> succulente (car technique, mais pas que) de l'un des deux frères auteurs du projet sur YouTube. Site remarquable avec une <a href="https://lebaguetteindex.fr/#coulisses/tech">page dédiée au stack technique</a>, qui aborde de nombreux sujets qui me tiennent à coeur, notamment les outils de text-to-speech (TTS) et de speech-to-text (STT) déjà mentionné dans ce blog. Bravo les gars, quel bel accomplissement !</p>]]></description>
+<p>Découverte via <a href="https://www.radiofrance.fr/franceinter/podcasts/la-tech-la-premiere/la-tech-la-premiere-du-jeudi-25-juin-2026-2227808">une chronique</a> de France Inter d'un super projet de mise en application de nombreux domaines en IA : Le Baguette Index. <a href="https://www.youtube.com/watch?v=JLk63PL4tUY&t=355s">Interview</a> succulente (car technique, mais pas que) de l'un des deux frères auteurs du projet sur YouTube. Site remarquable avec une <a href="https://lebaguetteindex.fr/#coulisses/tech">page dédiée au stack technique</a>, qui aborde de nombreux sujets qui me tiennent à coeur, notamment les outils de text-to-speech (TTS) et de speech-to-text (STT) déjà mentionnés dans ce blog. Bravo les gars, quel bel accomplissement !</p>]]></description>
 </item>
 
 <item>
@@ -91,7 +524,7 @@
 <guid isPermaLink="false">logbook-24-06-2026</guid>
 <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="24-06-2026"><b>24-06-2026</b></p>
-<p>Moi qui, depuis plusieurs années, trouve le travail de Jean-Marc Jancovici intéressant et convaincant, je crois qu'il se plante avec son rejet de l'IA, et ne partage pas toutes les <a href="https://www.youtube.com/watch?v=JbqWBDXEQS8">arguments</a> qu'il invoque. On dirait qu'il n'a pas pris la mesure des formidables possibilités offertes par l'IA pour faire de la science et trouver des solutions à toutes sortes de problèmes, y compris celui du dérèglement climatique. C'est étonnant pour une personne de son intelligence. Peut-être que cela a à voir avec le vieillissement et le fait qu'on est de moins en moins enclins à adopter sans sourciller toutes les nouveautés qui se présentent à nous. Ou peut-être qu'<a href="https://www.youtube.com/watch?v=WT67wMsEE2I">il a raison</a>.</p>]]></description>
+<p>Moi qui, depuis plusieurs années, trouve le travail de Jean-Marc Jancovici intéressant et convaincant, j'ai l'impression qu'il se plante avec son rejet de l'IA, et ne partage pas toutes les <a href="https://www.youtube.com/watch?v=JbqWBDXEQS8">arguments</a> qu'il invoque. On dirait qu'il n'a pas pris la mesure des formidables possibilités offertes par l'IA pour faire de la science et trouver des solutions à toutes sortes de problèmes, y compris celui du dérèglement climatique. C'est étonnant pour une personne de son intelligence. Peut-être qu'en vieillissant on est moins enclins à adopter sans sourciller toutes les nouveautés qui se présentent à nous. Ou peut-être qu'<a href="https://www.youtube.com/watch?v=WT67wMsEE2I">il a raison</a>.</p>]]></description>
 </item>
 
 <item>
@@ -199,7 +632,7 @@
 <guid isPermaLink="false">logbook-15-04-2026</guid>
 <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="15-04-2026"><b>15-04-2026</b></p>
-<p>Quand je vivais à Londres dans les années 1990 et que je m'intéressais à la physique, un livre avait attiré mon attention : Chaos de James Gleick. A l'époque je découvrais la programmation et je m'amusais à lancer des petits scripts sur un PC au travail. J'avais trouvé je ne sais où le code pour générer <a href="https://fr.wikipedia.org/wiki/Suite_logistique">une suite logistique</a> au comportement chaotique et je regardais, fasciné, l'écran de l'ordi afficher progressivement le <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Logistic_Map_Bifurcation_Diagram%2C_Matplotlib.svg/1920px-Logistic_Map_Bifurcation_Diagram%2C_Matplotlib.svg.png">diagramme de bifurcation</a> correspondant. Je suis régulièrement tenté de poursuivre ces expérimentations tout en étant conscient que le sujet est désormais largement documenté et qu'il n'y a probablement plus grand chose à explorer.</p>]]></description>
+<p>Quand je vivais à Londres dans les années 1990 et que je m'intéressais à la physique, un livre avait attiré mon attention : Chaos de James Gleick. À l'époque je découvrais la programmation et je m'amusais à lancer des petits scripts sur un PC au travail. J'avais trouvé je ne sais où le code pour générer <a href="https://fr.wikipedia.org/wiki/Suite_logistique">une suite logistique</a> au comportement chaotique et je regardais, fasciné, l'écran de l'ordi afficher progressivement le <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Logistic_Map_Bifurcation_Diagram%2C_Matplotlib.svg/1920px-Logistic_Map_Bifurcation_Diagram%2C_Matplotlib.svg.png">diagramme de bifurcation</a> correspondant. Je suis régulièrement tenté de poursuivre ces expérimentations tout en étant conscient que le sujet est désormais largement documenté et qu'il n'y a probablement plus grand chose à explorer.</p>]]></description>
 </item>
 
 <item>
@@ -208,7 +641,7 @@
 <guid isPermaLink="false">logbook-09-04-2026</guid>
 <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="09-04-2026"><b>09-04-2026</b></p>
-<p>J'aime bien quand j'utilise <a href="https://pi.dev/">pi-le-clanker</a> pour résoudre des petits problèmes liés à mon travail. Aujourd'hui je constate qu'un document Word qui ne contient que du texte (2500 mots) est anormalement volumineux (3,56 Mo). Je demande à pi d'investiguer. Comme d'habitude j'utilise les modèles qui veulent bien fonctionner sur le moment (je tente dans l'ordre : claude-opus-4-6-thinking, gemini-3.1-pro-preview, claude-sonnet-4-5-thinking, Qwen3-Coder-30B-A3B-Instruct et minimax-m2.5). En utilisant les scripts présents dans la skill DOCX d'Anthropic, le clanker identifie rapidement l'origine du problème. Il s'agit de polices de caractères "embedded" dans le document.</p>
+<p>J'aime bien quand j'utilise <a href="https://pi.dev/">pi-le-clanker</a> pour résoudre des petits problèmes liés à mon travail. Aujourd'hui je constate qu'un document Word qui ne contient que du texte (2500 mots) est anormalement volumineux (3,56 Mo). Je demande à pi d'investiguer. Comme d'habitude j'utilise les modèles qui veulent bien fonctionner sur le moment (je tente dans l'ordre : claude-opus-4-6-thinking, gemini-3.1-pro-preview, claude-sonnet-4-5-thinking, Qwen3-Coder-30B-A3B-Instruct et minimax-m2.5). En utilisant les scripts présents dans la skill DOCX d'Anthropic, pi identifie rapidement l'origine du problème. Il s'agit de polices de caractères "embedded" dans le document.</p>
 <p><pre><code>Found it. The document has 7 embedded font files (.odttf) totaling 6.7MB uncompressed (3.5MB compressed), which account for nearly all of the file size. The actual document content (document.xml) is only ~143KB.</code></pre></p>
 <p>Pi tente à plusieurs reprises de créer un nouveau fichier Word léger (~30 Ko), mais à chaque fois il m'est impossible de l'ouvrir. J'insiste un peu et Minimax finit par trouver la solution. Il génère un fichier exploitable avec les polices de caractères retirées.</p>
 <p>Ce soir, avec google-antigravity/claude-opus-4-6-thinking (qui cette fois veut bien fonctionner) je répète l'expérience. Opus utilise <code>unpack.py</code> de la docx skill pour examiner les entrailles du fichier et trouve les polices de caractères. Il m'explique comment faire pour les supprimer et me propose en outre de le faire lui-même.</p>
@@ -296,7 +729,7 @@ Out.</code></pre></p>
 <p><pre><code>Find a way to download the latest version of the komoot apk app from the following URL: https://www.apkmirror.com/apk/komoot-gmbh/. Hint: use curl_cffi if needed.</code></pre></p>
 <p>Sonnet-4-6 crée un script fonctionnel en 3 minutes. Je continue avec :</p>
 <p><pre><code>Now modify @download_komoot.py so that when given a date (YYYY-MM-DD) as an argument, it will search and download an older package, closest to that date. If no argument is given, it will behave as it does now. Navigating through pagination will have to be taken care of.</code></pre></p>
-<p>A nouveau, 3 minutes suffisent pour modifier le script, implémenter la fonctionnalité et tester que tout fonctionne correctement. Impressionnant, même si bien évidemment mes prompts sont beaucoup plus précis, ayant tiré les enseignements de l'expérience antérieure avec Gemini-3.1.</p>
+<p>À nouveau, 3 minutes suffisent pour modifier le script, implémenter la fonctionnalité et tester que tout fonctionne correctement. Impressionnant, même si bien évidemment mes prompts sont beaucoup plus précis, ayant tiré les enseignements de l'expérience antérieure avec Gemini-3.1.</p>
 <p>Le plus bluffant de cette histoire, c'est l'idée que Gemini a eu de sortir <code>curl_cffi</code> d'un chapeau et de l'utiliser. "<a href="https://pypi.org/project/curl-cffi/0.2.1/">Curl_cffi</a> est une bibliothèque Python qui sert de client pour effectuer des requêtes HTTP. Ce qui rend curl_cffi unique, c'est sa capacité à imiter les empreintes TLS de véritables navigateurs web. Cela lui permet de contourner les techniques avancées de détection des bots, telles que l'empreinte TLS, une méthode utilisée par les sites web pour distinguer les navigateurs réels des bots automatisés."</p>]]></description>
 </item>
 
@@ -437,7 +870,7 @@ c) You supply an English version and I slot it in</code></pre></p>
 <p><pre><code>There are two files in this project. I want you to modify the VTT file and replace the French already cued text with the loose English text in the TXT file, while leaving the timestamps untouched. Only use text in @transcription.txt. Do not translate @video_02.fr.vtt yourself. You can adapt the text in @transcription.txt if you deem it necessary but in general you keep it as is. Pay attention to the way text is structured and be careful when cutting up the text into chuncks. Make sure sentences are easy to read and subtitles are professional. Let me know if you have any questions or need any extra tools.</code></pre></p>
 <p>Le résultat est absolument nickel. Je suis bluffé. En un seul prompt.</p>
 <p>Du coup je me dis que je me dois d'essayer à nouveau avec Codex et le même prompt, pour lui donner une seconde chance. Le deuxième essai n'est toujours pas satisfaisant. Cette fois Codex ne touche pas aux timestamps mais contrairement à Opus, chaque nouveau sous-titre en anglais ne correspond pas au contenu du sous-titre original en français et donc aux propos tenus dans la vidéo.</p>
-<p>Codex échoue là où Opus, à la manière d'un humain, semble comprendre le SENS de chaque sous-titre. C'est ce qui m'impressionne le plus. Je me pose la question de savoir si j'aurais obtenu le même résultat dans l'interface web de ChatGPT et de Claude. Est-ce que l'utilisation d'un outil d'agentic coding était vraiment nécessaire ? A vérifier. En tous cas, l'avantage de l'utilisation d'un "coding harness" c'est qu'on a le choix du modèle, ce qui en général n'est pas le cas avec les interfaces web.</p>]]></description>
+<p>Codex échoue là où Opus, à la manière d'un humain, semble comprendre le SENS de chaque sous-titre. C'est ce qui m'impressionne le plus. Je me pose la question de savoir si j'aurais obtenu le même résultat dans l'interface web de ChatGPT et de Claude. Est-ce que l'utilisation d'un outil d'agentic coding était vraiment nécessaire ? À vérifier. En tous cas, l'avantage de l'utilisation d'un "coding harness" c'est qu'on a le choix du modèle, ce qui en général n'est pas le cas avec les interfaces web.</p>]]></description>
 </item>
 
 <item>
@@ -826,7 +1259,7 @@ git status</code></pre></p>]]></description>
 <pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="16-01-2026"><b>16-01-2026</b></p>
 <p>Sortie de <a href="https://ollama.com/library/translategemma">translategemma</a>. J'installe le modèle 4B sur Ollama et effectue quelques tests rapides. Le résultat semble assez correct pour un modèle de cette taille. Il faudrait comparer avec d'autres modèles généralistes de taille similaire, puisque, sauf erreur, la traduction est une "capacité émergente" de presque tous les LLM.</p>
-<p>Je passe un certain temps à passer en revue les distributions Linux qui peuvent se charger entièrement en mémoire (fonctionnalité "TO_RAM"). C'est une obsession que j'ai depuis des années et de temps en temps je fais une petite crise/rechute. J'en retrouve pas mal (Slax, SliTaz, Porteus...) déjà utilisées maintes fois mais rien de très nouveau ou décisif. Ce chargement en mémoire est également possible avec certaines "grosses" distributions. Je crois que l'ISO de CachyOS se charge entièrement en mémoire quand on boote à partir d'une clé USB. J'aime bien cette idée d'un OS volatile et léger, même si cela implique aussi de grosses contraintes. A suivre.</p>
+<p>Je passe un certain temps à passer en revue les distributions Linux qui peuvent se charger entièrement en mémoire (fonctionnalité "TO_RAM"). C'est une obsession que j'ai depuis des années et de temps en temps je fais une petite crise/rechute. J'en retrouve pas mal (Slax, SliTaz, Porteus...) déjà utilisées maintes fois mais rien de très nouveau ou décisif. Ce chargement en mémoire est également possible avec certaines "grosses" distributions. Je crois que l'ISO de CachyOS se charge entièrement en mémoire quand on boote à partir d'une clé USB. J'aime bien cette idée d'un OS volatile et léger, même si cela implique aussi de grosses contraintes. À suivre.</p>
 <p>Ce soir je tente l'implémentation du plan de Claude Code pour voice2prompt. En gros il s'agit de rendre l'installation et l'utilisation plus simples et fluides. Je démarre avec Gemini 3 et poursuit avec Big Pickle. Session très difficile car Wayland est vraiment délicat à gérer au niveau des autorisations. Par moments pi explore les entrailles d'Ubuntu pour tenter de résoudre les problèmes. L'appli se lance et répond aux évènements clavier mais impossible de capter ma voix et encore moins de la transcrire. Il faut que je regarde le code et que j'isole les différents modules pour savoir où ça coince. En matière de développement informatique, je crois que l'humain a encore de beaux jours devant lui.</p>]]></description>
 </item>
 
@@ -837,8 +1270,8 @@ git status</code></pre></p>]]></description>
 <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="15-01-2026"><b>15-01-2026</b></p>
 <p>Je fais une session inédite et excitante sur pi avec claude-sonnet-4-5. Je lui demande de se connecter à <a href="https://models.dev/api.json">l'API de models.dev</a> pour faire quelques analyses statistiques. Pi se débrouille avec Curl pour récupérer le fichier JSON et l'aventure commence. Je pose mes questions sur les données directement dans pi, qui utilise les outils adéquats pour me répondre (au début du Bash très sophistiqué). Je lui conseille d'utiliser uv, Python et Pandas pour de meilleurs résultats. Il faut être attentif à ce qu'il trouve quand il filtre les données mais globalement ça marche plutôt bien. Je lui pose des questions de plus en plus complexes qui demandent une analyse croisée et il fait du super boulot. Vraiment génial comme outil car tellement polyvalent.</p>
-<p>Je refais refais le même exercice avec Mistral-Vibe et Gemini CLI, en utilisant exactement les mêmes prompts (au moins au début). Tous les deux s'en sortent honorablement, Vibe étant beaucoup plus réactif que Gemini. Olivier fait la même chose avec Claude Code. A première vue les résultats semblent diverger et demanderaient une analyse comparative plus poussée. A noter que Claude Code et Gemini CLI "nettoient derrière eux" et suppriment la plupart des fichiers temporaires utilisés pour générer les statistiques, tandis que pi et Vibe laissent tout le bazar dans leurs répertoires de travail, qui à la fin de la session font 109 et 114 Mo respectivement.<br>---<br>Ce soir je visionne la <a href="https://www.youtube.com/watch?v=WNx-s-RxVxk">dernière vidéo</a> de Matt Pocock, qui pour la première fois me déçoit car elle promet sans tenir, ce qui est typique du comportement de certains youtubeurs avides de clics et d'auto-promotion. Toute une vidéo pour deux malheureuses lignes qui sont sensées révolutionner la manière avec laquelle Claude Code va planifier votre futur projet. Du vent.</p>
-<p>Bon, la vidéo de Pocock m'a tout de même donné envie de tester le "mode plan" de Claude Code. Je l'utilise pour planifier la suite des améliorations prévues pour mon assistant vocal, ce qui me revient à $0.86. A la fin de la phase de planification Claude me propose de visualiser le plan dans VSCode en faisant Ctrl + G (ou qq ch comme ça) et quand je reviens dans le terminal, Claude Code bugue grave et "freeze" au point que je dois faire un double Ctrl + C sauvage pour sortir.</p>]]></description>
+<p>Je refais refais le même exercice avec Mistral-Vibe et Gemini CLI, en utilisant exactement les mêmes prompts (au moins au début). Tous les deux s'en sortent honorablement, Vibe étant beaucoup plus réactif que Gemini. Olivier fait la même chose avec Claude Code. À première vue les résultats semblent diverger et demanderaient une analyse comparative plus poussée. À noter que Claude Code et Gemini CLI "nettoient derrière eux" et suppriment la plupart des fichiers temporaires utilisés pour générer les statistiques, tandis que pi et Vibe laissent tout le bazar dans leurs répertoires de travail, qui à la fin de la session font 109 et 114 Mo respectivement.<br>---<br>Ce soir je visionne la <a href="https://www.youtube.com/watch?v=WNx-s-RxVxk">dernière vidéo</a> de Matt Pocock, qui pour la première fois me déçoit car elle promet sans tenir, ce qui est typique du comportement de certains youtubeurs avides de clics et d'auto-promotion. Toute une vidéo pour deux malheureuses lignes qui sont sensées révolutionner la manière avec laquelle Claude Code va planifier votre futur projet. Du vent.</p>
+<p>Bon, la vidéo de Pocock m'a tout de même donné envie de tester le "mode plan" de Claude Code. Je l'utilise pour planifier la suite des améliorations prévues pour mon assistant vocal, ce qui me revient à $0.86. À la fin de la phase de planification Claude me propose de visualiser le plan dans VSCode en faisant Ctrl + G (ou qq ch comme ça) et quand je reviens dans le terminal, Claude Code bugue grave et "freeze" au point que je dois faire un double Ctrl + C sauvage pour sortir.</p>]]></description>
 </item>
 
 <item>
@@ -927,7 +1360,7 @@ git status</code></pre></p>]]></description>
 <description><![CDATA[<p id="04-01-2026"><b>04-01-2026</b></p>
 <p>Je demande à pi de me fabriquer un assistant vocal pour dicter mes prompts dans le terminal d'Ubuntu. Je lui demande d'utiliser uv et <a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a>. L'opération prend une petite heure et est rendue compliquée par le fait que whisper.cpp ne propose plus de fichiers précompilés pour Linux. Il faut utiliser CMake et compiler soi-même. J'utilise exclusivement claude-sonnet-4-5 et grille du token à la pelle.</p>
 <p><pre><code>↑154 ↓32k R2.0M W99k $1.449 26.7%/200k (auto)</code></pre></p>
-<p>A la fin du processus j'ai un outil (v1) qui fonctionne et qui se déclenche avec une touche du clavier. Seul souci (de taille) à régler : comment faire pour que l'outil fonctionne dans une autre instance de terminal que celle qui lui est dédiée ? J'y travaille quand je suis arrêté par Claude qui me notifie une erreur 429 "rate_limit_error". C'est assez barbant. Chose étrange, si je passe de pi à Claude Code, tout fonctionne et je n'ai plus l'erreur 429.</p>
+<p>À la fin du processus j'ai un outil (v1) qui fonctionne et qui se déclenche avec une touche du clavier. Seul souci (de taille) à régler : comment faire pour que l'outil fonctionne dans une autre instance de terminal que celle qui lui est dédiée ? J'y travaille quand je suis arrêté par Claude qui me notifie une erreur 429 "rate_limit_error". C'est assez barbant. Chose étrange, si je passe de pi à Claude Code, tout fonctionne et je n'ai plus l'erreur 429.</p>
 <p>La suite est moins glorieuse. J'utilise tour à tour Claude Code, OpenCode et à nouveau pi sans parvenir à régler le problème. L'interruption de pi/sonnet alors qu'il semblait en si bon chemin semble avoir été fatale. Les combinaisons de touches ("hotkeys") ne fonctionnent pas, Sonnet incrimine Wayland et se perd dans des vérifications sans fin. Je vais devoir me contenter de la v1 pour l'instant.</p>
 <p>Finalement Gemini me donne l'explication : c'est bien Wayland le coupable, Sonnet avait raison. "Wayland prioritizes security and isolation, which presents significant hurdles for "System Utility" apps. One of the key obstacles on Wayland is Input Isolation. Applications cannot "spy" on other windows. There is no simple API to detect a global hotkey press unless the app is currently focused." Ce n'est pas la première fois que j'ai des soucis à cause de Wayland.</p>]]></description>
 </item>
@@ -1283,7 +1716,7 @@ Installed 54 packages in 12ms</code></pre></p>
 <guid isPermaLink="false">logbook-28-11-2025</guid>
 <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="28-11-2025"><b>28-11-2025</b></p>
-<p>Je tombe sur une vidéo qui me fait retourner voir ce que <a href="https://github.com/ggml-org/llama.cpp">llama-cpp</a> devient. Sur Github j'ai rarement vu une activité aussi soutenue que celle de Georgi Gerganov. A chaque fois que je regarde le "release" le plus récent de llama-cpp, il est vieux de quelques heures, parfois de quelques minutes seulement.</p>
+<p>Je tombe sur une vidéo qui me fait retourner voir ce que <a href="https://github.com/ggml-org/llama.cpp">llama-cpp</a> devient. Sur Github j'ai rarement vu une activité aussi soutenue que celle de Georgi Gerganov. À chaque fois que je regarde le "release" le plus récent de llama-cpp, il est vieux de quelques heures, parfois de quelques minutes seulement.</p>
 <p>Je télécharge la version <code>llama-b7189-bin-ubuntu-x64.zip</code> que je décompresse dans Downloads. Puis je copie le contenu du répertoire <code>bin</code> dans mon <code>~/.local/bin</code> (qui contient entre autres <code>uv</code> et <code>uvx</code>). Je peux maintenant lancer des commandes pour exécuter llama-cpp depuis n'importe quel répertoire.</p>
 <p>La nouveauté dont il est question dans la vidéo et que je veux tester est la commande <code>llama-server</code> qui permet de lancer une interface web très similaire à celle de ChatGPT. On peut la lancer de la manière suivante</p>
 <p><pre><code>llama-server -hf ggml-org/gemma-3-1b-it-GGUF</code></pre></p>
@@ -1379,7 +1812,7 @@ Installed 54 packages in 12ms</code></pre></p>
 <p>Par sécurité, Playwright-mcp possède son propre navigateur (google chrome) et n'interfère donc pas avec le ou les navigateurs déjà installés.</p>
 <p>Comme test je le fais aller sur komoot.com, je me connecte à mon compte et me rends sur la page de mes activités terminées. Je lui demande de sélectionner l'activité la plus récente et de télécharger le fichier GPX de la sortie. Au début je l'aide car il ne trouve pas le bouton "télécharger" qui est volontairement planqué (merci Komoot !).</p>
 <p>Peu à peu il comprend comment faire et à la fin je lui dis simplement "recommence et télécharge deux autres fichiers" (en les nommant) ce qu'il fait. Mais tout le processus se déroule dans une lenteur abyssale. C'est ce qui m'a le plus surpris. Je lui ai pourtant donné toutes les autorisations. Un truc qui prendrait normalement quelques minutes à un humain a pris une bonne demi-heure, sans compter le temps d'installation.</p>
-<p>A la fin de la session, je lui demande de sauvegarder la procédure dans un fichier .md pour ne pas à tout devoir lui ré-expliquer la prochaine fois. Je regarde la consommation de tokens en faisant <code>/stats</code>. Ce sont surtout les "inputs tokens" qui ont été consommés : 2M de tokens pour Gemini-2.5-flash-lite et 7M pour Gemini-2.5-pro. Neuf millions de tokens en tout ! On est bien au delà du quota quotididen d'un million, même si Gemini explique que 70 % des input tokens "were served from the cache, reducing costs". Heureusement que Gemini CLI est gratuit !</p>]]></description>
+<p>À la fin de la session, je lui demande de sauvegarder la procédure dans un fichier .md pour ne pas à tout devoir lui ré-expliquer la prochaine fois. Je regarde la consommation de tokens en faisant <code>/stats</code>. Ce sont surtout les "inputs tokens" qui ont été consommés : 2M de tokens pour Gemini-2.5-flash-lite et 7M pour Gemini-2.5-pro. Neuf millions de tokens en tout ! On est bien au delà du quota quotididen d'un million, même si Gemini explique que 70 % des input tokens "were served from the cache, reducing costs". Heureusement que Gemini CLI est gratuit !</p>]]></description>
 </item>
 
 <item>
@@ -1581,7 +2014,7 @@ Enter key: *******</code></pre></p>
 <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="05-11-2025"><b>05-11-2025</b></p>
 <p>Utiliser Claude Code en mode API coûte cher, très cher. En 7 jours j'ai consommé quasiment 10 dollars (payés 12 à cause de taxes ajoutées à chaque transaction). Sur mon relevé bancaire, j'ai été facturé 10,63 EUR. Cela fait une consommation moyenne quotidienne de 1,50 EUR. De plus, leur console d'administration est une vraie usine à gaz, j'ai eu un mal de chien à afficher ma consommation depuis le début de mes paiements, le 30 octobre. La plupart des "vues" indiquent des sommes dérisoires. Je ne sais même plus comment j'ai fini par trouver <a href="https://console.anthropic.com/cost?start_date=2025-10-30">la bonne vue</a>. Visiblement le mode API n'est pas la bonne solution pour utiliser Claude Code. J'en suis à me demander si les sommes affichées à la fin de chaque session sont correctes. Je vais peut-être regarder du côté d'OpenCode avec un modèle pas trop cher (DeepSeek, comme le suggérait Olivier), mais ça risque de ne pas être aussi performant que CC. Notons que le gros de la consommation est le fait de "tokens entrants" (input tokens). En une semaine, j'en ai consommé 17,3 millions !</p>
-<p>Je refais une session avec CC. Comme il me reste quelque chose comme 19 cents, je sélectionne Haiku comme modèle par défaut. A la fin de la session je vais voir combien de crédits il me reste. La première chose que je constate c'est que je suis débiteur de 9 cents ! ☹️ Je croyais naïvement que le truc s'arrêterait automatiquement à 0,00 mais non. Autre chose : CC a quand même un peu utilisé Sonnet alors que je lui avais dit de n'utiliser que Haiku. C'est une toute petite somme ($0.0059), mais quand même. Ensuite, quand on utilise CC, Anthropic crée une "sous-clé API" à chaque fois qu'on installe CC sur une machine différente. Sur ma console d'administration je vois que j'ai ma clé API principale (mauve) et 4 clé CC (oranges). Ce qui est bizarre, c'est que si j'additionne la consommation de chaque clé, j'arrive à un total de 7,44 dollars et non pas 10,09 comme on pourrait s'y attendre ! WTF!? OK, il y a peut-être un temps de latence avant d'avoir "the full picture", mais tout ça est quand même assez opaque. 😤</p>
+<p>Je refais une session avec CC. Comme il me reste quelque chose comme 19 cents, je sélectionne Haiku comme modèle par défaut. À la fin de la session je vais voir combien de crédits il me reste. La première chose que je constate c'est que je suis débiteur de 9 cents ! ☹️ Je croyais naïvement que le truc s'arrêterait automatiquement à 0,00 mais non. Autre chose : CC a quand même un peu utilisé Sonnet alors que je lui avais dit de n'utiliser que Haiku. C'est une toute petite somme ($0.0059), mais quand même. Ensuite, quand on utilise CC, Anthropic crée une "sous-clé API" à chaque fois qu'on installe CC sur une machine différente. Sur ma console d'administration je vois que j'ai ma clé API principale (mauve) et 4 clé CC (oranges). Ce qui est bizarre, c'est que si j'additionne la consommation de chaque clé, j'arrive à un total de 7,44 dollars et non pas 10,09 comme on pourrait s'y attendre ! WTF!? OK, il y a peut-être un temps de latence avant d'avoir "the full picture", mais tout ça est quand même assez opaque. 😤</p>
 <p>Je poursuis avec OpenCode et leur modèle dédié (Zen ?), le seul qui veuille bien fonctionner. Je pars de presque rien (les Skills et les définitions des tâches linguistiques) et n'arrive à rien de potable. OpenCode semble à nouveau être en "YOLO mode" par defaut et je le trouve beaucoup moins intuitif que les autres (on ne peut pas faire référence à un fichier en faisant @fichier par exemple).</p>
 <p>Lassé par les outils CLI, je retourne sur le Claude Web classique et parviens à générer et à peaufiner un script qui fonctionne pas si mal au bout de 5 itérations. L'utilisateur choisit un modèle de Groq et le script lance la révision (copy-editing) du texte et le sauvegarde en incluant dans le nom de fichier le nom du LLM utilisé. Il est ainsi plus facile de comparer les capacités des différents modèles en matière de correction-révision. En plus ça marche avec Word, SANS les Claude Skills, dont je commence à douter du bien fondé.</p>
 <p>Je teste le plugin "llm-huggingface-plugin" dont je parlais hier et constate qu'il ne fonctionne pas correctement. Le plugin ne récupère aucune liste de modèles, la fonctionalité "register_commands" dans "hooks" est absente, et quand je tente de lancer <code>llm -m hf/meta-llama/Llama-3.2-3B-Instruct "Write a haiku about coding"</code>, j'obtiens un message d'erreur. Il y a de l'espoir !</p>]]></description>
@@ -1677,10 +2110,10 @@ Usage by model:
 claude-haiku:  852 input, 8.9k output, 2.1m cache read, 62.0k cache write ($0.3280)
 claude-sonnet:  818 input, 3.1k output, 120.8k cache read, 17.2k cache write ($0.1500)</code></pre></p>
 <p>Même tentative avec <a href="https://geminicli.com/">Gemini-CLI</a> qui décide de me lâcher juste après avoir analysé le projet. Message : <code>API Error: code: 429, Resource exhausted. Please try again later.</code></p>
-<p>Du coup je modifie mon appli dans Google AI Studio. L'utilisateur peut maintenant choisir entre 3 tâches linguistiques : "revision", "copy-editing" et proofreading". Le résultat n'est pas mal, Gemini propose 41 améliorations qui se justifient. En revanche il laisse une belle faute de grammaire : "...la ville a vécue une période sombre..." et des double ou triple espaces blancs. A faire : modifier cette nouvelle version de l'appli pour qu'elle fonctionne en local et qu'elle se connecte à un LLM puissant et rapide (Groq?).</p>
+<p>Du coup je modifie mon appli dans Google AI Studio. L'utilisateur peut maintenant choisir entre 3 tâches linguistiques : "revision", "copy-editing" et proofreading". Le résultat n'est pas mal, Gemini propose 41 améliorations qui se justifient. En revanche il laisse une belle faute de grammaire : "...la ville a vécue une période sombre..." et des double ou triple espaces blancs. À faire : modifier cette nouvelle version de l'appli pour qu'elle fonctionne en local et qu'elle se connecte à un LLM puissant et rapide (Groq?).</p>
 <p>NB : Ces efforts ont pour but de manipuler des textes en conservant leur format d'origine, l'indéboulonnable MS Word. Concernant les aspects purement linguistiques, un petit passage par ChatGPT avec le texte brut (.txt) donne de bien meilleurs résultats que tous les essais qui précèdent. C'est bien ce qui est rageant dans le métier de traducteur : l'encapsulation du texte nuit à son traitement.</p>
 <p>Je soumets le même texte (.docx) aux versions web gratuites de ChatGPT et de Claude pour correction-révision. Tous deux récupèrent et corrigent le texte, mais aucun ne me livre un document Word : "lien mort" pour ChatGPT et "impossibilité technique" chez Claude. Olivier soumet le même texte à la version "Pro" de Claude et finit par obtenir un document Word révisé, mais fragile techniquement et linguistiquement.</p>
-<p>Concernant les deux documents révisés issus des version gratuites de ChatGPT et de Claude, on peut les comparer à posteriori à l'original et pour chacun générer une version du document où l'on voit les modifications effectuées. A première vue ChatGPT semble avoir fait le meilleur travail, mais Claude n'est pas très loin derrière.</p>
+<p>Concernant les deux documents révisés issus des version gratuites de ChatGPT et de Claude, on peut les comparer à posteriori à l'original et pour chacun générer une version du document où l'on voit les modifications effectuées. À première vue ChatGPT semble avoir fait le meilleur travail, mais Claude n'est pas très loin derrière.</p>
 <p>Statistiques<br>Claude : 209 révisions (86 insertions, 89 suppressions, 34 mises en forme)<br>ChatGPT : 308 révisions (131 insertions, 127 suppressions, 50 mises en forme)</p>]]></description>
 </item>
 
@@ -1696,7 +2129,7 @@ claude-sonnet:  818 input, 3.1k output, 120.8k cache read, 17.2k cache write ($0
 - NVM sits above both — it manages which version of Node.js (and its bundled npm) you are using.</code></pre></p>
 <p>Site de référence : https://nodejs.org/en/download.</p>
 <p>Surprises, paradoxes et déceptions :</p>
-<p>1. Je fais une session complète d'environ 15 min avec <a href="https://opencode.ai/">opencode</a> et un modèle gratuit d'OpenRouter (MiniMax M2). Le résultat n'est pas foufou. A noter : opencode semble être en mode YOLO par défaut. Il prend toutes les décisions d'exécuter le code tout seul sans me demander mon avis !😮</p>
+<p>1. Je fais une session complète d'environ 15 min avec <a href="https://opencode.ai/">opencode</a> et un modèle gratuit d'OpenRouter (MiniMax M2). Le résultat n'est pas foufou. À noter : opencode semble être en mode YOLO par défaut. Il prend toutes les décisions d'exécuter le code tout seul sans me demander mon avis !😮</p>
 <p>2. J'enchaîne une session similaire avec Gemini-CLI et à peine a-t-il commencé qu'il cale :</p>
 <p><pre><code>⚡ Automatically switching from gemini-2.5-pro to gemini-2.5-flash for faster responses for the remainder of this session.
 ⚡ Possible reasons for this are that you have received multiple consecutive capacity errors or you have reached your daily gemini-2.5-pro quota limit
@@ -1724,7 +2157,7 @@ claude-sonnet:  818 input, 3.1k output, 120.8k cache read, 17.2k cache write ($0
 <p>"Rainy day, dream away, let the sun take a holiday..." (Jimi Hendrix)</p>
 <p>Je continue de tester Gemini-CLI et lui demande non pas de "construire un outil qui va faire", mais de "faire lui même" (je ne sais pas si ça a du sens), en l’occurrence réviser un texte au format Word (.docx) et produire une version révisée du document en mode "suivi des modifications". Je lui donne accès aux outils "Claude Skills". J'initialise le dossier avec uv pour qu'il puisse exécuter du Python. Et après l'avoir fait un <code>/init</code>, lui donne le prompt suivant :</p>
 <p><span class="code-box">Do a professional copy editing of @doc_en.docx. You can decide to use the tools provided in @tools/ or not. Output the result in a .docx file in tracked changes. The project has been uv initialized, you can use 'uv add ...' or 'uv run ...' if you need to execute Python. Reminder: Copy editing is a detailed linguistic and stylistic review focusing on grammar, syntax, punctuation, spelling, and consistency of tone, terminology, and formatting. It ensures clarity, precision, and adherence to stylistic or editorial standards without altering the substance of the content.</span></p>
-<p>Les résultats ne sont pas très concluants. Gemini veut se servir de pandoc mais il bute sur l'installation malgré mon guidage. J'aurais dû lire le fichier GEMINI.md après sa création et installer pandoc au préalable. Il parvient tout de même à travailler sur le document mais soudain s'emballe quand il se lance dans une révision sans fin du xml interne au doc. Je l'arrête avant qu'il ne grille tous ses tokens et finis par le faire travailler sur le même document en TXT, ce qu'il fait, mais le résultat est décevant. Mon appli créée avec Google AI Studio fonctionne beaucoup mieux, sans être extraordinaire. A suivre.<br>---<br>Mon collègue JB me demande un service. Il voudrait pouvoir identifier la langue d'une collection de chaînes de caractères dans une base de données. Il voudrait utiliser l'API de DeepL, lui envoyer la chaîne de caractères et récupérer le code RFC 5646 de la langue ('en', 'fr', etc.). Après quelques tests, je me souviens que DeepL ne propose pas le breton dans sa bibliothèque de langues. Or JB a absolument besoin de pouvoir identifier du breton.</p>
+<p>Les résultats ne sont pas très concluants. Gemini veut se servir de pandoc mais il bute sur l'installation malgré mon guidage. J'aurais dû lire le fichier GEMINI.md après sa création et installer pandoc au préalable. Il parvient tout de même à travailler sur le document mais soudain s'emballe quand il se lance dans une révision sans fin du xml interne au doc. Je l'arrête avant qu'il ne grille tous ses tokens et finis par le faire travailler sur le même document en TXT, ce qu'il fait, mais le résultat est décevant. Mon appli créée avec Google AI Studio fonctionne beaucoup mieux, sans être extraordinaire. À suivre.<br>---<br>Mon collègue JB me demande un service. Il voudrait pouvoir identifier la langue d'une collection de chaînes de caractères dans une base de données. Il voudrait utiliser l'API de DeepL, lui envoyer la chaîne de caractères et récupérer le code RFC 5646 de la langue ('en', 'fr', etc.). Après quelques tests, je me souviens que DeepL ne propose pas le breton dans sa bibliothèque de langues. Or JB a absolument besoin de pouvoir identifier du breton.</p>
 <p>Je propose alors d'utiliser un LLM au lieu de DeepL. La demande de JB est un cas parfait de "Structured Outputs". On fait une requête bien précise au LLM et on filtre sa réponse pour ne récupérer que l'info dont on a besoin. Je consulte la doc de Groq et construis l'outil en quelques requêtes à Claude. Ça marche tout de suite. Le script boucle sur les données d'un fichier .tsv, envoie une chaîne de caractères à <code>llama-3.3-70b-versatile</code> sur l'API de Groq avec un prompt bien précis, récupère la langue et son code et stocke le tout dans un fichier JSON.</p>
 <p><pre><code>  {
     "row": 3,
@@ -1792,7 +2225,7 @@ claude-sonnet:  818 input, 3.1k output, 120.8k cache read, 17.2k cache write ($0
     url_pattern = r'(https?://[^\s<>]+?)(?=[.,;:!?)"\']?(?:\s|$|<))'
     return re.sub(url_pattern, r'<a href="\1">\1</a>', text)</code></pre></p>
 <p>Certains liens entre parenthèses fonctionnent tandis que d'autres non. Il va falloir investiguer.</p>
-<p>A noter que mon script génère la page complète à chaque fois en une fraction de seconde. Cela me permet de corriger ou d'améliorer mes notes et de disposer d'un rendu instantané de l'ensemble.</p>]]></description>
+<p>À noter que mon script génère la page complète à chaque fois en une fraction de seconde. Cela me permet de corriger ou d'améliorer mes notes et de disposer d'un rendu instantané de l'ensemble.</p>]]></description>
 </item>
 
 <item>
@@ -1934,7 +2367,7 @@ sudo apt install nextcloud-client</code></pre></p>
 <p><pre><code>--exclude "SEB" --exclude "TAO" etc.</code></pre></p>
 <p>Du coup je désinstalle tout.</p>
 <p>Je génère de nouveaux scripts dans mon projet YouTube metadata :<br>- yt_metadata_csv.py (titre et upload date à partir de plusieurs chaines YT)<br>- retrieve_multiple_yt_video_titles.py (titre et upload date à partir de plusieurs videos)</p>
-<p>Ce second script exporte le résultat du scraping de toutes mes URL de videos YT dans un fichier CSV (URL, Title, Upload date) que j'importe ensuite dans Google Drive. A noter que ce script n'utilise pas yt-dlp mais fait appel à requests et beautifulsoup4 et semble être plus rapide.</p>
+<p>Ce second script exporte le résultat du scraping de toutes mes URL de videos YT dans un fichier CSV (URL, Title, Upload date) que j'importe ensuite dans Google Drive. À noter que ce script n'utilise pas yt-dlp mais fait appel à requests et beautifulsoup4 et semble être plus rapide.</p>
 <p>Le nouveau HuggingChat (https://huggingface.co/chat/) est une tuerie (116 modèles proposés).</p>
 <p>Simon Willison reparle des Claude Skills sur son blog. Je suis certain que ce que j'ai fait avec Claude Skills et Gemini-CLI le 12/10 n'avait jamais été fait auparavant.</p>]]></description>
 </item>
@@ -1989,7 +2422,7 @@ sudo apt install nextcloud-client</code></pre></p>
 <p><span class="code-box">Use a linguistic approach and run a similarity search to check that the meaning of each paragraph in English of @en-text.txt corresponds approximately to the paragraph in French. If so then copy it over the French in the .docx file.</span></p>
 <p>Il compare les textes, établit des correspondances entre les paragraphes et remplace le texte FR par le texte EN au bons endroits, sans toucher aux images ! 😃 Mais ce n'est qu'un début et les fichiers utilisés sont hyper simples.</p>
 <p>[EDIT] : dans les manipulations décrites ici, il n'est pas question de créer des scripts autonomes réutilisables plus tard, mais bien de laisser Gemini-CLI orchestrer les opérations et répondre aux demandes de l'utilisateur en temps réel grâce à l'écosystème du projet reposant sur la partie docx des Claude Skills.</p>
-<p>A faire : complexifier les fichiers .docx (ajouter par ex. numérotation, gras, italiques)</p>]]></description>
+<p>À faire : complexifier les fichiers .docx (ajouter par ex. numérotation, gras, italiques)</p>]]></description>
 </item>
 
 <item>
