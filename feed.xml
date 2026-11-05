@@ -5,15 +5,141 @@
 <link>http://bytepacking.free.fr/</link>
 <description>Carnet de notes d'un traducteur passionné d'IA</description>
 <language>fr</language>
-<lastBuildDate>Wed, 30 Sep 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Wed, 04 Nov 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="http://bytepacking.free.fr/feed.xml" rel="self" type="application/rss+xml" />
+<item>
+<title>04-11-2026</title>
+<link>http://bytepacking.free.fr/#04-11-2026</link>
+<guid isPermaLink="false">logbook-04-11-2026</guid>
+<pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="04-11-2026"><b>04-11-2026</b></p>
+<p>Moi qui trouvais la chaîne YT CodingBiceps plutôt sympa, je suis disons «préoccupé» par la mise en ligne de sa <a href="https://youtu.be/4od3p71CB-8?si=d5KWojG5WyOz0J-S">dernière vidéo en date</a>.</p>]]></description>
+</item>
+
+<item>
+<title>02-11-2026</title>
+<link>http://bytepacking.free.fr/#02-11-2026</link>
+<guid isPermaLink="false">logbook-02-11-2026</guid>
+<pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="02-11-2026"><b>02-11-2026</b></p>
+<p>Découverte de <a href="https://youtu.be/nj02jmGlZwc">Neil Zeghidour</a>, ancien développeur chez Kyutai, qui a notamment travaillé sur <a href="https://github.com/kyutai-labs/moshi">Moshi</a> un modèle de speech-to-text "full-duplex" qui fait appel au codec audio <a href="https://huggingface.co/kyutai/mimi">Mimi</a> dont j'avais déjà parlé dans ce blog. Neil Zeghidour est cofondateur de <a href="https://gradium.ai/">Gradium</a> qui propose des modèles et des solutions de pointe en matière de manipulation de l'audio avec l'IA : synthèse vocale, transcription vocale, traduction de voix en direct, clonage de voix, voice design. Gradium serait ce qui se fait de mieux actuellement en la matière, avec un système qui utilise non pas des tokens textuels mais des "tokens vocaux", ce qui réduit considérablement la latence tout en rendant la voix parlée beaucoup plus naturelle (hésitations, pauses, etc.).</p>]]></description>
+</item>
+
+<item>
+<title>29-10-2026</title>
+<link>http://bytepacking.free.fr/#29-10-2026</link>
+<guid isPermaLink="false">logbook-29-10-2026</guid>
+<pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="29-10-2026"><b>29-10-2026</b></p>
+<p>Mise en ligne hier d'une <a href="https://www.youtube.com/watch?v=J2MOqypMeAo">interview de David Louapre</a> au cours de laquelle il est bien entendu beaucoup question d'intelligence articifielle.</p>]]></description>
+</item>
+
+<item>
+<title>23-10-2026</title>
+<link>http://bytepacking.free.fr/#23-10-2026</link>
+<guid isPermaLink="false">logbook-23-10-2026</guid>
+<pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="23-10-2026"><b>23-10-2026</b></p>
+<p>En vrac :</p>
+<p>• Sortie il y a quelques jours de <code>deepseek-v4.1-flash-1017</code>, qui semble pour l'instant uniquement disponible sur l'API de DeepSeek (coût : $0.15/$0.60). À titre de comparaison, selon le site models.dev, le tarif de la version précédente du modèle (0910) sur l'API d'OpenCode est deux fois plus élevé ($0.30/$1.20).</p>
+<p>• DeepSeek publie également les détails de <a href="https://github.com/deepseek-ai/DeepInfer">DeepInfer</a> le moteur d’inférence qui fait tourner en production son modèle DeepSeek-V4.1-Flash (<a href="https://www.frandroid.com/culture-tech/intelligence-artificielle/3294869_deepseek-gagne-38-de-lheure-par-carte-pourquoi-gpt-et-claude-perdent-des-milliards">article</a>).</p>
+<p>• Une <a href="https://youtu.be/og_OLja5sL8">explication claire en français</a> de la faille de sécurité PHP2SHELL qui fait que je ne peux toujours pas utiliser NextCloud de chez moi.</p>
+<p>• Il y aurait énormément de failles de sécurité découvertes et/ou exploitées en ce moment selon <a href="https://youtu.be/wuv61uEq7uY">cette vidéo</a> de l'homme au sparadrap.</p>
+<p>• Découverte de <a href="https://www.youtube.com/channel/UCHbI5IZ5XLEazvbipyPfqpQ">Emergence</a> une chaîne YT qui tente d'établir des parallèles entre le fonctionnement du cerveau humain et celui des machines.</p>]]></description>
+</item>
+
+<item>
+<title>20-10-2026</title>
+<link>http://bytepacking.free.fr/#20-10-2026</link>
+<guid isPermaLink="false">logbook-20-10-2026</guid>
+<pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="20-10-2026"><b>20-10-2026</b></p>
+<p>Hier soir je tombe sur une <a href="https://youtu.be/bavO_V80ohM">vidéo passionnante</a> qui m'empêche presque de dormir : la démonstration d'un modèle STT (speech-to-text) minuscule de <b>16,9 Mo</b> sorti le 2 octobre, qui fonctionne sur n'importe quel appareil, comprend 7 langues, et ferait jeu égal avec le modèle "base" de Whisper (145 Mo) en termes de performances. Andris Gauračs, l'auteur de la vidéo, montre en outre que l'on peut l'utiliser pour déclencher des actions à partir de commandes vocales avec du matériel complètement offline.</p>
+<p>Andris donne des explications lumineuses sur tout ce qu'il a fait pour parvenir à son résultat, comme par exemple aller jusqu'à retirer certaines couches de la partie "décodeur" du modèle pour qu'il tienne sur un microcontrôleur de 16 Mo. Au delà de ces geekeries très instructives, ce qui m'intéresse vraiment c'est la capacité de ce minuscule modèle à transcrire des fichiers audio sur un PC "normal". Je fais des tests et ça fonctionne du tonnerre. Le modèle transcrit un fichier audio de 2 min en 12 secondes. Pas mal pour un modèle constitué de seulement 2 x 8 = 16 couches de neurones ! La doc est <a href="https://cactuscompute.com/blog/whistle">ici</a> et <a href="https://huggingface.co/Cactus-Compute/whistle">là</a>. La vidéo est un modèle de clarté au niveau des explications et des animations. Une pépite.</p>
+<p>---</p>
+<p>"Je voudrais souligner quelque chose qui me semble très significatif et très important. Au niveau des influenceurs et des idéologues du trumpisme, en tout cas sur la plateforme X que je surveille particulièrement, [on observe] une sorte de maillage des figures réactionnaires des deux côtés de l'Atlantique. C'est-à-dire des figures américaines qui reprennent aisément des figures françaises qui justement corroborent cette lecture civilisationnelle et décadentiste de ce qui s'est passé. Et inversement des figures francophones qui relaient le message des Américains. Cela est dû [au fait que la plateforme] X a changé son algorithme en avril 2026 pour mettre en place une <b>traduction automatique</b>. Chaque tweet est automatiquement traduit dans la langue dans laquelle vous utilisez l'application. Cela a créé les conditions d'un <b>espace international de circulation des idées</b> réactionnaires. Cela me semble très notable [en ce qui concerne] les événements de ce week-end, puisque finalement [nous constatons] une fusion – ou une grande porosité – entre l'extrême droite européenne et l'extrême droite américaine."</p>
+<p>-- Arnaud Miranda - <a href="https://www.radiofrance.fr/franceculture/podcasts/les-enjeux-internationaux/de-trump-a-bukele-la-crise-francaise-exploitee-par-l-internationale-reactionnaire-4629893">Les enjeux internationaux</a> - France Culture</p>]]></description>
+</item>
+
+<item>
+<title>19-10-2026</title>
+<link>http://bytepacking.free.fr/#19-10-2026</link>
+<guid isPermaLink="false">logbook-19-10-2026</guid>
+<pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="19-10-2026"><b>19-10-2026</b></p>
+<p>Je teste le modèle <code>LFM2.5-24B-A2B-Q4_K_M.gguf</code> (14.5 Go) de Liquid AI avec llama.cpp qui bat le record de vitesse de génération pour un modèle de cette taille sur mon ordi sans GPU : 15.8 token/seconde. Le précédent record pour un modèle de taille similaire était détenu par <code>gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf</code> avec 10.0 t/s (mais c'était un "A4B" alors que LFM2.5 est un "A2B"). Ceci explique probablement cela.</p>]]></description>
+</item>
+
+<item>
+<title>18-10-2026</title>
+<link>http://bytepacking.free.fr/#18-10-2026</link>
+<guid isPermaLink="false">logbook-18-10-2026</guid>
+<pubDate>Sun, 18 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="18-10-2026"><b>18-10-2026</b></p>
+<p>En écoutant le <a href="https://youtu.be/HDdbU10r7Js">dernier épisode</a> de "State of Agentic Coding", je remarque qu'une nouvelle fonctionnalité a récemment été introduite dans Pi par Armin et son équipe : <b>codemode</b>. D'après ce que je comprends, elle n'a rien d'anodin. Je demande à ChatGPT d'en faire un résumé d'une centaine de mots en français à partir des sources officielles.</p>
+<p><pre><code>Codemode est une approche qui permet à un modèle d’IA d’utiliser des outils en écrivant du code plutôt qu’en les appelant individuellement. Dans Pi, l’IA génère des scripts JavaScript qui orchestrent plusieurs outils, notamment des serveurs MCP, peuvent exécuter des appels en parallèle et filtrer les résultats avant de les transmettre au modèle. Cela réduit la quantité d’informations dans son contexte et améliore l’efficacité des tâches complexes. Les scripts s’exécutent dans un environnement isolé (sandbox), sans accès direct au réseau ni au système de fichiers. Codemode transforme ainsi l’utilisation des outils en une forme de programmation, offrant davantage de flexibilité tout en limitant l’exposition de données inutiles.</code></pre></p>
+<p>Sources : <a href="https://pi.dev/docs/latest/codemode">Documentation de Pi</a> · <a href="https://lucumr.pocoo.org/2026/10/6/codemode/">Article d’Armin Ronacher</a></p>]]></description>
+</item>
+
+<item>
+<title>16-10-2026</title>
+<link>http://bytepacking.free.fr/#16-10-2026</link>
+<guid isPermaLink="false">logbook-16-10-2026</guid>
+<pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="16-10-2026"><b>16-10-2026</b></p>
+<p>Comme je l'avais noté dans ce blog en mars dernier, Armin Ronacher <a href="https://www.youtube.com/watch?v=7bMqicE5Jmk&t=2350s">prédisait</a> « la réimplémentation en open source d'anciens logiciels propriétaires, tels que Microsoft Word ou Adobe Photoshop, des applications qui comptent un grand nombre d'utilisateurs et qui n'ont jamais vraiment eu de concurrence sérieuse dans le domaine de l'open source. Il semble de plus en plus probable que quelqu'un se lance dans des projets de ce type ». <a href="https://getartcraft.com/">Il avait vu juste</a>, même si pour l'instant les fruits <a href="https://news.ycombinator.com/item?id=49958850">ne sont pas tout à fait mûrs</a>.</p>]]></description>
+</item>
+
+<item>
+<title>15-10-2026</title>
+<link>http://bytepacking.free.fr/#15-10-2026</link>
+<guid isPermaLink="false">logbook-15-10-2026</guid>
+<pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="15-10-2026"><b>15-10-2026</b></p>
+<p>"En disant oui à ce qui est, l'homme se débarrasse de toute amertume. J'ai éprouvé moi-même l'efficacité de l'élixir nietzschéen. En tombant d'un toit un jour, je me retrouvais cinq mois couché à l'hôpital. Ma mère venait de mourir, mon amour s'en était allé, mes sœurs étaient frappées par un poison. Dans la forêt obscure, je récitais Musset : « J'ai perdu ma force et ma vie et ma jeunesse et ma gaieté ». Puis je cherchais les responsables de ma chute, ces amis qui n'avaient pas su me garder. Comprenant que nier la responsabilité du malheur l'aggravait, je finissais cloué sur un lit de pitié par demander à l'oubli de me procurer ses vertus. Puis, par comprendre que les procès à un autre que moi-même ne changeraient rien. Il fallait accepter le verdict. Sans déduction, ni exception, ni sélection. Je trouvais secours dans le oui à la nouvelle route. Comment ce qui ne m'avait pas tué pouvait me rendre fort ? Voilà ma nouvelle question nietzschéenne. Comment dépasser mon sort ? En continuant de cheminer autrement, sans rancune et très vite. En semant les heures sombres, en m'accommodant d'un corps de pantin. En n'accablant pas le sort de m'avoir précipité dans les ronces. Amour parti, corps écrasé ? Amor fati, vive la vie, même boiteuse ! Et je partis traverser la France à pied, moins fringant certes qu'avant ma chute, mais revivifié par la promesse nietzschéenne : « le pressentiment d'un avenir, d'aventures proches, de mers à nouveau ouvertes, d'objectifs à nouveau permis, auxquels on peut à nouveau croire ». Résumons. Au référendum du destin, votons oui. Nous avons tout à y gagner."</p>
+<p>-- Sylvain Tesson - Un été avec Nietzsche - <a href="https://media.radiofrance-podcast.net/podcast09/28169-28.06.2026-ITEMA_24573371-2026F52995S0184-NET_MFI_05FEC572-25DB-43B6-8503-839398FAFA07-27-a4bb7d8469645178d6eeebef2c71ce58.m4a">Épisode 5</a></p>]]></description>
+</item>
+
+<item>
+<title>14-10-2026</title>
+<link>http://bytepacking.free.fr/#14-10-2026</link>
+<guid isPermaLink="false">logbook-14-10-2026</guid>
+<pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="14-10-2026"><b>14-10-2026</b></p>
+<p>Je réitère l'expérience d'il y a quelques jours. Je demande à pi/deepseek de télécharger les 40 épisodes d'une série sur France Inter, puis d'en retirer les jingles de début et de fin afin d'être en mesure d'écouter l'ensemble sans être dérangé par ces sons parasites. Chaque épisode dure environ 3 minutes. J'ai pris soin d'isoler les deux jingles pour les donner en exemple à deepseek, mais ne suis pas sûr que cela serve à grand chose. Le modèle réfléchit beaucoup et se demande par exemple pourquoi les exemples sont au format .mp3 alors que les épisodes sont au format .m4a. Le modèle fait tout cela avec une telle rapidité que je ne peux pas suivre. À un moment, j'ai envie de lui dire "ça n'a pas besoin d'être parfait tu sais" tellement il réfléchit. Le résultat est à nouveau nickel et je peux écouter ma série "en immersion", sans être dérangé. Faire tout cela à la main dans une éditeur audio aurait été certes très facile, mais ô combien chronophage.</p>]]></description>
+</item>
+
+<item>
+<title>08-10-2026</title>
+<link>http://bytepacking.free.fr/#08-10-2026</link>
+<guid isPermaLink="false">logbook-08-10-2026</guid>
+<pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="08-10-2026"><b>08-10-2026</b></p>
+<p>Aujourd'hui je me concentre sur une tâche bien précise pour ne pas penser à autre chose. J'utilise pi selon ma méthode préférée, comme une sorte de couteau suisse.</p>
+<p>L'idée est la suivante : récupérer les pistes sonores d'un cours universitaire qui a été fragmenté en une série de vidéos afin de reconstituer un ensemble cohérent en un seul mp3. La source est une playlist YouTube d'une série de cours. Chaque cours dure environ 2h et est divisé en plusieurs segments d'une trentaine de minutes chacun.</p>
+<p>Pour chaque vidéo de la playlist il faut :<br>• télécharger la piste audio en français avec la meilleure qualité possible<br>• retirer le générique de chaque fichier téléchargé (sachant que sa durée varie selon les fichiers)<br>• faire une copie mp3 de chaque segment sans le générique<br>• concaténer chaque groupe de fichiers en un seul fichier mp3, reconstituant ainsi le cours complet<br>• recommencer la manoeuvre pour chaque cours (il y en a 12)</p>
+<p>Deepseek-v4.1-flash s'en sort admirablement. Pour chaque vidéo de la playlist, il télécharge la piste sonore et reconstitue chaque cours en un seul mp3 sans générique. Il va même jusqu'à utiliser de l'ASR pour vérifier que chaque segment démarre bien avec de la voix et pas de la musique. Bref le résultat est nickel. Je lui demande de détailler sa magie dans un fichier markdown pour pouvoir reproduire la méthode à l'envie. Dans ce document est expliqué comment le système détecte le générique au début de chaque vidéo :</p>
+<p><pre><code>Speech-vs-music discrimination is done with **Silero VAD** (a small deep-learning Voice Activity Detector, ONNX model, runs on CPU). It outputs a speech probability per 32 ms frame and is very reliable here (p ≈ 0.000 during the jingle, p → 1.000 as soon as the voice starts).</code></pre></p>
+<p>Statistiques de la session :</p>
+<p>Date: 08/10/2026, 14:08:29<br>Models: opencode/deepseek-v4.1-flash<br>Messages: 10 user, 117 assistant, 106 tool results<br>Tool Calls: 106<br>Tokens: ↑164k ↓87k R7.3M<br>Cost: 0.197</p>]]></description>
+</item>
+
+<item>
+<title>06-10-2026</title>
+<link>http://bytepacking.free.fr/#06-10-2026</link>
+<guid isPermaLink="false">logbook-06-10-2026</guid>
+<pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="06-10-2026"><b>06-10-2026</b></p>
+<p>Toujours à la recherche de moyens d'automatiser la manipulation des fichiers MS Word (.docx), je découvre <a href="https://pi.dev/packages/bun-docx">bun-docx</a> sur le site de pi. Je l'installe comme skill dans pi (Ubuntu). Je le teste sur deux documents .docx parallèles (FR et EN). Le fichier généré (sensé être la révision de la version anglaise) est corrompu et Word ne parvient pas à l'ouvrir. De retour dans Windows je répète l'opération dans WSL et demande à Deepseek de comparer bun-docx avec docx, la skill d'Anthropic. Deepseek m'explique que bun-docx est plus capable et puissant que docx mais constate qu'en l'état aucune des deux skills n'est opérationnelle. Je lui demande de parfaire l'installation de bun-docx et de virer docx pour le moment. Je relance la même opération. Cette fois ça fonctionne et j'obtiens un fichier Word en mode suivi des modifications sans aucun bug. Moralité : ne pas hésiter à demander au clanker de tester les skills installées avant de les utiliser. On n'est jamais à l'abri d'une incompatibilité de système d'exploitation, ou autre surprise...</p>]]></description>
+</item>
+
 <item>
 <title>30-09-2026</title>
 <link>http://bytepacking.free.fr/#30-09-2026</link>
 <guid isPermaLink="false">logbook-30-09-2026</guid>
 <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="30-09-2026"><b>30-09-2026</b></p>
-<p>Découverte grâce à un ami de <a href="https://www.youtube.com/watch?v=0Ssi-9wS1so">Angine de Poitrine</a>, un duo de rock expérimental québécois très original, à la musique faussement linéaire et répétitive. Pas à mettre dans toutes les oreilles. J'en écoute quelques morceaux sur Spotify, avant de découvrir avec stupéfaction qu'ils sont un véritable phénomène sur YouTube, de nombreuses vidéos tentant d'<a href="https://www.youtube.com/watch?v=96D7DKZh-es">expliquer</a> ou de reproduire la complexité de la structure tonale et rythmique de leurs compositions. On les affuble souvent de "groupe vraiment humain, que l'IA n'arrivera jamais à imiter". Leur look est à l'image de leur musique. Enfin quelque chose de réjouissant dans ce monde qui semble (mais semble seulement) partir à vau-l'eau. Et dire que j'aurais pu passer à côté de cette dinguerie.</p>]]></description>
+<p>Découverte grâce à un ami de <a href="https://www.youtube.com/watch?v=0Ssi-9wS1so">Angine de Poitrine</a>, un duo de rock expérimental québécois très original, à la musique faussement linéaire et répétitive. Pas à mettre dans toutes les oreilles. J'en écoute quelques morceaux sur Spotify, avant de découvrir avec stupéfaction qu'ils sont un véritable phénomène sur YouTube, de nombreuses vidéos tentant d'<a href="https://www.youtube.com/watch?v=96D7DKZh-es">expliquer</a> ou de reproduire la complexité de la structure tonale et rythmique de leurs compositions. On les affuble souvent de "groupe vraiment humain, que l'IA n'arrivera jamais à imiter". Leur look très travaillé est à l'image de leur musique. Enfin quelque chose de réjouissant dans ce monde qui semble (mais semble seulement) partir à vau-l'eau. Et dire que j'aurais pu passer à côté de cette dinguerie.</p>]]></description>
 </item>
 
 <item>
