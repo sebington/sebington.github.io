@@ -5,8 +5,23 @@
 <link>http://bytepacking.free.fr/</link>
 <description>Carnet de notes d'un traducteur passionné d'IA</description>
 <language>fr</language>
-<lastBuildDate>Wed, 04 Nov 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="http://bytepacking.free.fr/feed.xml" rel="self" type="application/rss+xml" />
+<item>
+<title>06-11-2026</title>
+<link>http://bytepacking.free.fr/#06-11-2026</link>
+<guid isPermaLink="false">logbook-06-11-2026</guid>
+<pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+<description><![CDATA[<p id="06-11-2026"><b>06-11-2026</b></p>
+<p>Vu hier sur le blog de Hugging Face la sortie de <a href="https://huggingface.co/blog/phonon-tts">Phonon TTS</a>, un modèle open source de synthèse vocale développé par Gradium, capable de fonctionner directement sur un appareil sans connexion Internet. Compact (65 à 75 Mo), il prend en charge cinq langues, propose plus de 100 voix et permet le clonage vocal. Il se distingue par sa rapidité et ses excellents résultats dans les benchmarks de synthèse vocale.</p>
+<p>L'annonce m'émoustille car elle me rappelle mes essais au début de l'année de création d'un système conversationnel (STT > LLM > TTS) que j'avais appelé Voice2Voice et dont j'avais essentiellement décliné 2 versions :</p>
+<p>- une version avec Whisper local (STT) puis un modèle de Groq qui avait le double rôle de gérer la partie LLM et la sortie TTS ;</p>
+<p>- une version complètement offline avec Whisper local (STT), Ollama/gemma3:1b (LLM) et <a href="https://kyutai.org/blog/2026-01-13-pocket-tts/">Pocket-TTS</a>, tout juste sorti.</p>
+<p>Ces systèmes souffraient de latence du fait que les modèles TTS ont du mal à commencer à parler tant que le LLM n'a pas complètement fini de générer sa réponse, qui n'est donc pas (ou mal) streamée.</p>
+<p>Cette fois je demande à Deepseek de remplacer Pocket-TTS par <a href="https://huggingface.co/spaces/gradium/phonon">Phonon</a>, en gardant Groq comme LLM, ce qu'il fait assez facilement. Je teste et il n'y a quasiment plus de latence perceptible ! Certes, ce n'est pas "full-duplex", ni 100% local, mais c'est vraiment 100 fois mieux qu'il y a 10 mois. Et surtout, Phonon fonctionne sans devoir installer du lourd comme PyTorch etc.</p>
+<p>Prochaine étape : essayer de remplacer Whisper par <a href="https://cactuscompute.com/blog/whistle">Whistle</a> de Cactus Compute, dont j'ai parlé le 20 octobre. Whistle semble en effet être l'équivalent de Phonon pour le STT : petit et rapide.</p>]]></description>
+</item>
+
 <item>
 <title>04-11-2026</title>
 <link>http://bytepacking.free.fr/#04-11-2026</link>
@@ -54,7 +69,7 @@
 <guid isPermaLink="false">logbook-20-10-2026</guid>
 <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
 <description><![CDATA[<p id="20-10-2026"><b>20-10-2026</b></p>
-<p>Hier soir je tombe sur une <a href="https://youtu.be/bavO_V80ohM">vidéo passionnante</a> qui m'empêche presque de dormir : la démonstration d'un modèle STT (speech-to-text) minuscule de <b>16,9 Mo</b> sorti le 2 octobre, qui fonctionne sur n'importe quel appareil, comprend 7 langues, et ferait jeu égal avec le modèle "base" de Whisper (145 Mo) en termes de performances. Andris Gauračs, l'auteur de la vidéo, montre en outre que l'on peut l'utiliser pour déclencher des actions à partir de commandes vocales avec du matériel complètement offline.</p>
+<p>Hier soir je tombe sur une <a href="https://youtu.be/bavO_V80ohM">vidéo passionnante</a> qui m'empêche presque de dormir : la démonstration de Whistle, un modèle STT (speech-to-text) minuscule de <b>16,9 Mo</b> sorti le 2 octobre, qui fonctionne sur n'importe quel appareil, comprend 7 langues, et ferait jeu égal avec le modèle "base" de Whisper (145 Mo) en termes de performances. Andris Gauračs, l'auteur de la vidéo, montre en outre que l'on peut l'utiliser pour déclencher des actions à partir de commandes vocales avec du matériel complètement offline.</p>
 <p>Andris donne des explications lumineuses sur tout ce qu'il a fait pour parvenir à son résultat, comme par exemple aller jusqu'à retirer certaines couches de la partie "décodeur" du modèle pour qu'il tienne sur un microcontrôleur de 16 Mo. Au delà de ces geekeries très instructives, ce qui m'intéresse vraiment c'est la capacité de ce minuscule modèle à transcrire des fichiers audio sur un PC "normal". Je fais des tests et ça fonctionne du tonnerre. Le modèle transcrit un fichier audio de 2 min en 12 secondes. Pas mal pour un modèle constitué de seulement 2 x 8 = 16 couches de neurones ! La doc est <a href="https://cactuscompute.com/blog/whistle">ici</a> et <a href="https://huggingface.co/Cactus-Compute/whistle">là</a>. La vidéo est un modèle de clarté au niveau des explications et des animations. Une pépite.</p>
 <p>---</p>
 <p>"Je voudrais souligner quelque chose qui me semble très significatif et très important. Au niveau des influenceurs et des idéologues du trumpisme, en tout cas sur la plateforme X que je surveille particulièrement, [on observe] une sorte de maillage des figures réactionnaires des deux côtés de l'Atlantique. C'est-à-dire des figures américaines qui reprennent aisément des figures françaises qui justement corroborent cette lecture civilisationnelle et décadentiste de ce qui s'est passé. Et inversement des figures francophones qui relaient le message des Américains. Cela est dû [au fait que la plateforme] X a changé son algorithme en avril 2026 pour mettre en place une <b>traduction automatique</b>. Chaque tweet est automatiquement traduit dans la langue dans laquelle vous utilisez l'application. Cela a créé les conditions d'un <b>espace international de circulation des idées</b> réactionnaires. Cela me semble très notable [en ce qui concerne] les événements de ce week-end, puisque finalement [nous constatons] une fusion – ou une grande porosité – entre l'extrême droite européenne et l'extrême droite américaine."</p>
